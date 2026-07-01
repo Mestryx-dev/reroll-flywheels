@@ -10,11 +10,9 @@ export const calcTopGrid =
 /** Calculator bottom row: repairs · cart */
 export const calcBottomGrid = 'grid gap-3 lg:grid-cols-2 lg:items-start';
 
-/** Catalog table — one shared grid for header + rows */
+/** Catalog table — shared grid for header + rows, fluid inside frame */
 export const catalogGrid =
-  'grid grid-cols-[minmax(0,1.75fr)_minmax(0,1fr)_minmax(0,0.85fr)_5.5rem_5.5rem_5.5rem] items-center gap-x-3';
+  'grid grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)_minmax(0,0.75fr)_minmax(4.5rem,1fr)_minmax(4.5rem,1fr)_minmax(4.5rem,1fr)] items-center gap-x-2 px-3';
 
-export const catalogMinWidth = 'min-w-[640px] w-full';
-
-/** Outer catalog shell — fills frame width, defers min-width to table scroll area */
-export const catalogShell = 'w-full min-w-0';
+/** Catalog root — sized by frame CSS, not a fixed min-width */
+export const catalogShell = 'fw-catalog w-full min-w-0';

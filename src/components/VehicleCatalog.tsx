@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { vehicles } from '../data';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
-import { catalogGrid, catalogMinWidth, catalogShell, shellCatalog } from '../lib/layout';
+import { catalogGrid, catalogShell, shellCatalog } from '../lib/layout';
 import type { CatalogVehicle, VehiclePricing } from '../lib/types';
 import { btnGhost, inputCompact, money, textBrand, textMuted } from '../lib/ui';
 
@@ -102,30 +102,28 @@ export function VehicleCatalog() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`fw-catalog ${catalogShell}`}
+      className={catalogShell}
     >
-      <div className="fw-catalog-scroll overflow-x-auto">
-        <div className={catalogMinWidth}>
-          <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
-            <div className="fw-catalog-banner">
-              <div className="flex min-w-0 items-center gap-2">
-                <h2 className="font-display shrink-0 text-sm tracking-wide text-fg">
-                  Catalogue complet
-                </h2>
-                <span className={`truncate text-xs ${textMuted}`}>
-                  <span className={`font-semibold ${textBrand}`}>{filtered.length}</span>
-                  {' / '}
-                  {vehicles.length} véhicules
-                </span>
-              </div>
-              {hasFilters ? (
-                <button type="button" onClick={resetFilters} className={`${btnGhost} shrink-0`}>
-                  Réinitialiser
-                </button>
-              ) : null}
-            </div>
+      <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
+        <div className="fw-catalog-banner">
+          <div className="flex min-w-0 items-center gap-2">
+            <h2 className="font-display shrink-0 text-sm tracking-wide text-fg">
+              Catalogue complet
+            </h2>
+            <span className={`truncate text-xs ${textMuted}`}>
+              <span className={`font-semibold ${textBrand}`}>{filtered.length}</span>
+              {' / '}
+              {vehicles.length} véhicules
+            </span>
+          </div>
+          {hasFilters ? (
+            <button type="button" onClick={resetFilters} className={`${btnGhost} shrink-0`}>
+              Réinitialiser
+            </button>
+          ) : null}
+        </div>
 
-            <div className="grid gap-2 py-2.5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-2 px-3 py-2.5 sm:grid-cols-2 lg:grid-cols-4">
               <input
                 type="search"
                 value={query}
@@ -186,9 +184,9 @@ export function VehicleCatalog() {
               <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
               <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
             </div>
-          </div>
+      </div>
 
-          <div className="fw-catalog-body">
+      <div className="fw-catalog-body">
             {filtered.length === 0 ? (
               <p className={`py-16 text-center text-sm ${textMuted}`}>
                 Aucun véhicule ne correspond aux filtres.
@@ -231,8 +229,6 @@ export function VehicleCatalog() {
                 );
               })
             )}
-          </div>
-        </div>
       </div>
 
       <AnimatePresence>

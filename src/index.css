@@ -456,13 +456,13 @@ body {
   }
 
   .fw-catalog {
-    width: 100%;
+    --fw-catalog-inner: calc(var(--fw-frame-inset) + 10px);
+    box-sizing: border-box;
+    margin: var(--fw-catalog-inner);
+    width: calc(100% - 2 * var(--fw-catalog-inner));
+    max-width: calc(100% - 2 * var(--fw-catalog-inner));
     min-width: 0;
-  }
-
-  .fw-catalog-scroll {
-    width: 100%;
-    min-width: 0;
+    overflow-x: auto;
   }
 
   .fw-catalog-sticky {
@@ -497,7 +497,7 @@ body {
   }
 
   .fw-catalog-body .fw-catalog-row:nth-child(even) {
-    background: color-mix(in srgb, var(--fw-surface-sunken) 65%, transparent);
+    background: var(--fw-surface-sunken);
   }
 
   .fw-catalog-row {
@@ -520,12 +520,12 @@ body {
   .fw-content-frame--catalog {
     justify-content: flex-start;
     min-height: calc(100dvh - 4.75rem);
-    /*
-     * Border (::before) sits at --fw-frame-inset.
-     * Default frame adds + --fw-frame-gap on top of that → empty band above content.
-     * Catalog: padding = inset only so the banner starts flush inside the contour.
-     */
-    padding: var(--fw-frame-inset);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .fw-content-frame--catalog > .fw-catalog {
+    width: calc(100% - 2 * var(--fw-catalog-inner, calc(var(--fw-frame-inset) + 10px)));
   }
 }
 
