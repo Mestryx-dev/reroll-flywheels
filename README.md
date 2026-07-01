@@ -14,7 +14,8 @@ Web calculator for **Flywheels** garage — vehicle lookup, repair lines, and a 
 | File | Role |
 |------|------|
 | `src/data/vehicles.csv` | Vehicle catalogue (edit this) |
-| `src/data/catalog.json` | Generated bundle (vehicles + repairs) |
+| `src/data/catalog.json` | Generated bundle (vehicles + repairs + **repairByRange**) |
+| Google Sheet *Data* (cols G/H) | Repair base price by gamme |
 | Google Sheet *Calculette* | Repair tariffs (via sync) |
 
 ### Edit vehicles

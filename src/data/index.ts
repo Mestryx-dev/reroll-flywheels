@@ -18,6 +18,8 @@ function dedupeVehicles(list: CatalogVehicle[]): CatalogVehicle[] {
 
 export const vehicles = dedupeVehicles(data.vehicles);
 
+export const repairByRange = data.repairByRange ?? {};
+
 export const calculatorConfig: CalculatorConfig = {
   repairs: data.repairs,
 };

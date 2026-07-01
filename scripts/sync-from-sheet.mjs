@@ -4,6 +4,7 @@
  *
  * Sources:
  *   src/data/vehicles.csv  — model, priceHT, category, dealership
+ *   Google Sheet Data — repair price by gamme (columns G/H)
  *   Google Sheet Calculette — repair line tariffs (fallback: existing catalog.json repairs)
  *
  * Usage: node scripts/sync-from-sheet.mjs
@@ -97,6 +98,29 @@ async function fetchSheet(sheetName) {
   return parseCsv(await response.text());
 }
 
+/** Repair base price by gamme — columns G/H on the Data sheet. */
+function parseRepairByRange(dataRows) {
+  const repairByRange = {};
+  for (const cells of dataRows.slice(1)) {
+    const range = cells[6]?.trim();
+    const price = parseMoney(cells[7]);
+    if (!range || price <= 0) {
+      continue;
+    }
+    const key = range.toLowerCase();
+    if (!(key in repairByRange)) {
+      repairByRange[key] = price;
+    }
+  }
+  return repairByRange;
+}
+
+function loadFallbackRepairByRange() {
+  if (!existsSync(FALLBACK)) return {};
+  const catalog = JSON.parse(readFileSync(FALLBACK, 'utf8'));
+  return catalog.repairByRange ?? {};
+}
+
 function parseRepairs(rows) {
   const repairs = [];
   const repairLabels = new Set([
@@ -142,21 +166,32 @@ async function main() {
   const vehicles = dedupeVehicles(readVehiclesCsv());
 
   let repairs = [];
+  let repairByRange = {};
   try {
-    const calc1 = await fetchSheet('Calculette');
+    const [calc1, dataRows] = await Promise.all([
+      fetchSheet('Calculette'),
+      fetchSheet('Data'),
+    ]);
     repairs = parseRepairs(calc1);
+    repairByRange = parseRepairByRange(dataRows);
   } catch (error) {
     console.warn('Sheet fetch failed, keeping existing repairs:', error.message);
     repairs = loadFallbackRepairs();
+    repairByRange = loadFallbackRepairByRange();
   }
 
   if (repairs.length === 0) {
     repairs = loadFallbackRepairs();
   }
+  if (Object.keys(repairByRange).length === 0) {
+    repairByRange = loadFallbackRepairByRange();
+  }
 
-  const catalog = { vehicles, repairs };
+  const catalog = { vehicles, repairs, repairByRange };
   writeFileSync(OUT, `${JSON.stringify(catalog, null, 2)}\n`, 'utf8');
-  console.log(`Wrote ${vehicles.length} vehicles (CSV) + ${repairs.length} repair lines → ${OUT}`);
+  console.log(
+    `Wrote ${vehicles.length} vehicles (CSV) + ${repairs.length} repair lines + ${Object.keys(repairByRange).length} gamme tariffs → ${OUT}`,
+  );
 }
 
 main().catch((error) => {

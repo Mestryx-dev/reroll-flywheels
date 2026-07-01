@@ -31,6 +31,8 @@ export interface CalculatorConfig {
 export interface Catalog {
   vehicles: CatalogVehicle[];
   repairs: RepairLine[];
+  /** Base repair price by vehicle range (from Data sheet cols G/H). Keys are lowercase. */
+  repairByRange: Record<string, number>;
 }
 
 export type RepairState = Record<string, { checked: boolean; qty: number }>;

@@ -3805,12 +3805,6 @@
       "dealership": "boat"
     },
     {
-      "model": "Tropic",
-      "priceHT": 40000,
-      "range": "Boats",
-      "dealership": "boat"
-    },
-    {
       "model": "Tropos rallye",
       "priceHT": 67857,
       "range": "Sports",
@@ -4331,7 +4325,7 @@
     {
       "id": "reparations",
       "label": "Réparations",
-      "price": 2000,
+      "price": 600,
       "defaultChecked": true,
       "defaultQty": null
     },
@@ -4405,5 +4399,26 @@
       "defaultChecked": false,
       "defaultQty": null
     }
-  ]
+  ],
+  "repairByRange": {
+    "super": 1500,
+    "sportsclassics": 600,
+    "offroad": 600,
+    "sports": 750,
+    "sedans": 400,
+    "suvs": 600,
+    "muscle": 550,
+    "motorcycles": 300,
+    "coupes": 400,
+    "vans": 500,
+    "compacts": 275,
+    "emergency": 600,
+    "planes": 3000,
+    "utility": 600,
+    "commercial": 600,
+    "boats": 1000,
+    "cycles": 80,
+    "helicopters": 2000,
+    "industrial": 600
+  }
 }
