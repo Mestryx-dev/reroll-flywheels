@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="8" fill="#5bb5c1"/>
+  <rect x="4" y="4" width="56" height="56" rx="6" fill="#fdf5e6" stroke="#1a1a1a" stroke-width="2"/>
+  <rect x="7" y="7" width="50" height="50" rx="4" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Arial Black,sans-serif" font-size="20" font-weight="900" fill="#b91c1c">FW</text>
+  <text x="32" y="14" text-anchor="middle" font-size="8" fill="#1a1a1a">★</text>
+</svg>

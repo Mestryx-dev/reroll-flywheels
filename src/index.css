@@ -1,0 +1,518 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Primitive brand palette ── */
+@theme {
+  --font-display: "Black Ops One", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-fw-teal-300: #7ec8d4;
+  --color-fw-teal-400: #5bb5c1;
+  --color-fw-teal-500: #4a9aaa;
+  --color-fw-teal-600: #3d8491;
+  --color-fw-teal-700: #2f6670;
+  --color-fw-teal-900: #1e3a42;
+
+  --color-fw-cream-50: #fffaf0;
+  --color-fw-cream-100: #fdf5e6;
+  --color-fw-cream-200: #f0e4cc;
+
+  --color-fw-red-500: #dc2626;
+  --color-fw-red-600: #b91c1c;
+  --color-fw-red-700: #991b1b;
+
+  --color-fw-ink: #1a1a1a;
+  --color-fw-rust: #8b5a3c;
+}
+
+/* ── Light — affiche métal teal + parchemin ── */
+:root {
+  --fw-bg: #5bb5c1;
+  --fw-bg-gradient: linear-gradient(160deg, #449aa8 0%, #5bb5c1 38%, #6ec4cf 72%, #4a9aaa 100%);
+
+  --fw-surface: #fdf5e6;
+  --fw-surface-elevated: #fffaf0;
+  --fw-surface-sunken: #f0e4cc;
+  --fw-surface-overlay: rgba(253, 245, 230, 0.94);
+
+  --fw-border: rgba(26, 26, 26, 0.16);
+  --fw-border-strong: #1a1a1a;
+
+  --fw-fg: #1a1a1a;
+  --fw-fg-secondary: rgba(26, 26, 26, 0.78);
+  --fw-fg-muted: rgba(26, 26, 26, 0.55);
+  --fw-fg-subtle: rgba(26, 26, 26, 0.38);
+
+  --fw-brand: #b91c1c;
+  --fw-brand-hover: #991b1b;
+  --fw-brand-subtle: rgba(185, 28, 28, 0.12);
+  --fw-brand-fg: #ffffff;
+
+  --fw-accent: #3d8491;
+  --fw-accent-subtle: rgba(61, 132, 145, 0.14);
+
+  --fw-row-hover: rgba(26, 26, 26, 0.05);
+  --fw-row-active: rgba(185, 28, 28, 0.1);
+
+  --fw-shadow-panel: 0 4px 20px rgba(26, 26, 26, 0.14);
+  --fw-shadow-float: 0 12px 40px rgba(26, 26, 26, 0.22);
+
+  --fw-selection-bg: rgba(185, 28, 28, 0.28);
+  --fw-scrollbar: rgba(26, 26, 26, 0.22);
+  --fw-scrollbar-hover: rgba(185, 28, 28, 0.45);
+
+  --fw-rust-opacity: 0.55;
+  --fw-noise-opacity: 0.07;
+  --fw-tread-opacity: 0.06;
+  --fw-stain-opacity: 0.09;
+}
+
+/* ── Dark — tôle de nuit, néons discrets ── */
+.dark {
+  --fw-bg: #152025;
+  --fw-bg-gradient: linear-gradient(165deg, #0d1418 0%, #1a2830 45%, #243640 100%);
+
+  --fw-surface: #2a3840;
+  --fw-surface-elevated: #344550;
+  --fw-surface-sunken: #1e2a30;
+  --fw-surface-overlay: rgba(21, 32, 37, 0.94);
+
+  --fw-border: rgba(253, 245, 230, 0.12);
+  --fw-border-strong: rgba(253, 245, 230, 0.35);
+
+  --fw-fg: #fdf5e6;
+  --fw-fg-secondary: rgba(253, 245, 230, 0.85);
+  --fw-fg-muted: rgba(253, 245, 230, 0.58);
+  --fw-fg-subtle: rgba(253, 245, 230, 0.38);
+
+  --fw-brand: #ef4444;
+  --fw-brand-hover: #f87171;
+  --fw-brand-subtle: rgba(239, 68, 68, 0.16);
+  --fw-brand-fg: #ffffff;
+
+  --fw-accent: #5bb5c1;
+  --fw-accent-subtle: rgba(91, 181, 193, 0.16);
+
+  --fw-row-hover: rgba(253, 245, 230, 0.05);
+  --fw-row-active: rgba(239, 68, 68, 0.14);
+
+  --fw-shadow-panel: 0 4px 24px rgba(0, 0, 0, 0.45);
+  --fw-shadow-float: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  --fw-selection-bg: rgba(239, 68, 68, 0.35);
+  --fw-scrollbar: rgba(253, 245, 230, 0.14);
+  --fw-scrollbar-hover: rgba(239, 68, 68, 0.5);
+
+  --fw-rust-opacity: 0.35;
+  --fw-noise-opacity: 0.05;
+  --fw-tread-opacity: 0.04;
+  --fw-stain-opacity: 0.05;
+}
+
+@theme inline {
+  --color-bg: var(--fw-bg);
+  --color-surface: var(--fw-surface);
+  --color-surface-elevated: var(--fw-surface-elevated);
+  --color-surface-sunken: var(--fw-surface-sunken);
+  --color-surface-overlay: var(--fw-surface-overlay);
+  --color-border: var(--fw-border);
+  --color-border-strong: var(--fw-border-strong);
+  --color-fg: var(--fw-fg);
+  --color-fg-secondary: var(--fw-fg-secondary);
+  --color-fg-muted: var(--fw-fg-muted);
+  --color-fg-subtle: var(--fw-fg-subtle);
+  --color-brand: var(--fw-brand);
+  --color-brand-hover: var(--fw-brand-hover);
+  --color-brand-subtle: var(--fw-brand-subtle);
+  --color-brand-fg: var(--fw-brand-fg);
+  --color-accent: var(--fw-accent);
+  --color-accent-subtle: var(--fw-accent-subtle);
+}
+
+/* ── Texture data-URIs (shared) ── */
+:root {
+  --fw-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --fw-rust-tl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3CradialGradient id='r' cx='20%25' cy='20%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23a0522d' stop-opacity='0.9'/%3E%3Cstop offset='45%25' stop-color='%238b4513' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%238b4513' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23r)'/%3E%3C/svg%3E");
+  --fw-rust-br: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3CradialGradient id='r' cx='80%25' cy='80%25' r='65%25'%3E%3Cstop offset='0%25' stop-color='%23cd853f' stop-opacity='0.85'/%3E%3Cstop offset='50%25' stop-color='%237a4a28' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%237a4a28' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23r)'/%3E%3C/svg%3E");
+  --fw-tread: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='120' viewBox='0 0 48 120'%3E%3Cpath d='M8 0 L16 0 L12 120 L4 120 Z M28 0 L36 0 L32 120 L24 120 Z' fill='%231a1a1a'/%3E%3C/svg%3E");
+  --fw-stars: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='24' viewBox='0 0 60 24'%3E%3Cpolygon points='12,2 14,8 20,8 15,12 17,18 12,14 7,18 9,12 4,8 10,8' fill='%231a1a1a'/%3E%3Cpolygon points='48,2 50,8 56,8 51,12 53,18 48,14 43,18 45,12 40,8 46,8' fill='%231a1a1a'/%3E%3C/svg%3E");
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--fw-bg);
+  color: var(--fw-fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--fw-selection-bg);
+  color: var(--fw-fg);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCENE — tôle teal + bruit + rouille (affiche murale)
+   ═══════════════════════════════════════════════════════════ */
+@layer components {
+  .fw-scene {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    background: var(--fw-bg-gradient);
+    background-color: var(--fw-bg);
+  }
+
+  .fw-scene::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--fw-noise-opacity);
+    background-image: var(--fw-noise);
+    background-size: 180px 180px;
+    mix-blend-mode: multiply;
+  }
+
+  .fw-scene-rust {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--fw-rust-opacity);
+    background:
+      var(--fw-rust-tl) left top / 320px 320px no-repeat,
+      var(--fw-rust-br) right bottom / 360px 360px no-repeat;
+    mix-blend-mode: multiply;
+  }
+
+  .dark .fw-scene-rust {
+    mix-blend-mode: soft-light;
+  }
+
+  /* Double bordure affiche autour du contenu principal */
+  .fw-content-frame {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    min-height: calc(100dvh - 4.75rem);
+
+    /* inset contour + gap intérieur uniforme (comme les côtés) */
+    --fw-frame-inset: 1rem;
+    --fw-frame-gap: 1rem;
+    padding:
+      calc(var(--fw-frame-inset) + var(--fw-frame-gap) + 5px)
+      calc(var(--fw-frame-inset) + var(--fw-frame-gap))
+      calc(var(--fw-frame-inset) + var(--fw-frame-gap));
+  }
+
+  @media (min-width: 640px) {
+    .fw-content-frame {
+      --fw-frame-inset: 1.25rem;
+      --fw-frame-gap: 1.25rem;
+    }
+  }
+
+  .fw-content-frame::before {
+    content: "";
+    position: absolute;
+    inset: var(--fw-frame-inset);
+    border: 3px solid var(--fw-border-strong);
+    border-radius: 1.25rem;
+    pointer-events: none;
+    z-index: 0;
+    box-shadow:
+      inset 0 0 0 2px var(--fw-bg),
+      inset 0 0 0 5px var(--fw-border-strong);
+  }
+
+  .fw-content-frame > * {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  /* Header — plaque métal rivetée */
+  .fw-header-plate {
+    position: relative;
+    border-bottom: 3px solid var(--fw-border-strong);
+    background: color-mix(in srgb, var(--fw-bg) 88%, var(--fw-surface) 12%);
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.12),
+      inset 0 -1px 0 color-mix(in srgb, var(--fw-border-strong) 30%, transparent);
+  }
+
+  .fw-header-plate::after {
+    content: "★  FLYWHEELS GARAGE — BLAINE COUNTY  ★";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    padding: 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    color: var(--fw-brand);
+    background: var(--fw-bg);
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 640px) {
+    .fw-header-plate::after {
+      content: "★ FW ★";
+      letter-spacing: 0.15em;
+    }
+  }
+
+  /* Panneau parchemin — double cadre + traces */
+  .fw-panel {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 2px solid var(--fw-border-strong);
+    background-color: var(--fw-surface);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 92% 8%, rgba(139, 90, 60, var(--fw-stain-opacity)), transparent 55%),
+      radial-gradient(ellipse 40% 30% at 8% 95%, rgba(61, 132, 145, 0.06), transparent 50%);
+    box-shadow:
+      var(--fw-shadow-panel),
+      inset 0 0 0 1px color-mix(in srgb, var(--fw-surface-elevated) 80%, var(--fw-border-strong) 20%);
+  }
+
+  .fw-panel::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--fw-border);
+    border-radius: 0.75rem;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .fw-panel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 12%;
+    width: 56px;
+    height: 130%;
+    opacity: var(--fw-tread-opacity);
+    background: var(--fw-tread) center / 32px 80px repeat-y;
+    transform: rotate(-4deg);
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: multiply;
+  }
+
+  .dark .fw-panel::after {
+    mix-blend-mode: soft-light;
+    opacity: calc(var(--fw-tread-opacity) * 0.7);
+  }
+
+  .fw-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fw-panel-accent {
+    border-color: var(--fw-brand);
+    background-image:
+      linear-gradient(145deg, var(--fw-surface-elevated), var(--fw-surface)),
+      radial-gradient(ellipse 70% 40% at 100% 0%, var(--fw-brand-subtle), transparent 60%);
+    box-shadow:
+      var(--fw-shadow-panel),
+      inset 0 0 0 2px color-mix(in srgb, var(--fw-brand) 25%, transparent);
+  }
+
+  .fw-panel-accent::before {
+    border-color: color-mix(in srgb, var(--fw-brand) 35%, var(--fw-border));
+  }
+
+  .fw-input {
+    border-radius: 0.5rem;
+    border: 1px solid var(--fw-border-strong);
+    background: var(--fw-surface-elevated);
+    color: var(--fw-fg);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .fw-input:focus {
+    outline: none;
+    border-color: var(--fw-accent);
+    box-shadow: 0 0 0 3px var(--fw-accent-subtle);
+  }
+
+  .fw-btn-primary {
+    border-radius: 0.5rem;
+    border: 2px solid color-mix(in srgb, var(--fw-brand) 80%, #000);
+    background: var(--fw-brand);
+    color: var(--fw-brand-fg);
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow:
+      0 3px 0 color-mix(in srgb, var(--fw-brand-hover) 90%, #000),
+      0 4px 12px var(--fw-brand-subtle);
+    transition: transform 0.12s, box-shadow 0.12s, background 0.15s;
+  }
+
+  .fw-btn-primary:hover:not(:disabled) {
+    background: var(--fw-brand-hover);
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 0 color-mix(in srgb, var(--fw-brand-hover) 90%, #000),
+      0 6px 16px var(--fw-brand-subtle);
+  }
+
+  .fw-btn-primary:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--fw-brand-hover) 90%, #000);
+  }
+
+  .fw-badge {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 9999px;
+    border: 1px solid var(--fw-border);
+    background: var(--fw-accent-subtle);
+    padding: 0.125rem 0.5rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--fw-fg-muted);
+  }
+
+  .fw-row {
+    border: 1px solid var(--fw-border);
+    background: var(--fw-surface-elevated);
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .fw-row:hover {
+    background: var(--fw-row-hover);
+  }
+
+  .fw-row-active {
+    border-color: color-mix(in srgb, var(--fw-brand) 45%, transparent);
+    background: var(--fw-row-active);
+  }
+
+  /* Logo badge affiche */
+  .fw-logo-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.625rem;
+    border: 2px solid var(--fw-border-strong);
+    background: var(--fw-brand);
+    color: var(--fw-brand-fg);
+    font-family: var(--font-display);
+    box-shadow:
+      inset 0 0 0 2px color-mix(in srgb, var(--fw-brand-fg) 20%, transparent),
+      2px 3px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .fw-logo-badge::before {
+    content: "★";
+    position: absolute;
+    top: -0.4rem;
+    font-size: 0.45rem;
+    color: var(--fw-border-strong);
+  }
+
+  /* Nav pills — style tampon */
+  .fw-nav-rail {
+    border: 2px solid var(--fw-border-strong);
+    background: color-mix(in srgb, var(--fw-surface-sunken) 90%, var(--fw-bg) 10%);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .fw-catalog-filters {
+    background: transparent;
+  }
+
+  .fw-catalog-filters.is-stuck {
+    border-bottom: 1px solid var(--fw-border);
+    background: color-mix(in srgb, var(--fw-bg) 82%, var(--fw-surface-overlay) 18%);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .fw-catalog-divider {
+    height: 3px;
+    opacity: 0.35;
+    background: var(--fw-stars) center / 60px 24px repeat-x;
+  }
+
+  .fw-catalog-row {
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    transition: background-color 0.15s;
+  }
+
+  .fw-catalog-row:hover {
+    background: var(--fw-surface-sunken);
+  }
+
+  .fw-catalog-row.is-active {
+    background: var(--fw-brand-subtle);
+  }
+
+  .fw-content-frame--catalog {
+    justify-content: flex-start;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--fw-scrollbar);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--fw-scrollbar-hover);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}

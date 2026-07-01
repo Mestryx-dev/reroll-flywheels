@@ -1,0 +1,4409 @@
+{
+  "vehicles": [
+    {
+      "model": "811",
+      "priceHT": 318500,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "10F",
+      "priceHT": 331800,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "10F large",
+      "priceHT": 295750,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "190z",
+      "priceHT": 68250,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "300R",
+      "priceHT": 199290,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "300R",
+      "priceHT": 199290,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "4x4 Caracara",
+      "priceHT": 145000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "8F Drafter",
+      "priceHT": 272480,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "9F",
+      "priceHT": 83721,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "9F Cabrio",
+      "priceHT": 83721,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Adder",
+      "priceHT": 282100,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Akuma",
+      "priceHT": 88725,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Alamo 2700LX",
+      "priceHT": 27000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Aleutian",
+      "priceHT": 70980,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Alpha",
+      "priceHT": 34580,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Alpha-Z1",
+      "priceHT": 150000,
+      "range": "planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Ambulance",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "Arbiter GT",
+      "priceHT": 12000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ardent",
+      "priceHT": 100100,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Asbo",
+      "priceHT": 5225,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Asea",
+      "priceHT": 25000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Asterope",
+      "priceHT": 48000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Asterope GZ",
+      "priceHT": 81600,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Astrale",
+      "priceHT": 194000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Astron",
+      "priceHT": 109200,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Astron custom",
+      "priceHT": 152750,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Autarch",
+      "priceHT": 443625,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Avarus",
+      "priceHT": 29121,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Avisa",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Bagger",
+      "priceHT": 30500,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller",
+      "priceHT": 18050,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller",
+      "priceHT": 69161,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller LE",
+      "priceHT": 39600,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller LE LWB",
+      "priceHT": 67340,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller ST",
+      "priceHT": 111871,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Baller ST-D",
+      "priceHT": 204750,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bandit",
+      "priceHT": 280000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Banshee",
+      "priceHT": 80990,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Banshee 900R",
+      "priceHT": 209761,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Banshee GTS",
+      "priceHT": 470000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bati 801",
+      "priceHT": 29761,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bati 801RR",
+      "priceHT": 81900,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Beater Dukes",
+      "priceHT": 8372,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "BeeJay XL",
+      "priceHT": 38000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "SP Buffalo PI",
+      "priceHT": 60000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Benny's Jogger Cargo SWB Dualy",
+      "priceHT": 50000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Benny's Keitora",
+      "priceHT": 30000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Benny's Plateau",
+      "priceHT": 75000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Benny's remorque",
+      "priceHT": 60000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Benny's Slamvan custom",
+      "priceHT": 21560,
+      "range": "Muscle",
+      "dealership": "job"
+    },
+    {
+      "model": "Benson raven",
+      "priceHT": 25000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Bestia GTS",
+      "priceHT": 176540,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "BF400",
+      "priceHT": 136500,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bifta",
+      "priceHT": 35000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bifta raid",
+      "priceHT": 70000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison",
+      "priceHT": 4000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 2",
+      "priceHT": 27300,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 3",
+      "priceHT": 31849,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 25XD",
+      "priceHT": 151000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 35XD",
+      "priceHT": 154000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 35XD Sasquatch",
+      "priceHT": 245000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bison 45XD",
+      "priceHT": 148000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "bison 45XD Rollback",
+      "priceHT": 60000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Blade",
+      "priceHT": 51871,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Blazer",
+      "priceHT": 4600,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "blazer street",
+      "priceHT": 50961,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Blista",
+      "priceHT": 11000,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Blista Compact",
+      "priceHT": 5005,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Blista Go Go Monkey",
+      "priceHT": 3822,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Blista Kanjo",
+      "priceHT": 17500,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "BMX",
+      "priceHT": 700,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bobcat XL",
+      "priceHT": 40763,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bodhi",
+      "priceHT": 7680,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Boor",
+      "priceHT": 36000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Boxville",
+      "priceHT": 35000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Brawler",
+      "priceHT": 45500,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Brigham",
+      "priceHT": 2730,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Brioso 300",
+      "priceHT": 2366,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Brioso 300 large",
+      "priceHT": 2646,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Brioso R/A",
+      "priceHT": 13650,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Broadway",
+      "priceHT": 20021,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buccaneer",
+      "priceHT": 57000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buccaneer custom",
+      "priceHT": 50505,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo",
+      "priceHT": 15471,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo A/C",
+      "priceHT": 160000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo EVX",
+      "priceHT": 139954,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo S",
+      "priceHT": 33480,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo Sprunk",
+      "priceHT": 31396,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo STX",
+      "priceHT": 236900,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buffalo sx",
+      "priceHT": 130000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Bullet",
+      "priceHT": 81552,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Burrito",
+      "priceHT": 3277,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Burrito de gang",
+      "priceHT": 20022,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Burrito Ent.",
+      "priceHT": 22000,
+      "range": "Vans",
+      "dealership": "job"
+    },
+    {
+      "model": "Burrito lost",
+      "priceHT": 75000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Buzzard",
+      "priceHT": 150000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Calico GTF",
+      "priceHT": 158111,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Camion utilitaire",
+      "priceHT": 25000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Camper",
+      "priceHT": 1638,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Caracara 2023",
+      "priceHT": 137361,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Carbon RS",
+      "priceHT": 77350,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Carbonizzare",
+      "priceHT": 67900,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Casco",
+      "priceHT": 68243,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Castigator",
+      "priceHT": 230000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cavalcade",
+      "priceHT": 10011,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cavalcade XL",
+      "priceHT": 105930,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Champion",
+      "priceHT": 298900,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Chavos v6",
+      "priceHT": 118300,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cheburek",
+      "priceHT": 66330,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cheetah",
+      "priceHT": 434071,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cheetah classique",
+      "priceHT": 149461,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "cheetah veloce",
+      "priceHT": 210000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "cheetah veloce widebody",
+      "priceHT": 232800,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Chimera",
+      "priceHT": 36400,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Chino",
+      "priceHT": 53236,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Chino custom",
+      "priceHT": 18200,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cinquemila",
+      "priceHT": 192000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cliffhanger",
+      "priceHT": 60000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Clique",
+      "priceHT": 100100,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Clique deluxe",
+      "priceHT": 36000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Club",
+      "priceHT": 19500,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cognoscenti",
+      "priceHT": 13650,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cognoscenti 55",
+      "priceHT": 38800,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cognoscenti Cabrio",
+      "priceHT": 14561,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet",
+      "priceHT": 78261,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet Classique",
+      "priceHT": 250471,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet rétro custom",
+      "priceHT": 260000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet S2",
+      "priceHT": 281564,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet S2 Cabrio",
+      "priceHT": 290290,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet Safari",
+      "priceHT": 327600,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Comet SR",
+      "priceHT": 319771,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Contender",
+      "priceHT": 164125,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette",
+      "priceHT": 165621,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette BlackFin",
+      "priceHT": 92821,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette classique",
+      "priceHT": 58240,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette D1",
+      "priceHT": 55511,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette D10",
+      "priceHT": 315880,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coquette D5",
+      "priceHT": 209300,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Corsita",
+      "priceHT": 295000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Coureuse",
+      "priceHT": 277323,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cruiser",
+      "priceHT": 961,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cuban 800",
+      "priceHT": 150000,
+      "range": "planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Cyclone",
+      "priceHT": 433654,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cyclone II",
+      "priceHT": 667232,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cypher",
+      "priceHT": 156000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Cypher Hachtback",
+      "priceHT": 160680,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Daemon",
+      "priceHT": 15000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Daemon custom",
+      "priceHT": 27550,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Deathbike anticipation",
+      "priceHT": 17500,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Deathbike apocalypse",
+      "priceHT": 54390,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Deathbike cauchemar",
+      "priceHT": 49680,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Defiler",
+      "priceHT": 79200,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Deluxo",
+      "priceHT": 147000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dep crochet",
+      "priceHT": 25000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Deveste Eight",
+      "priceHT": 350350,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Deviant",
+      "priceHT": 91000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Diabolus",
+      "priceHT": 49350,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Diabolus custom",
+      "priceHT": 72800,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dilettante",
+      "priceHT": 4732,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dinghy 2 places",
+      "priceHT": 75000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Dinghy 4 places",
+      "priceHT": 80000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Dodo",
+      "priceHT": 165000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Dominator",
+      "priceHT": 53461,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator ASP",
+      "priceHT": 147980,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator FX",
+      "priceHT": 123761,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator GT",
+      "priceHT": 129221,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator GTT",
+      "priceHT": 94080,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator GTX",
+      "priceHT": 141680,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator GTX 2",
+      "priceHT": 130000,
+      "range": "muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dominator Pisswasser",
+      "priceHT": 38730,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dorado",
+      "priceHT": 64611,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Double-T",
+      "priceHT": 75950,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Draugur",
+      "priceHT": 295800,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dubsta",
+      "priceHT": 16380,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dubsta 2",
+      "priceHT": 24115,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dubsta 6x6",
+      "priceHT": 70000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dukes",
+      "priceHT": 47775,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Dune Buggy",
+      "priceHT": 47521,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Duster",
+      "priceHT": 45000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Dynasty",
+      "priceHT": 14561,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Elegy rétro custom",
+      "priceHT": 289800,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Elegy RH6",
+      "priceHT": 278571,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Elegy RH8",
+      "priceHT": 279180,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ellie",
+      "priceHT": 53040,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Emerus",
+      "priceHT": 420421,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Emperor",
+      "priceHT": 1880,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Emperor rouillé",
+      "priceHT": 1547,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Endurex",
+      "priceHT": 2161,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Enduro",
+      "priceHT": 7736,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Entity MT",
+      "priceHT": 273000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Entity XF",
+      "priceHT": 415871,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Entity XXR",
+      "priceHT": 295000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Envisage",
+      "priceHT": 233768,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Esskey",
+      "priceHT": 11830,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "ETR1",
+      "priceHT": 260320,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Eudora",
+      "priceHT": 4550,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Euros",
+      "priceHT": 101921,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Euros X32",
+      "priceHT": 13650,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Everon",
+      "priceHT": 128571,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Everon RS",
+      "priceHT": 151125,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Exemplar",
+      "priceHT": 22750,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "F620",
+      "priceHT": 11830,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faction",
+      "priceHT": 29121,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faction custom 1",
+      "priceHT": 96000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faction custom donk",
+      "priceHT": 45500,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Fagaloa",
+      "priceHT": 29121,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faggio",
+      "priceHT": 1961,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faggio mod",
+      "priceHT": 4230,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Faggio sport",
+      "priceHT": 3186,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FCR 1000",
+      "priceHT": 46411,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FCR 1000 custom",
+      "priceHT": 75000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Felon",
+      "priceHT": 25480,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Felon GT",
+      "priceHT": 9100,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Feltzer",
+      "priceHT": 85979,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Fieldmaster",
+      "priceHT": 50000,
+      "range": "commercial",
+      "dealership": "job"
+    },
+    {
+      "model": "Firebolt ASP",
+      "priceHT": 45000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Fixter",
+      "priceHT": 364,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Flash GT",
+      "priceHT": 175045,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FMJ",
+      "priceHT": 411320,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FMJ MK V",
+      "priceHT": 730000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FQ 2",
+      "priceHT": 15471,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "FR 36",
+      "priceHT": 44363,
+      "range": "coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Fränken Stange",
+      "priceHT": 24571,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Freecrawler",
+      "priceHT": 6625,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Frogger",
+      "priceHT": 166250,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Fugitive",
+      "priceHT": 44000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Furia",
+      "priceHT": 447000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Furore GT",
+      "priceHT": 68250,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Fusilade",
+      "priceHT": 13643,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Futo",
+      "priceHT": 3458,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Futo GTX",
+      "priceHT": 10920,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gargoyle",
+      "priceHT": 143000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gauntlet",
+      "priceHT": 63700,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gauntlet classique",
+      "priceHT": 48511,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gauntlet classique custom",
+      "priceHT": 42771,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gauntlet Hellfire",
+      "priceHT": 46561,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gauntlet Redwood",
+      "priceHT": 38677,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "GB200",
+      "priceHT": 66240,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "GBSF Bison 45XD",
+      "priceHT": 55000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "GBSF Tipper",
+      "priceHT": 25000,
+      "range": "Industrial",
+      "dealership": "job"
+    },
+    {
+      "model": "Glendale",
+      "priceHT": 5005,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Glendale custom",
+      "priceHT": 62000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "GOUV Deity",
+      "priceHT": 100000,
+      "range": "Sedans",
+      "dealership": "job"
+    },
+    {
+      "model": "GP1",
+      "priceHT": 259350,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Granger",
+      "priceHT": 34000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Granger 3600LX",
+      "priceHT": 100000,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "Granger 3700LX",
+      "priceHT": 58000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Greenwood",
+      "priceHT": 89300,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Gresley",
+      "priceHT": 22750,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Growler",
+      "priceHT": 169990,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "GT500",
+      "priceHT": 99511,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "GT750",
+      "priceHT": 147000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Habanero",
+      "priceHT": 9738,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "hachucha R",
+      "priceHT": 172482,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hakuchou",
+      "priceHT": 82732,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hakuchou drag",
+      "priceHT": 84175,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "hauler",
+      "priceHT": 54545,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "hauler Bennys",
+      "priceHT": 60000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Havok",
+      "priceHT": 52000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Hellion",
+      "priceHT": 41861,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hermes",
+      "priceHT": 16561,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hexer",
+      "priceHT": 9100,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hot Rod Blazer",
+      "priceHT": 3640,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hotknife",
+      "priceHT": 7645,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hotring Hellfire",
+      "priceHT": 53201,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hotring Sabre",
+      "priceHT": 59150,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Huntley S",
+      "priceHT": 63700,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Hustler",
+      "priceHT": 41861,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "I-Wagen",
+      "priceHT": 27561,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ignus",
+      "priceHT": 481780,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Imorgon",
+      "priceHT": 115408,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Impaler",
+      "priceHT": 8737,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Impaler LX",
+      "priceHT": 126490,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Impaler SZ",
+      "priceHT": 109200,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Imperator apocalypse",
+      "priceHT": 30000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Imperial",
+      "priceHT": 52780,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Imperial EV",
+      "priceHT": 51107,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Infernus",
+      "priceHT": 254800,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Infernus classique",
+      "priceHT": 94640,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ingot",
+      "priceHT": 1274,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Injection",
+      "priceHT": 9555,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Innovation",
+      "priceHT": 25025,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Intruder",
+      "priceHT": 33671,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Issi",
+      "priceHT": 12480,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Issi classique",
+      "priceHT": 2813,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Issi rallye",
+      "priceHT": 67321,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Issi sport",
+      "priceHT": 392980,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali classique",
+      "priceHT": 210900,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali GTB",
+      "priceHT": 250250,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali GTB custom",
+      "priceHT": 397671,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali GTO",
+      "priceHT": 437476,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali GTO Stinger TT",
+      "priceHT": 277950,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Itali RSX",
+      "priceHT": 395000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jackal",
+      "priceHT": 31850,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "JB 700",
+      "priceHT": 40950,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "JB 700W",
+      "priceHT": 53361,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jester",
+      "priceHT": 137740,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jester (course)",
+      "priceHT": 69070,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jester classique",
+      "priceHT": 58280,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jester RR",
+      "priceHT": 172898,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jester RR Widebody",
+      "priceHT": 223214,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jetmax",
+      "priceHT": 65000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Jogger Cargo",
+      "priceHT": 60000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "jogger cargo LWB",
+      "priceHT": 97500,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger Cargo LWB 4X4",
+      "priceHT": 92500,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger Cargo LWB Dualy",
+      "priceHT": 95000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger cargo SWB",
+      "priceHT": 90000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger cargo SWB 4X4",
+      "priceHT": 85000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger cargo SWB dualy",
+      "priceHT": 87500,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger passenger LWB 4X4",
+      "priceHT": 77500,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger passenger LWB Dualy",
+      "priceHT": 80000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger passenger SWB",
+      "priceHT": 75000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger passenger SWB 4X4",
+      "priceHT": 70000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jogger passenger SWB Dualy",
+      "priceHT": 72500,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Journey",
+      "priceHT": 1547,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Journey II",
+      "priceHT": 8646,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jubilee",
+      "priceHT": 95600,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "Jugular",
+      "priceHT": 503604,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Jugular E",
+      "priceHT": 190000,
+      "range": "berline",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Kalahari",
+      "priceHT": 22750,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Kamacho",
+      "priceHT": 287850,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Kanjo SJ",
+      "priceHT": 13196,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Keitora",
+      "priceHT": 24500,
+      "range": "utility",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Khamelion",
+      "priceHT": 129210,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Komoda",
+      "priceHT": 240240,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Kraken",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Krieger",
+      "priceHT": 779351,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Kuruma",
+      "priceHT": 91080,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Landstalker",
+      "priceHT": 14561,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Landstalker XL",
+      "priceHT": 58240,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Lectro",
+      "priceHT": 23661,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "LM87",
+      "priceHT": 245700,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Locust",
+      "priceHT": 276786,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Longfin",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "LSCS BF400",
+      "priceHT": 45000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Buffalo SX enforcer",
+      "priceHT": 60000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Cruiser",
+      "priceHT": 25000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS granger pursuit",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Greenwood",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Moto de sheriff",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Niobe interceptor",
+      "priceHT": 500000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Sandstorm",
+      "priceHT": 45000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS SUV dorado",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSCS Vigero ZX",
+      "priceHT": 75000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP bricade semi",
+      "priceHT": 25000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP Brickade Battery",
+      "priceHT": 50000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP caddie",
+      "priceHT": 12000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP Caracara",
+      "priceHT": 30000,
+      "range": "suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP Imperial",
+      "priceHT": 38000,
+      "range": "vans",
+      "dealership": "job"
+    },
+    {
+      "model": "LSDWP remorque",
+      "priceHT": 25000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Buffalo",
+      "priceHT": 35000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Buffalo SX enforcer",
+      "priceHT": 60000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Caracara",
+      "priceHT": 80000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Chieftain Shaman",
+      "priceHT": 75000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD coquette D10",
+      "priceHT": 350000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Gauntlet Hellfire",
+      "priceHT": 60000,
+      "range": "Muscle",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Hélicoptère",
+      "priceHT": 115000,
+      "range": "Helicopters",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Interceptor",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Moto de police",
+      "priceHT": 25000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Pigeon",
+      "priceHT": 10000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Stanier",
+      "priceHT": 25000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Stanier Le",
+      "priceHT": 42000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Titan",
+      "priceHT": 650000,
+      "range": "Super",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD Véhicule antiémeute",
+      "priceHT": 150000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD warrant cruiser",
+      "priceHT": 60000,
+      "range": "emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Burrito transporteur",
+      "priceHT": 30000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Bus pénitentiaire",
+      "priceHT": 25000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Fugitive banalisé",
+      "priceHT": 25000,
+      "range": "Sedans",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Insurgent",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Oracle banalisée",
+      "priceHT": 25000,
+      "range": "Coupes",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Predator",
+      "priceHT": 40000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Riot",
+      "priceHT": 150000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Scout poursuit",
+      "priceHT": 37500,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS SUV banalisée",
+      "priceHT": 40150,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Terminus de patrouille",
+      "priceHT": 80000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Transporter",
+      "priceHT": 22000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "LSPD/LSCS Voiture banalisée",
+      "priceHT": 42000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "Luivia",
+      "priceHT": 432000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "lurcher",
+      "priceHT": 2548,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Luxor",
+      "priceHT": 45000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Luxor Deluxe",
+      "priceHT": 45000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Lynx",
+      "priceHT": 146000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Mallard",
+      "priceHT": 100000,
+      "range": "planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Mamba",
+      "priceHT": 142561,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Mammatus",
+      "priceHT": 135000,
+      "range": "planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Manana",
+      "priceHT": 13196,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Manana custom",
+      "priceHT": 40950,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Manchez",
+      "priceHT": 22296,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Manchez Scout",
+      "priceHT": 18200,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Manchez Scout C",
+      "priceHT": 20930,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Marquis",
+      "priceHT": 113850,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Massacro",
+      "priceHT": 83721,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Massacro (course)",
+      "priceHT": 60971,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Maverick",
+      "priceHT": 165000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Merit Classique",
+      "priceHT": 110000,
+      "range": "Berline",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Merit Cruiser",
+      "priceHT": 90169,
+      "range": "Berline",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Mesa",
+      "priceHT": 10465,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Mesa trail",
+      "priceHT": 20446,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Michelli GT",
+      "priceHT": 50050,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Miljet",
+      "priceHT": 45000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Minivan",
+      "priceHT": 7440,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Minivan custom",
+      "priceHT": 20021,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Monroe",
+      "priceHT": 91911,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "MonstroCiti",
+      "priceHT": 34214,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Moonbeam",
+      "priceHT": 83721,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Moonbeam custom",
+      "priceHT": 81900,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Mule 4x4",
+      "priceHT": 25000,
+      "range": "Commercial",
+      "dealership": "job"
+    },
+    {
+      "model": "Nebula turbo",
+      "priceHT": 21840,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nemesis",
+      "priceHT": 45046,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Neo",
+      "priceHT": 284830,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Neon",
+      "priceHT": 483824,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nero",
+      "priceHT": 422000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nero custom",
+      "priceHT": 401380,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "nero pur sport",
+      "priceHT": 735000,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nightblade",
+      "priceHT": 78300,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nightshade",
+      "priceHT": 43561,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Nimbus",
+      "priceHT": 45000,
+      "range": "Planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Niobe",
+      "priceHT": 372036,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Novak",
+      "priceHT": 88271,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Omnis",
+      "priceHT": 59643,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Omnis e-GT",
+      "priceHT": 194018,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Oracle",
+      "priceHT": 12286,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Oracle XS",
+      "priceHT": 30380,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Osiris",
+      "priceHT": 379471,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Outlaw",
+      "priceHT": 73625,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Panthere",
+      "priceHT": 113850,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Panto",
+      "priceHT": 3640,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Paradise",
+      "priceHT": 3898,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Paragon R",
+      "priceHT": 303680,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Paragon S",
+      "priceHT": 385000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pariah",
+      "priceHT": 295982,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Patriot",
+      "priceHT": 13650,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Patriot Stretch",
+      "priceHT": 27300,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "PCJ 600",
+      "priceHT": 20640,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Penetrator",
+      "priceHT": 241150,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Penumbra",
+      "priceHT": 20930,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Penumbra FF",
+      "priceHT": 233121,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Peyote",
+      "priceHT": 11830,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Peyote custom",
+      "priceHT": 20021,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Peyote Gasser",
+      "priceHT": 39130,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Phoenix",
+      "priceHT": 80080,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Picador",
+      "priceHT": 14561,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pigalle",
+      "priceHT": 91071,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pigeon",
+      "priceHT": 3000,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pipistrello",
+      "priceHT": 143528,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pizza Boy",
+      "priceHT": 2275,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pony",
+      "priceHT": 7098,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pony 2",
+      "priceHT": 6825,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Postlude",
+      "priceHT": 20021,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Pounder",
+      "priceHT": 25000,
+      "range": "commercial",
+      "dealership": "job"
+    },
+    {
+      "model": "Prairie",
+      "priceHT": 3961,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Premier",
+      "priceHT": 3640,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Previon",
+      "priceHT": 69000,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Primo",
+      "priceHT": 19111,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Primo custom",
+      "priceHT": 29121,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Quail",
+      "priceHT": 18000,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Quail V8",
+      "priceHT": 200000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Radius",
+      "priceHT": 14196,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Raiden",
+      "priceHT": 182750,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rampant Roquette",
+      "priceHT": 17290,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rancher XL",
+      "priceHT": 18655,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rapid GT",
+      "priceHT": 53536,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rapid GT cab",
+      "priceHT": 47321,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rapid GT classique",
+      "priceHT": 93157,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rapid GT X",
+      "priceHT": 219000,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Raptor",
+      "priceHT": 9100,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rat bike",
+      "priceHT": 7275,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rat-Loader",
+      "priceHT": 2350,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rat-Truck",
+      "priceHT": 3325,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ratel",
+      "priceHT": 122880,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "RE-7B",
+      "priceHT": 374921,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Reaper",
+      "priceHT": 147196,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rebel",
+      "priceHT": 4928,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rebel rouillé",
+      "priceHT": 7275,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rebla GTS",
+      "priceHT": 209300,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Reever",
+      "priceHT": 86450,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Regent",
+      "priceHT": 54000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Regent XL",
+      "priceHT": 56000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Regina",
+      "priceHT": 911,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Remorque à bateau",
+      "priceHT": 35000,
+      "range": "Utility",
+      "dealership": "trailer"
+    },
+    {
+      "model": "Remorque à voiture",
+      "priceHT": 35000,
+      "range": "Utility",
+      "dealership": "trailer"
+    },
+    {
+      "model": "Remus",
+      "priceHT": 49140,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Remus 2",
+      "priceHT": 250000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Retinue",
+      "priceHT": 83721,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Retinue Mk II",
+      "priceHT": 128311,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Revolter",
+      "priceHT": 468300,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rhapsody",
+      "priceHT": 7050,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rhinehart",
+      "priceHT": 166600,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Riata",
+      "priceHT": 34580,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "riata 2",
+      "priceHT": 37000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Riata S",
+      "priceHT": 252450,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Riata TX",
+      "priceHT": 267800,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rocoto",
+      "priceHT": 12740,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Roosevelt",
+      "priceHT": 49980,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Roosevelt Valor",
+      "priceHT": 43680,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "RT3000",
+      "priceHT": 51871,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ruffian",
+      "priceHT": 45600,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ruiner",
+      "priceHT": 38221,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ruiner 2000",
+      "priceHT": 23800,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ruiner ZZ-8",
+      "priceHT": 78261,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Rumpo Ambulance",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "Rumpo custom",
+      "priceHT": 21821,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Ruston",
+      "priceHT": 22750,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "S80RR",
+      "priceHT": 236591,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "S95",
+      "priceHT": 122850,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sabre Turbo",
+      "priceHT": 76440,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sabre Turbo custom",
+      "priceHT": 74621,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "SAMS Camion de pompiers",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Chieftain Shaman",
+      "priceHT": 75000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS L300 Fire Tanker",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Ladder",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Landstalker XL Supervisor",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Maverick",
+      "priceHT": 110000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Patriot Ambulance",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS remorque bateau",
+      "priceHT": 35000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Romero corbillard",
+      "priceHT": 35000,
+      "range": "Sedans",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Sandstorm D205 Ambulance",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Sandstorm D205 Brush 4x4",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Sandstorm D205 Brush 6x6",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Speedo Express Ambulance",
+      "priceHT": 50000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS SUV",
+      "priceHT": 75000,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "SAMS Swift Air Ambulance",
+      "priceHT": 110000,
+      "range": "Emergency",
+      "dealership": "job"
+    },
+    {
+      "model": "Sanchez",
+      "priceHT": 17821,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sanchez (couleurs)",
+      "priceHT": 17821,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sanctus",
+      "priceHT": 54721,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandking SWB",
+      "priceHT": 15925,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandking XL",
+      "priceHT": 18089,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandstorm D205",
+      "priceHT": 162500,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandstorm D205 Box Truck",
+      "priceHT": 35000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Sandstorm D205 Hellenbach",
+      "priceHT": 300000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandstorm D205 SWB",
+      "priceHT": 160000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sandstorm D205 XL",
+      "priceHT": 105000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Savestra",
+      "priceHT": 80984,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "SC1",
+      "priceHT": 232050,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Schafter",
+      "priceHT": 52780,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Schafter LWB",
+      "priceHT": 83721,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Schafter V12",
+      "priceHT": 57000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Schlagen GT",
+      "priceHT": 234361,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Schwartzer",
+      "priceHT": 26390,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Scorcher",
+      "priceHT": 1625,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Scout",
+      "priceHT": 84630,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Scramjet",
+      "priceHT": 227500,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Scramjet",
+      "priceHT": 227500,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sea Sparrow",
+      "priceHT": 52000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Seashark",
+      "priceHT": 17500,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Seminole",
+      "priceHT": 9100,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Seminole Frontier",
+      "priceHT": 23040,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sentinel",
+      "priceHT": 116000,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sentinel classique",
+      "priceHT": 92000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sentinel classique large",
+      "priceHT": 116821,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sentinel GTS",
+      "priceHT": 396550,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sentinel XS",
+      "priceHT": 19111,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Seraph XS",
+      "priceHT": 103950,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Serrano",
+      "priceHT": 5795,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Seven-70",
+      "priceHT": 67340,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Shinobi",
+      "priceHT": 131300,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "shotaro",
+      "priceHT": 109200,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Slamvan",
+      "priceHT": 7448,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Slamvan du Lost",
+      "priceHT": 29000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "SM722",
+      "priceHT": 48848,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sovereign",
+      "priceHT": 39586,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sparrow",
+      "priceHT": 52000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Specter",
+      "priceHT": 57828,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Specter custom",
+      "priceHT": 163359,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Speeder",
+      "priceHT": 60000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Speedo",
+      "priceHT": 7000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Speedo custom",
+      "priceHT": 20021,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Speedo Express",
+      "priceHT": 41861,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Squalo",
+      "priceHT": 50000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Stafford",
+      "priceHT": 2275,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stallion",
+      "priceHT": 70980,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stallion Burger Shot",
+      "priceHT": 10921,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stanier",
+      "priceHT": 31000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stanier LE",
+      "priceHT": 60000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Steed 1500",
+      "priceHT": 2366,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stinger",
+      "priceHT": 79260,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stinger GT",
+      "priceHT": 77350,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stirling GT",
+      "priceHT": 125580,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stockade",
+      "priceHT": 35000,
+      "range": "Commercial",
+      "dealership": "job"
+    },
+    {
+      "model": "Stratum",
+      "priceHT": 17746,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Streiter",
+      "priceHT": 29256,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Streiter 2",
+      "priceHT": 69000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stretch",
+      "priceHT": 8646,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stromberg",
+      "priceHT": 122850,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Stryder",
+      "priceHT": 16380,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Submersible",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Sugoi",
+      "priceHT": 50350,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sultan",
+      "priceHT": 37240,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sultan classique",
+      "priceHT": 200000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sultan RS",
+      "priceHT": 230093,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sultan RS classique",
+      "priceHT": 234789,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Sunny Remorque",
+      "priceHT": 40000,
+      "range": "utility",
+      "dealership": "job"
+    },
+    {
+      "model": "Sunrise R",
+      "priceHT": 93750,
+      "range": "sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Suntrap",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Super Diamond",
+      "priceHT": 80080,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Super Diamond S",
+      "priceHT": 152461,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "SuperVolito",
+      "priceHT": 300000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "SuperVolito carbone",
+      "priceHT": 52000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Surano",
+      "priceHT": 30357,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Surfer",
+      "priceHT": 1365,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Surfer 2",
+      "priceHT": 1600,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Surfer custom",
+      "priceHT": 4700,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Surge",
+      "priceHT": 6493,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Suzume",
+      "priceHT": 608737,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Swift",
+      "priceHT": 247500,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Swift Deluxe",
+      "priceHT": 52000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Swinger",
+      "priceHT": 195650,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "T20",
+      "priceHT": 415140,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tahoma coupé",
+      "priceHT": 69161,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tailgater",
+      "priceHT": 27300,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tailgater S",
+      "priceHT": 106221,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Taipan",
+      "priceHT": 131950,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tampa",
+      "priceHT": 68518,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tampa drift",
+      "priceHT": 66430,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tampa GT",
+      "priceHT": 35000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tempesta",
+      "priceHT": 218400,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tezeract",
+      "priceHT": 346216,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Thrax",
+      "priceHT": 432730,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Thrust",
+      "priceHT": 38221,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tigon",
+      "priceHT": 394242,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Toreador",
+      "priceHT": 120121,
+      "range": "sportclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Torero",
+      "priceHT": 117390,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Torero XO",
+      "priceHT": 372400,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado",
+      "priceHT": 7200,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado custom",
+      "priceHT": 10465,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado rat rod",
+      "priceHT": 9100,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado Rouillé",
+      "priceHT": 4411,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado Rouillé ouvert",
+      "priceHT": 2730,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tornado toit en toile",
+      "priceHT": 5461,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Toro",
+      "priceHT": 61875,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Toros",
+      "priceHT": 151000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tri-Cycles",
+      "priceHT": 1980,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Trophy Truck",
+      "priceHT": 123480,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tropic",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Tropic",
+      "priceHT": 40000,
+      "range": "Boats",
+      "dealership": "boat"
+    },
+    {
+      "model": "Tropos rallye",
+      "priceHT": 67857,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tulip",
+      "priceHT": 67340,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tulip M-100",
+      "priceHT": 133000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tulip M100 coupé",
+      "priceHT": 80000,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Turismo classique",
+      "priceHT": 195643,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Turismo omaggio",
+      "priceHT": 509030,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Turismo R",
+      "priceHT": 123396,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tyrant",
+      "priceHT": 210211,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Tyrus",
+      "priceHT": 354900,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "UDST Baller",
+      "priceHT": 26500,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "UDST Brickade",
+      "priceHT": 90000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "UDST Caddie",
+      "priceHT": 12000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "UDST Cavalcade XL",
+      "priceHT": 105000,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "Uranus LozSpeed",
+      "priceHT": 147875,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Urban",
+      "priceHT": 3800,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "V-STR",
+      "priceHT": 258390,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vacca",
+      "priceHT": 118300,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vader",
+      "priceHT": 41000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vagner",
+      "priceHT": 356721,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vagrant",
+      "priceHT": 244530,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vamos",
+      "priceHT": 6188,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "vapid firebold",
+      "priceHT": 113019,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vectre",
+      "priceHT": 83161,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Velum",
+      "priceHT": 200000,
+      "range": "planes",
+      "dealership": "air"
+    },
+    {
+      "model": "Ventoso",
+      "priceHT": 1500,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Verlierer",
+      "priceHT": 50000,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vigero",
+      "priceHT": 66430,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vigero ZX",
+      "priceHT": 146521,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vigero ZX décapotable",
+      "priceHT": 140650,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vindicator",
+      "priceHT": 5915,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Virgo",
+      "priceHT": 38540,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Virgo classique",
+      "priceHT": 64611,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Virgo classique custom",
+      "priceHT": 65521,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Virtue",
+      "priceHT": 599657,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Viseris",
+      "priceHT": 146554,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Visione",
+      "priceHT": 242107,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Volatus",
+      "priceHT": 322000,
+      "range": "Helicopters",
+      "dealership": "air"
+    },
+    {
+      "model": "Voltic",
+      "priceHT": 94738,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Voodoo",
+      "priceHT": 5461,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Voodoo custom",
+      "priceHT": 12740,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vorschlaghammer",
+      "priceHT": 99000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Vortex",
+      "priceHT": 63700,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Walton L35",
+      "priceHT": 113461,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Walton L35 Stock",
+      "priceHT": 75000,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Warrener",
+      "priceHT": 9000,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Warrener HKR",
+      "priceHT": 7736,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Washington",
+      "priceHT": 16830,
+      "range": "Sedans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Weazel News Alamo",
+      "priceHT": 50000,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "Weazel News bravado rumpo",
+      "priceHT": 20000,
+      "range": "Suvs",
+      "dealership": "job"
+    },
+    {
+      "model": "Weazel News Conada",
+      "priceHT": 45000,
+      "range": "Helicopters",
+      "dealership": "job"
+    },
+    {
+      "model": "Weazel News Jogger",
+      "priceHT": 18000,
+      "range": "Vans",
+      "dealership": "job"
+    },
+    {
+      "model": "Weazel News Rumpo",
+      "priceHT": 8000,
+      "range": "Vans",
+      "dealership": "job"
+    },
+    {
+      "model": "Weazel News Steed 1500 news van",
+      "priceHT": 8000,
+      "range": "Vans",
+      "dealership": "job"
+    },
+    {
+      "model": "Weevil",
+      "priceHT": 4365,
+      "range": "Compacts",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Weevil custom",
+      "priceHT": 32900,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Whippet",
+      "priceHT": 2475,
+      "range": "Cycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Windsor",
+      "priceHT": 52171,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Windsor Drop",
+      "priceHT": 59521,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "WinterGreen",
+      "priceHT": 40000,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Wolfsbane",
+      "priceHT": 4107,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Woodlander",
+      "priceHT": 157000,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "X-TREME",
+      "priceHT": 567857,
+      "range": "muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "X80 Proto",
+      "priceHT": 286650,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "XA-21",
+      "priceHT": 477180,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "XERO Phantom",
+      "priceHT": 25000,
+      "range": "Commercial",
+      "dealership": "job"
+    },
+    {
+      "model": "XERO Remorque",
+      "priceHT": 35000,
+      "range": "Utility",
+      "dealership": "job"
+    },
+    {
+      "model": "XLS",
+      "priceHT": 23205,
+      "range": "Suvs",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Yosemite",
+      "priceHT": 34580,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Yosemite 1500",
+      "priceHT": 313904,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Yosemite drift",
+      "priceHT": 39200,
+      "range": "Muscle",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Yosemite Rancher",
+      "priceHT": 115200,
+      "range": "OffRoad",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Youga",
+      "priceHT": 2000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Youga classique",
+      "priceHT": 15000,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Youga classique 4x4",
+      "priceHT": 34580,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Youga custom",
+      "priceHT": 54600,
+      "range": "Vans",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Z-Type",
+      "priceHT": 113750,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zeno",
+      "priceHT": 291200,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zentorno",
+      "priceHT": 483421,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zion",
+      "priceHT": 40950,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zion Cabrio",
+      "priceHT": 38221,
+      "range": "Coupes",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zion classique",
+      "priceHT": 120000,
+      "range": "Sportsclassics",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zombie bobber",
+      "priceHT": 18050,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zombie chopper",
+      "priceHT": 17821,
+      "range": "Motorcycles",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Zorrusso",
+      "priceHT": 330000,
+      "range": "Super",
+      "dealership": "pdm"
+    },
+    {
+      "model": "ZR350",
+      "priceHT": 345718,
+      "range": "Sports",
+      "dealership": "pdm"
+    },
+    {
+      "model": "Super",
+      "priceHT": 1500,
+      "range": "",
+      "dealership": ""
+    }
+  ],
+  "repairs": [
+    {
+      "id": "reparations",
+      "label": "Réparations",
+      "price": 2000,
+      "defaultChecked": true,
+      "defaultQty": null
+    },
+    {
+      "id": "ouvrable",
+      "label": "Ouvrable",
+      "price": 50,
+      "defaultChecked": true,
+      "defaultQty": 1
+    },
+    {
+      "id": "vidange",
+      "label": "Vidange",
+      "price": 100,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "pneu",
+      "label": "Pneu",
+      "price": 400,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "transport_sud",
+      "label": "Transport sud",
+      "price": 500,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "transport_nord",
+      "label": "Transport Nord",
+      "price": 100,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "essence",
+      "label": "Essence",
+      "price": 250,
+      "defaultChecked": false,
+      "defaultQty": 1
+    },
+    {
+      "id": "kerosène",
+      "label": "Kérosène",
+      "price": 350,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "revision_t",
+      "label": "Révision T",
+      "price": 600,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "revision_e",
+      "label": "Révision E",
+      "price": 1000,
+      "defaultChecked": false,
+      "defaultQty": null
+    },
+    {
+      "id": "changement_de_plaque",
+      "label": "Changement de plaque",
+      "price": 1000,
+      "defaultChecked": false,
+      "defaultQty": null
+    }
+  ]
+}
