@@ -16,5 +16,5 @@ export const catalogGrid =
 
 export const catalogMinWidth = 'min-w-[640px] w-full';
 
-/** Catalog content width — horizontal inset comes from fw-content-frame */
-export const catalogShell = catalogMinWidth;
+/** Outer catalog shell — fills frame width, defers min-width to table scroll area */
+export const catalogShell = 'w-full min-w-0';

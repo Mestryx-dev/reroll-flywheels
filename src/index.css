@@ -457,6 +457,12 @@ body {
 
   .fw-catalog {
     width: 100%;
+    min-width: 0;
+  }
+
+  .fw-catalog-scroll {
+    width: 100%;
+    min-width: 0;
   }
 
   .fw-catalog-sticky {
@@ -514,10 +520,12 @@ body {
   .fw-content-frame--catalog {
     justify-content: flex-start;
     min-height: calc(100dvh - 4.75rem);
-    padding:
-      calc(var(--fw-frame-inset) + var(--fw-frame-gap))
-      calc(var(--fw-frame-inset) + var(--fw-frame-gap))
-      calc(var(--fw-frame-inset) + var(--fw-frame-gap));
+    /*
+     * Border (::before) sits at --fw-frame-inset.
+     * Default frame adds + --fw-frame-gap on top of that → empty band above content.
+     * Catalog: padding = inset only so the banner starts flush inside the contour.
+     */
+    padding: var(--fw-frame-inset);
   }
 }
 

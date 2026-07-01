@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { vehicles } from '../data';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
-import { catalogGrid, catalogShell, shellCatalog } from '../lib/layout';
+import { catalogGrid, catalogMinWidth, catalogShell, shellCatalog } from '../lib/layout';
 import type { CatalogVehicle, VehiclePricing } from '../lib/types';
 import { btnGhost, inputCompact, money, textBrand, textMuted } from '../lib/ui';
 
@@ -99,136 +99,140 @@ export function VehicleCatalog() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -8 }}
-      className={`fw-catalog overflow-x-auto ${catalogShell}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className={`fw-catalog ${catalogShell}`}
     >
-      <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
-        <div className="fw-catalog-banner">
-          <div className="flex min-w-0 items-center gap-2">
-            <h2 className="font-display shrink-0 text-sm tracking-wide text-fg">
-              Catalogue complet
-            </h2>
-            <span className={`truncate text-xs ${textMuted}`}>
-              <span className={`font-semibold ${textBrand}`}>{filtered.length}</span>
-              {' / '}
-              {vehicles.length} véhicules
-            </span>
-          </div>
-          {hasFilters ? (
-            <button type="button" onClick={resetFilters} className={`${btnGhost} shrink-0`}>
-              Réinitialiser
-            </button>
-          ) : null}
-        </div>
-
-        <div className="grid gap-2 py-2.5 sm:grid-cols-2 lg:grid-cols-4">
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => {
-              setQuery(event.target.value);
-              setSelected(null);
-            }}
-            placeholder="Rechercher un modèle…"
-            className={`${inputCompact} w-full`}
-          />
-          <select
-            value={category}
-            onChange={(event) => {
-              setCategory(event.target.value);
-              setSelected(null);
-            }}
-            className={`${inputCompact} w-full`}
-          >
-            <option value="">Toutes les catégories</option>
-            {categories.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-          <select
-            value={dealership}
-            onChange={(event) => {
-              setDealership(event.target.value);
-              setSelected(null);
-            }}
-            className={`${inputCompact} w-full`}
-          >
-            <option value="">Toutes les concessions</option>
-            {dealerships.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-          <select
-            value={sort}
-            onChange={(event) => setSort(event.target.value as SortKey)}
-            className={`${inputCompact} w-full`}
-          >
-            <option value="name-asc">Nom A → Z</option>
-            <option value="name-desc">Nom Z → A</option>
-            <option value="price-asc">Prix croissant</option>
-            <option value="price-desc">Prix décroissant</option>
-          </select>
-        </div>
-
-        <div className={`${catalogGrid} fw-catalog-columns border-t border-border py-2`}>
-          <span className={CATALOG_HEADER}>Modèle</span>
-          <span className={CATALOG_HEADER}>Catégorie</span>
-          <span className={CATALOG_HEADER}>Concession</span>
-          <span className={`${CATALOG_HEADER} text-right`}>Prix HT</span>
-          <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
-          <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
-        </div>
-      </div>
-
-      <div className="fw-catalog-body">
-        {filtered.length === 0 ? (
-          <p className={`py-16 text-center text-sm ${textMuted}`}>
-            Aucun véhicule ne correspond aux filtres.
-          </p>
-        ) : (
-          filtered.map((vehicle, index) => {
-            const pricing = pricingFromCatalog(vehicle);
-            const rowKey = `${catalogVehicleKey(vehicle)}#${index}`;
-            const active =
-              selected !== null && catalogVehicleKey(selected) === catalogVehicleKey(vehicle);
-
-            return (
-              <div
-                key={rowKey}
-                role="button"
-                tabIndex={0}
-                onClick={() => selectVehicle(vehicle)}
-                onKeyDown={(event) => handleRowKeyDown(event, () => selectVehicle(vehicle))}
-                className={`${catalogGrid} fw-catalog-row border-b border-border py-2.5 ${active ? 'is-active' : ''}`}
-              >
-                <span
-                  className={`min-w-0 truncate font-semibold ${active ? textBrand : 'text-fg'}`}
-                >
-                  {vehicle.model}
-                </span>
-                <span className="fw-badge max-w-full truncate">{vehicle.range}</span>
-                <span className={`min-w-0 truncate ${textMuted}`}>
-                  {vehicle.dealership || '—'}
-                </span>
-                <span className={`text-right text-fg ${money}`}>
-                  {formatMoney(vehicle.priceHT)}
-                </span>
-                <span className={`text-right font-semibold ${textBrand} ${money}`}>
-                  {formatMoney(pricing.priceTTC)}
-                </span>
-                <span className={`text-right font-semibold ${textBrand} ${money}`}>
-                  {formatMoney(pricing.rachat)}
+      <div className="fw-catalog-scroll overflow-x-auto">
+        <div className={catalogMinWidth}>
+          <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
+            <div className="fw-catalog-banner">
+              <div className="flex min-w-0 items-center gap-2">
+                <h2 className="font-display shrink-0 text-sm tracking-wide text-fg">
+                  Catalogue complet
+                </h2>
+                <span className={`truncate text-xs ${textMuted}`}>
+                  <span className={`font-semibold ${textBrand}`}>{filtered.length}</span>
+                  {' / '}
+                  {vehicles.length} véhicules
                 </span>
               </div>
-            );
-          })
-        )}
+              {hasFilters ? (
+                <button type="button" onClick={resetFilters} className={`${btnGhost} shrink-0`}>
+                  Réinitialiser
+                </button>
+              ) : null}
+            </div>
+
+            <div className="grid gap-2 py-2.5 sm:grid-cols-2 lg:grid-cols-4">
+              <input
+                type="search"
+                value={query}
+                onChange={(event) => {
+                  setQuery(event.target.value);
+                  setSelected(null);
+                }}
+                placeholder="Rechercher un modèle…"
+                className={`${inputCompact} w-full`}
+              />
+              <select
+                value={category}
+                onChange={(event) => {
+                  setCategory(event.target.value);
+                  setSelected(null);
+                }}
+                className={`${inputCompact} w-full`}
+              >
+                <option value="">Toutes les catégories</option>
+                {categories.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={dealership}
+                onChange={(event) => {
+                  setDealership(event.target.value);
+                  setSelected(null);
+                }}
+                className={`${inputCompact} w-full`}
+              >
+                <option value="">Toutes les concessions</option>
+                {dealerships.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={sort}
+                onChange={(event) => setSort(event.target.value as SortKey)}
+                className={`${inputCompact} w-full`}
+              >
+                <option value="name-asc">Nom A → Z</option>
+                <option value="name-desc">Nom Z → A</option>
+                <option value="price-asc">Prix croissant</option>
+                <option value="price-desc">Prix décroissant</option>
+              </select>
+            </div>
+
+            <div className={`${catalogGrid} fw-catalog-columns border-t border-border py-2`}>
+              <span className={CATALOG_HEADER}>Modèle</span>
+              <span className={CATALOG_HEADER}>Catégorie</span>
+              <span className={CATALOG_HEADER}>Concession</span>
+              <span className={`${CATALOG_HEADER} text-right`}>Prix HT</span>
+              <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
+              <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
+            </div>
+          </div>
+
+          <div className="fw-catalog-body">
+            {filtered.length === 0 ? (
+              <p className={`py-16 text-center text-sm ${textMuted}`}>
+                Aucun véhicule ne correspond aux filtres.
+              </p>
+            ) : (
+              filtered.map((vehicle, index) => {
+                const pricing = pricingFromCatalog(vehicle);
+                const rowKey = `${catalogVehicleKey(vehicle)}#${index}`;
+                const active =
+                  selected !== null && catalogVehicleKey(selected) === catalogVehicleKey(vehicle);
+
+                return (
+                  <div
+                    key={rowKey}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => selectVehicle(vehicle)}
+                    onKeyDown={(event) => handleRowKeyDown(event, () => selectVehicle(vehicle))}
+                    className={`${catalogGrid} fw-catalog-row border-b border-border py-2.5 ${active ? 'is-active' : ''}`}
+                  >
+                    <span
+                      className={`min-w-0 truncate font-semibold ${active ? textBrand : 'text-fg'}`}
+                    >
+                      {vehicle.model}
+                    </span>
+                    <span className="fw-badge max-w-full truncate">{vehicle.range}</span>
+                    <span className={`min-w-0 truncate ${textMuted}`}>
+                      {vehicle.dealership || '—'}
+                    </span>
+                    <span className={`text-right text-fg ${money}`}>
+                      {formatMoney(vehicle.priceHT)}
+                    </span>
+                    <span className={`text-right font-semibold ${textBrand} ${money}`}>
+                      {formatMoney(pricing.priceTTC)}
+                    </span>
+                    <span className={`text-right font-semibold ${textBrand} ${money}`}>
+                      {formatMoney(pricing.rachat)}
+                    </span>
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
