@@ -4,6 +4,7 @@ import type { VehiclePricing } from '../lib/types';
 import {
   canFormatPlateChange,
   formatPlateChange,
+  type PlateChangeEntry,
   type PlateChangeFields,
 } from '../lib/plate-change';
 import { formatMoney } from '../lib/format';
@@ -13,8 +14,9 @@ import {
   inputCompact,
   money,
   panel,
-  panelHeader,
+  panelEyebrow,
   panelTitle,
+  rowBase,
   textBrand,
   textMuted,
 } from '../lib/ui';
@@ -25,7 +27,9 @@ interface PlateChangeCardProps {
   onToggle: () => void;
   fields: PlateChangeFields;
   onFieldsChange: (fields: PlateChangeFields) => void;
-  onAddToCart: () => void;
+  onCommit: () => void;
+  committedLines: PlateChangeEntry[];
+  onRemoveCommitted: (id: string) => void;
   vehicle: VehiclePricing | null;
 }
 
@@ -50,7 +54,9 @@ export function PlateChangeCard({
   onToggle,
   fields,
   onFieldsChange,
-  onAddToCart,
+  onCommit,
+  committedLines,
+  onRemoveCommitted,
   vehicle,
 }: PlateChangeCardProps) {
   const lineTotal = checked ? line.price : 0;
@@ -67,22 +73,31 @@ export function PlateChangeCard({
     await navigator.clipboard.writeText(text);
   }
 
+  async function copyCommitted(entry: PlateChangeEntry) {
+    await navigator.clipboard.writeText(entry.copyText);
+  }
+
   return (
     <section className={panel}>
-      <label className={`${panelHeader} cursor-pointer`}>
-        <span className="flex min-w-0 items-center gap-2">
+      <div className="mb-2 grid grid-cols-3 items-center gap-2">
+        <label className="flex min-w-0 cursor-pointer items-center gap-2">
           <input
             type="checkbox"
             checked={checked}
             onChange={onToggle}
             className="h-4 w-4 shrink-0 rounded border-border accent-brand"
           />
-          <h2 className={panelTitle}>{line.label}</h2>
+          <h2 className={`${panelTitle} truncate`}>{line.label}</h2>
+        </label>
+        <span
+          className={`min-w-0 truncate text-center ${panelEyebrow} ${vehicle ? '' : 'opacity-60'}`}
+        >
+          {vehicle?.model ?? '—'}
         </span>
-        <span className={`shrink-0 text-sm font-semibold ${textBrand} ${money}`}>
+        <span className={`text-right text-sm font-semibold ${textBrand} ${money}`}>
           {formatMoney(lineTotal)}
         </span>
-      </label>
+      </div>
 
       <AnimatePresence initial={false}>
         {checked ? (
@@ -94,16 +109,8 @@ export function PlateChangeCard({
             transition={{ duration: 0.2, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="space-y-2 border-t border-border pt-2.5">
-              {vehicle ? (
-                <p className={`truncate text-[10px] ${textMuted}`}>
-                  Véhicule · <span className="font-semibold text-fg">{vehicle.model}</span>
-                </p>
-              ) : (
-                <p className="text-[10px] text-fg-subtle">Sélectionne un véhicule en haut</p>
-              )}
-
-              <div className="grid gap-2 sm:grid-cols-2">
+            <div className="space-y-2.5 border-t border-border pt-2.5 text-center">
+              <div className="mx-auto grid w-full max-w-md gap-2 px-2 sm:grid-cols-2">
                 <input
                   type="text"
                   value={fields.lastName}
@@ -134,7 +141,7 @@ export function PlateChangeCard({
                 />
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2 px-2">
                 <button
                   type="button"
                   onClick={() => void copyFormatted()}
@@ -147,26 +154,61 @@ export function PlateChangeCard({
                 </button>
                 <button
                   type="button"
-                  onClick={onAddToCart}
+                  onClick={onCommit}
                   disabled={!isReady}
                   className={`${btnPrimary} shrink-0 px-3 py-1.5 text-xs`}
                 >
-                  + Panier · {formatMoney(line.price)}
+                  + Ligne · {formatMoney(line.price)}
                 </button>
-                {isReady ? (
-                  <p className={`min-w-0 flex-1 truncate text-[10px] ${textMuted}`}>
-                    {formatPlateChange(fields, vehicleModel)}
-                  </p>
-                ) : (
-                  <p className="text-[10px] text-fg-subtle">
-                    {vehicle ? 'Remplis nom, prénom et plaques' : 'Véhicule + champs requis'}
-                  </p>
-                )}
               </div>
+              {isReady ? (
+                <p className={`mx-auto max-w-md truncate px-2 text-[10px] ${textMuted}`}>
+                  {formatPlateChange(fields, vehicleModel)}
+                </p>
+              ) : null}
             </div>
           </motion.div>
         ) : null}
       </AnimatePresence>
+
+      {committedLines.length > 0 ? (
+        <ul className="mt-2 max-h-32 space-y-1.5 overflow-y-auto border-t border-border pt-2.5 pr-0.5">
+          <AnimatePresence initial={false}>
+            {committedLines.map((entry) => (
+              <motion.li
+                key={entry.id}
+                layout
+                initial={{ opacity: 0, x: -12, scale: 0.98 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 12, scale: 0.98 }}
+                className={`group flex items-center gap-1.5 px-2 py-1.5 text-xs ${rowBase} hover:border-brand/30 hover:bg-brand-subtle`}
+              >
+                <button
+                  type="button"
+                  onClick={() => void copyCommitted(entry)}
+                  className={`${btnGhost} inline-flex h-7 w-7 shrink-0 items-center justify-center p-0`}
+                  title="Copier le format ticket"
+                  aria-label="Copier le format ticket"
+                >
+                  <CopyIcon />
+                </button>
+                <span className="min-w-0 flex-1 truncate text-fg-secondary">{entry.label}</span>
+                <span className={`shrink-0 font-semibold ${textBrand} ${money}`}>
+                  {formatMoney(entry.amount)}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onRemoveCommitted(entry.id)}
+                  className="shrink-0 rounded px-1 text-fg-subtle opacity-0 transition group-hover:opacity-100 hover:bg-brand-subtle hover:text-brand"
+                  aria-label="Retirer"
+                >
+                  ×
+                </button>
+              </motion.li>
+            ))}
+          </AnimatePresence>
+        </ul>
+      ) : null}
     </section>
   );
 }

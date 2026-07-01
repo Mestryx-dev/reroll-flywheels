@@ -8,7 +8,7 @@ import {
   initialRepairState,
 } from '../lib/formulas';
 import { calcBottomGrid, calcTopGrid } from '../lib/layout';
-import { emptyPlateChange, buildPlateChangeCartLine, type PlateChangeFields } from '../lib/plate-change';
+import { emptyPlateChange, buildPlateChangeEntry, type PlateChangeEntry, type PlateChangeFields } from '../lib/plate-change';
 import { VehiclePricingStrip } from './VehiclePricingStrip';
 import { VehicleLookup } from './VehicleLookup';
 import { RepairInvoice } from './RepairInvoice';
@@ -26,6 +26,8 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
   const [cart, setCart] = useState<CartLine[]>([]);
   const [lookupKey, setLookupKey] = useState(0);
   const [plateChange, setPlateChange] = useState<PlateChangeFields>(emptyPlateChange);
+  const [plateChangeOpen, setPlateChangeOpen] = useState(false);
+  const [plateChangeLines, setPlateChangeLines] = useState<PlateChangeEntry[]>([]);
 
   const total = cartTotal(cart);
   const plateChangeLine = config.repairs.find((line) => isPlateChangeLine(line.id));
@@ -42,23 +44,20 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
     setRepairState(initialRepairState(config.repairs));
   }
 
-  function addPlateChangeToCart() {
+  function commitPlateChange() {
     if (!plateChangeLine) {
       return;
     }
-    const entry = buildPlateChangeCartLine(plateChangeLine.price, plateChange, vehicle);
+    const entry = buildPlateChangeEntry(plateChangeLine.price, plateChange, vehicle);
     if (!entry) {
       return;
     }
-    setCart((current) => [
-      ...current,
-      createCartLine(entry.label, entry.amount, entry.copyText),
-    ]);
+    setPlateChangeLines((current) => [...current, entry]);
     setPlateChange(emptyPlateChange());
-    setRepairState((current) => ({
-      ...current,
-      [plateChangeLine.id]: { ...current[plateChangeLine.id], checked: false },
-    }));
+  }
+
+  function removePlateChangeLine(id: string) {
+    setPlateChangeLines((current) => current.filter((line) => line.id !== id));
   }
 
   function removeFromCart(id: string) {
@@ -67,9 +66,11 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
 
   function validateInvoice() {
     setCart([]);
+    setPlateChangeLines([]);
     setRepairState(initialRepairState(config.repairs));
     setVehicle(null);
     setPlateChange(emptyPlateChange());
+    setPlateChangeOpen(false);
     setLookupKey((key) => key + 1);
   }
 
@@ -105,19 +106,13 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
           {plateChangeLine ? (
             <PlateChangeCard
               line={plateChangeLine}
-              checked={repairState[plateChangeLine.id]?.checked ?? false}
-              onToggle={() =>
-                setRepairState((current) => ({
-                  ...current,
-                  [plateChangeLine.id]: {
-                    ...current[plateChangeLine.id],
-                    checked: !current[plateChangeLine.id]?.checked,
-                  },
-                }))
-              }
+              checked={plateChangeOpen}
+              onToggle={() => setPlateChangeOpen((open) => !open)}
               fields={plateChange}
               onFieldsChange={setPlateChange}
-              onAddToCart={addPlateChangeToCart}
+              onCommit={commitPlateChange}
+              committedLines={plateChangeLines}
+              onRemoveCommitted={removePlateChangeLine}
               vehicle={vehicle}
             />
           ) : null}

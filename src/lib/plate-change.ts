@@ -46,16 +46,24 @@ export function canFormatPlateChange(
   );
 }
 
-export function buildPlateChangeCartLine(
+export interface PlateChangeEntry {
+  id: string;
+  label: string;
+  amount: number;
+  copyText: string;
+}
+
+export function buildPlateChangeEntry(
   price: number,
   fields: PlateChangeFields,
   vehicle?: { model: string } | null,
-): { label: string; amount: number; copyText: string } | null {
+): PlateChangeEntry | null {
   if (!canFormatPlateChange(fields, vehicle?.model)) {
     return null;
   }
   const formatted = formatPlateChange(fields, vehicle?.model);
   return {
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     label: formatted,
     amount: price,
     copyText: formatted,

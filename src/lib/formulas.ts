@@ -97,22 +97,34 @@ export function buildCartLinesFromSelection(
   vehicle?: VehiclePricing | null,
 ): Array<{ label: string; amount: number }> {
   const prefix = vehicle?.model ? `${vehicle.model} · ` : '';
-  return repairs.flatMap((line) => {
+  const parts: Array<{ part: string; amount: number }> = [];
+
+  for (const line of repairs) {
     if (isPlateChangeLine(line.id)) {
-      return [];
+      continue;
     }
     const row = state[line.id];
     if (!row?.checked) {
-      return [];
+      continue;
     }
     const qty = Math.max(row.qty, 1);
     const unitPrice = effectiveRepairPrice(line, vehicle);
     if (unitPrice <= 0) {
-      return [];
+      continue;
     }
-    const amount = unitPrice * qty;
     const qtySuffix = qty > 1 ? ` ×${qty}` : '';
+    parts.push({
+      part: `${line.label}${qtySuffix}`,
+      amount: unitPrice * qty,
+    });
+  }
 
-    return [{ label: `${prefix}${line.label}${qtySuffix}`, amount }];
-  });
+  if (parts.length === 0) {
+    return [];
+  }
+
+  const total = parts.reduce((sum, part) => sum + part.amount, 0);
+  const label = `${prefix}${parts.map((part) => part.part).join(', ')}`;
+
+  return [{ label, amount: total }];
 }

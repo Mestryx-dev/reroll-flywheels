@@ -4400,7 +4400,7 @@
     },
     {
       "id": "changement_de_plaque",
-      "label": "Changement de plaque",
+      "label": "Plaque",
       "price": 1000,
       "defaultChecked": false,
       "defaultQty": null

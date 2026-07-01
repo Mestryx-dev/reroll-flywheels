@@ -34,7 +34,7 @@ export function Layout({ children, view, onViewChange }: LayoutProps) {
             <div className="fw-logo-badge h-9 w-9 text-sm">FW</div>
             <div>
               <p className="font-display text-[10px] uppercase tracking-[0.2em] text-brand">
-                Flywheels RP
+                Flywheels
               </p>
               <h1 className="font-display text-sm tracking-wide text-fg">Calculette garage</h1>
             </div>

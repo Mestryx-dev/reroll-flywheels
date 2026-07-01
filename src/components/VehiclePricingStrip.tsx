@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { VehiclePricing } from '../lib/types';
 import { formatMoney } from '../lib/format';
-import { money, panel, textBrand, textMuted } from '../lib/ui';
+import { money, panel, panelEyebrow, textBrand, textMuted } from '../lib/ui';
 
 interface VehiclePricingStripProps {
   vehicle: VehiclePricing;
@@ -15,8 +15,8 @@ export function VehiclePricingStrip({ vehicle }: VehiclePricingStripProps) {
       className={`${panel} relative min-w-0 overflow-hidden`}
     >
       <div className="absolute inset-y-0 left-0 w-1 bg-brand" />
-      <p className="mb-2 truncate pl-2 text-sm font-bold text-fg">{vehicle.model}</p>
-      <div className="grid grid-cols-3 gap-1.5 pl-2 sm:grid-cols-6">
+      <p className={`${panelEyebrow} mb-2 truncate px-2 text-center`}>{vehicle.model}</p>
+      <div className="grid grid-cols-3 gap-1.5 px-2 sm:grid-cols-6">
         <Metric label="Type" value={vehicle.range} text />
         <Metric label="HT" value={formatMoney(vehicle.priceHT)} />
         <Metric label="TTC" value={formatMoney(vehicle.priceTTC)} accent />

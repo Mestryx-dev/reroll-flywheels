@@ -1,6 +1,6 @@
 # Flywheels Calc
 
-Web calculator for **Flywheels RP** garage — vehicle lookup, repair lines, and a shared invoice cart.
+Web calculator for **Flywheels** garage — vehicle lookup, repair lines, and a shared invoice cart.
 
 ## Features
 

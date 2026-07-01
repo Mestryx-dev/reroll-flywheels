@@ -127,7 +127,7 @@ export function VehicleLookup({
           <h2 className={panelTitle}>Recherche véhicule</h2>
         </div>
       ) : (
-        <p className={`${panelEyebrow} mb-1.5`}>Véhicule</p>
+        <p className={`${panelEyebrow} mb-1.5 text-center`}>Véhicule</p>
       )}
 
       <div ref={inputWrapRef} className="relative">
