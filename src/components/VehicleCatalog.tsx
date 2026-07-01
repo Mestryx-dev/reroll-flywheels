@@ -102,7 +102,7 @@ export function VehicleCatalog() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
-      className={`overflow-x-auto ${catalogShell}`}
+      className={`fw-catalog overflow-x-auto ${catalogShell}`}
     >
       <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
         <div className="fw-catalog-banner">
