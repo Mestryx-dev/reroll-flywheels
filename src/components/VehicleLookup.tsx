@@ -5,7 +5,7 @@ import { vehicles } from '../data';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import type { VehiclePricing } from '../lib/types';
-import { inputCompact, money, panel, panelEyebrow, panelTitle } from '../lib/ui';
+import { inputCompact, money, panel, panelEyebrow, panelTitle, textBrand } from '../lib/ui';
 
 interface VehicleLookupProps {
   onSelect?: (vehicle: VehiclePricing | null) => void;
@@ -156,18 +156,18 @@ export function VehicleLookup({
           className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-brand/25 bg-brand-subtle p-2 sm:grid-cols-6"
         >
           {[
-            ['Type', selected.range],
-            ['Concess', formatMoney(selected.priceHT)],
-            ['TTC', formatMoney(selected.priceTTC)],
-            ['Explo.', formatMoney(selected.explosion)],
-            ['Noyade', formatMoney(selected.noyade)],
-            ['Rachat', formatMoney(selected.rachat)],
-          ].map(([label, value]) => (
+            ['Type', selected.range, false],
+            ['HT', formatMoney(selected.priceHT), false],
+            ['TTC', formatMoney(selected.priceTTC), true],
+            ['Explo.', formatMoney(selected.explosion), false],
+            ['Noyade', formatMoney(selected.noyade), false],
+            ['Rachat', formatMoney(selected.rachat), false],
+          ].map(([label, value, highlight]) => (
             <div key={label as string} className="text-center">
               <p className="text-[10px] uppercase text-fg-muted">{label as string}</p>
               <p
                 className={`truncate text-xs font-semibold ${money} ${
-                  label === 'Rachat' ? 'text-brand' : 'text-fg'
+                  highlight ? textBrand : 'text-fg'
                 }`}
                 title={value as string}
               >

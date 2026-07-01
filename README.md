@@ -56,4 +56,3 @@ pnpm dev
 ## Deploy
 
 Static build (`dist/`) — Docker + nginx included. See `Dockerfile`.
-# reroll-flywheels

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import type { RepairLine } from '../lib/types';
+import type { VehiclePricing } from '../lib/types';
 import {
   canFormatPlateChange,
   formatPlateChange,
@@ -8,6 +9,7 @@ import {
 import { formatMoney } from '../lib/format';
 import {
   btnGhost,
+  btnPrimary,
   inputCompact,
   money,
   panel,
@@ -23,6 +25,8 @@ interface PlateChangeCardProps {
   onToggle: () => void;
   fields: PlateChangeFields;
   onFieldsChange: (fields: PlateChangeFields) => void;
+  onAddToCart: () => void;
+  vehicle: VehiclePricing | null;
 }
 
 function CopyIcon() {
@@ -46,15 +50,19 @@ export function PlateChangeCard({
   onToggle,
   fields,
   onFieldsChange,
+  onAddToCart,
+  vehicle,
 }: PlateChangeCardProps) {
   const lineTotal = checked ? line.price : 0;
+  const vehicleModel = vehicle?.model ?? '';
+  const isReady = canFormatPlateChange(fields, vehicleModel);
 
   function setField<K extends keyof PlateChangeFields>(key: K, value: string) {
     onFieldsChange({ ...fields, [key]: value });
   }
 
   async function copyFormatted() {
-    const text = formatPlateChange(fields);
+    const text = formatPlateChange(fields, vehicleModel);
     if (!text) return;
     await navigator.clipboard.writeText(text);
   }
@@ -87,19 +95,27 @@ export function PlateChangeCard({
             className="overflow-hidden"
           >
             <div className="space-y-2 border-t border-border pt-2.5">
+              {vehicle ? (
+                <p className={`truncate text-[10px] ${textMuted}`}>
+                  Véhicule · <span className="font-semibold text-fg">{vehicle.model}</span>
+                </p>
+              ) : (
+                <p className="text-[10px] text-fg-subtle">Sélectionne un véhicule en haut</p>
+              )}
+
               <div className="grid gap-2 sm:grid-cols-2">
                 <input
                   type="text"
-                  value={fields.fullName}
-                  onChange={(event) => setField('fullName', event.target.value)}
-                  placeholder="Nom prénom"
+                  value={fields.lastName}
+                  onChange={(event) => setField('lastName', event.target.value)}
+                  placeholder="Nom"
                   className={`${inputCompact} text-xs`}
                 />
                 <input
                   type="text"
-                  value={fields.vehicleModel}
-                  onChange={(event) => setField('vehicleModel', event.target.value)}
-                  placeholder="Modèle véhicule"
+                  value={fields.firstName}
+                  onChange={(event) => setField('firstName', event.target.value)}
+                  placeholder="Prénom"
                   className={`${inputCompact} text-xs`}
                 />
                 <input
@@ -122,19 +138,29 @@ export function PlateChangeCard({
                 <button
                   type="button"
                   onClick={() => void copyFormatted()}
-                  disabled={!canFormatPlateChange(fields)}
-                  className={`${btnGhost} inline-flex items-center gap-1.5`}
+                  disabled={!isReady}
+                  className={`${btnGhost} inline-flex h-8 w-8 shrink-0 items-center justify-center p-0`}
                   title="Copier le format ticket"
+                  aria-label="Copier le format ticket"
                 >
                   <CopyIcon />
-                  Copier
                 </button>
-                {canFormatPlateChange(fields) ? (
+                <button
+                  type="button"
+                  onClick={onAddToCart}
+                  disabled={!isReady}
+                  className={`${btnPrimary} shrink-0 px-3 py-1.5 text-xs`}
+                >
+                  + Panier · {formatMoney(line.price)}
+                </button>
+                {isReady ? (
                   <p className={`min-w-0 flex-1 truncate text-[10px] ${textMuted}`}>
-                    {formatPlateChange(fields)}
+                    {formatPlateChange(fields, vehicleModel)}
                   </p>
                 ) : (
-                  <p className="text-[10px] text-fg-subtle">Remplis les 4 champs pour copier</p>
+                  <p className="text-[10px] text-fg-subtle">
+                    {vehicle ? 'Remplis nom, prénom et plaques' : 'Véhicule + champs requis'}
+                  </p>
                 )}
               </div>
             </div>

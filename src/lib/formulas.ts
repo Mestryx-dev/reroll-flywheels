@@ -1,6 +1,5 @@
 import type { CatalogVehicle, RepairLine, RepairState, VehiclePricing } from './types';
-import type { PlateChangeFields } from './plate-change';
-import { formatPlateChange, isPlateChangeLine } from './plate-change';
+import { isPlateChangeLine } from './plate-change';
 import { isReparationsLine, repairPriceForVehicle } from './repair-prices';
 
 const TTC_RATE = 1.1;
@@ -81,6 +80,9 @@ export function canAddSelectionToCart(
   vehicle?: VehiclePricing | null,
 ): boolean {
   return repairs.some((line) => {
+    if (isPlateChangeLine(line.id)) {
+      return false;
+    }
     const row = state[line.id];
     if (!row?.checked) {
       return false;
@@ -93,10 +95,12 @@ export function buildCartLinesFromSelection(
   repairs: RepairLine[],
   state: RepairState,
   vehicle?: VehiclePricing | null,
-  plateChange?: PlateChangeFields,
 ): Array<{ label: string; amount: number }> {
   const prefix = vehicle?.model ? `${vehicle.model} · ` : '';
   return repairs.flatMap((line) => {
+    if (isPlateChangeLine(line.id)) {
+      return [];
+    }
     const row = state[line.id];
     if (!row?.checked) {
       return [];
@@ -108,12 +112,6 @@ export function buildCartLinesFromSelection(
     }
     const amount = unitPrice * qty;
     const qtySuffix = qty > 1 ? ` ×${qty}` : '';
-
-    if (isPlateChangeLine(line.id) && plateChange) {
-      const formatted = formatPlateChange(plateChange);
-      const detail = formatted ? ` · ${formatted}` : '';
-      return [{ label: `${prefix}${line.label}${detail}`, amount }];
-    }
 
     return [{ label: `${prefix}${line.label}${qtySuffix}`, amount }];
   });

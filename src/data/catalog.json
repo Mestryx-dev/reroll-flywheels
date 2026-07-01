@@ -4339,7 +4339,7 @@
       "id": "ouvrable",
       "label": "Ouvrable",
       "price": 50,
-      "defaultChecked": true,
+      "defaultChecked": false,
       "defaultQty": 1
     },
     {

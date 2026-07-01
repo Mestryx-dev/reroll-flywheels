@@ -3,9 +3,9 @@ export const shellCalc = 'mx-auto w-full max-w-[72rem]';
 
 export const shellCatalog = 'mx-auto w-full max-w-[80rem]';
 
-/** Calculator top row: search · pricing · total */
+/** Calculator top row: search · pricing */
 export const calcTopGrid =
-  'grid gap-3 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)_13.75rem] lg:items-stretch [&>*]:min-w-0';
+  'grid gap-3 lg:grid-cols-[minmax(0,17rem)_minmax(0,1fr)] lg:items-stretch [&>*]:min-w-0';
 
 /** Calculator bottom row: repairs · cart */
 export const calcBottomGrid = 'grid gap-3 lg:grid-cols-2 lg:items-start';

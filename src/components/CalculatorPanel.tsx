@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { CalculatorConfig, VehiclePricing } from '../lib/types';
 import type { CartLine } from '../lib/cart';
 import { createCartLine, cartTotal } from '../lib/cart';
@@ -8,7 +8,7 @@ import {
   initialRepairState,
 } from '../lib/formulas';
 import { calcBottomGrid, calcTopGrid } from '../lib/layout';
-import { emptyPlateChange, type PlateChangeFields } from '../lib/plate-change';
+import { emptyPlateChange, buildPlateChangeCartLine, type PlateChangeFields } from '../lib/plate-change';
 import { VehiclePricingStrip } from './VehiclePricingStrip';
 import { VehicleLookup } from './VehicleLookup';
 import { RepairInvoice } from './RepairInvoice';
@@ -27,22 +27,11 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
   const [lookupKey, setLookupKey] = useState(0);
   const [plateChange, setPlateChange] = useState<PlateChangeFields>(emptyPlateChange);
 
-  useEffect(() => {
-    if (vehicle?.model) {
-      setPlateChange((current) => ({ ...current, vehicleModel: vehicle.model }));
-    }
-  }, [vehicle?.model]);
-
   const total = cartTotal(cart);
   const plateChangeLine = config.repairs.find((line) => isPlateChangeLine(line.id));
 
   function addToCart() {
-    const entries = buildCartLinesFromSelection(
-      config.repairs,
-      repairState,
-      vehicle,
-      plateChange,
-    );
+    const entries = buildCartLinesFromSelection(config.repairs, repairState, vehicle);
     if (entries.length === 0) {
       return;
     }
@@ -51,6 +40,25 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
       ...entries.map((entry) => createCartLine(entry.label, entry.amount)),
     ]);
     setRepairState(initialRepairState(config.repairs));
+  }
+
+  function addPlateChangeToCart() {
+    if (!plateChangeLine) {
+      return;
+    }
+    const entry = buildPlateChangeCartLine(plateChangeLine.price, plateChange, vehicle);
+    if (!entry) {
+      return;
+    }
+    setCart((current) => [
+      ...current,
+      createCartLine(entry.label, entry.amount, entry.copyText),
+    ]);
+    setPlateChange(emptyPlateChange());
+    setRepairState((current) => ({
+      ...current,
+      [plateChangeLine.id]: { ...current[plateChangeLine.id], checked: false },
+    }));
   }
 
   function removeFromCart(id: string) {
@@ -83,7 +91,6 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
             </p>
           </div>
         )}
-        <TotalBadge total={total} canValidate={cart.length > 0} onValidate={validateInvoice} />
       </div>
 
       <div className={calcBottomGrid}>
@@ -95,7 +102,6 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
           vehicle={vehicle}
         />
         <div className="flex flex-col gap-3">
-          <InvoiceCart lines={cart} onRemove={removeFromCart} onClear={() => setCart([])} />
           {plateChangeLine ? (
             <PlateChangeCard
               line={plateChangeLine}
@@ -111,8 +117,12 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
               }
               fields={plateChange}
               onFieldsChange={setPlateChange}
+              onAddToCart={addPlateChangeToCart}
+              vehicle={vehicle}
             />
           ) : null}
+          <InvoiceCart lines={cart} onRemove={removeFromCart} onClear={() => setCart([])} />
+          <TotalBadge total={total} canValidate={cart.length > 0} onValidate={validateInvoice} />
         </div>
       </div>
     </motion.div>

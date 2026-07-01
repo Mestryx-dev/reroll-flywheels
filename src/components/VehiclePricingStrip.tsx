@@ -18,8 +18,8 @@ export function VehiclePricingStrip({ vehicle }: VehiclePricingStripProps) {
       <p className="mb-2 truncate pl-2 text-sm font-bold text-fg">{vehicle.model}</p>
       <div className="grid grid-cols-3 gap-1.5 pl-2 sm:grid-cols-6">
         <Metric label="Type" value={vehicle.range} text />
-        <Metric label="Concess" value={formatMoney(vehicle.priceHT)} accent />
-        <Metric label="TTC" value={formatMoney(vehicle.priceTTC)} />
+        <Metric label="HT" value={formatMoney(vehicle.priceHT)} />
+        <Metric label="TTC" value={formatMoney(vehicle.priceTTC)} accent />
         <Metric label="Explo." value={formatMoney(vehicle.explosion)} />
         <Metric label="Noyade" value={formatMoney(vehicle.noyade)} />
         <Metric label="Rachat" value={formatMoney(vehicle.rachat)} highlight />
