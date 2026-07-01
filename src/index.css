@@ -456,11 +456,12 @@ body {
   }
 
   .fw-catalog {
-    --fw-catalog-inner: calc(var(--fw-frame-inset) + 10px);
+    --fw-catalog-side: calc(var(--fw-frame-inset) + 10px);
+    --fw-catalog-top: calc(var(--fw-frame-inset) + 3px);
     box-sizing: border-box;
-    margin: var(--fw-catalog-inner);
-    width: calc(100% - 2 * var(--fw-catalog-inner));
-    max-width: calc(100% - 2 * var(--fw-catalog-inner));
+    margin: var(--fw-catalog-top) var(--fw-catalog-side) var(--fw-catalog-side);
+    width: calc(100% - 2 * var(--fw-catalog-side));
+    max-width: calc(100% - 2 * var(--fw-catalog-side));
     min-width: 0;
     overflow-x: auto;
   }
@@ -468,23 +469,6 @@ body {
   .fw-catalog-sticky {
     background: color-mix(in srgb, var(--fw-bg) 90%, var(--fw-surface) 10%);
     border-bottom: 1px solid var(--fw-border);
-  }
-
-  .fw-catalog-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    border-bottom: 1px solid var(--fw-border);
-    border-left: 3px solid var(--fw-brand);
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--fw-brand-subtle) 55%, transparent),
-        transparent 70%
-      ),
-      var(--fw-surface-sunken);
-    padding: 0.625rem 0.75rem;
   }
 
   .fw-catalog-columns {
@@ -525,7 +509,7 @@ body {
   }
 
   .fw-content-frame--catalog > .fw-catalog {
-    width: calc(100% - 2 * var(--fw-catalog-inner, calc(var(--fw-frame-inset) + 10px)));
+    width: calc(100% - 2 * var(--fw-catalog-side, calc(var(--fw-frame-inset) + 10px)));
   }
 }
 
