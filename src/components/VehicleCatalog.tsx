@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { vehicles } from '../data';
@@ -6,7 +6,7 @@ import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import { catalogGrid, catalogShell, shellCatalog } from '../lib/layout';
 import type { CatalogVehicle, VehiclePricing } from '../lib/types';
-import { btnGhost, inputCompact, money, panelEyebrow, panelTitle, textBrand, textMuted } from '../lib/ui';
+import { btnGhost, inputCompact, money, textBrand, textMuted } from '../lib/ui';
 
 type SortKey = 'name-asc' | 'name-desc' | 'price-asc' | 'price-desc';
 
@@ -14,47 +14,6 @@ const CATALOG_HEADER =
   'font-display text-[10px] uppercase tracking-wider text-fg-muted';
 
 const CATALOG_STICKY_TOP = 'top-[58px]';
-const CATALOG_HEADER_OFFSET_PX = 58;
-
-function useCatalogFiltersStuck() {
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const [stuck, setStuck] = useState(false);
-
-  useEffect(() => {
-    const sentinel = sentinelRef.current;
-    if (!sentinel) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setStuck(!entry.isIntersecting),
-      { rootMargin: `-${CATALOG_HEADER_OFFSET_PX}px 0px 0px 0px`, threshold: 0 },
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, []);
-
-  return { sentinelRef, stuck };
-}
-
-function useElementHeight<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  const [height, setHeight] = useState(0);
-
-  useLayoutEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    function sync() {
-      setHeight(node?.offsetHeight ?? 0);
-    }
-
-    sync();
-    const observer = new ResizeObserver(sync);
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  return { ref, height };
-}
 
 function uniqueSorted(values: string[]): string[] {
   const seen = new Map<string, string>();
@@ -124,10 +83,6 @@ export function VehicleCatalog() {
     return list;
   }, [query, category, dealership, sort]);
 
-  const { sentinelRef, stuck } = useCatalogFiltersStuck();
-  const { ref: filtersRef, height: filtersHeight } = useElementHeight<HTMLDivElement>();
-  const columnHeaderTop = CATALOG_HEADER_OFFSET_PX + filtersHeight;
-
   function selectVehicle(vehicle: CatalogVehicle) {
     setSelected(pricingFromCatalog(vehicle));
   }
@@ -149,87 +104,79 @@ export function VehicleCatalog() {
       exit={{ opacity: 0, y: -8 }}
       className={`overflow-x-auto ${catalogShell}`}
     >
-      <div ref={sentinelRef} className="h-px" aria-hidden />
-
-      <header
-        ref={filtersRef}
-        className={`sticky ${CATALOG_STICKY_TOP} z-30 fw-catalog-filters pb-3 ${stuck ? 'is-stuck' : ''}`}
-      >
-          <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
-            <div>
-              <p className={panelEyebrow}>Catalogue complet</p>
-              <h2 className={panelTitle}>
-                <span className={textBrand}>{filtered.length}</span>
-                <span className={textMuted}> / {vehicles.length} véhicules</span>
-              </h2>
-            </div>
-            {hasFilters ? (
-              <button type="button" onClick={resetFilters} className={btnGhost}>
-                Réinitialiser
-              </button>
-            ) : null}
+      <div className={`fw-catalog-sticky sticky ${CATALOG_STICKY_TOP} z-30`}>
+        <div className="fw-catalog-banner">
+          <div className="flex min-w-0 items-center gap-2">
+            <h2 className="font-display shrink-0 text-sm tracking-wide text-fg">
+              Catalogue complet
+            </h2>
+            <span className={`truncate text-xs ${textMuted}`}>
+              <span className={`font-semibold ${textBrand}`}>{filtered.length}</span>
+              {' / '}
+              {vehicles.length} véhicules
+            </span>
           </div>
+          {hasFilters ? (
+            <button type="button" onClick={resetFilters} className={`${btnGhost} shrink-0`}>
+              Réinitialiser
+            </button>
+          ) : null}
+        </div>
 
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            <input
-              type="search"
-              value={query}
-              onChange={(event) => {
-                setQuery(event.target.value);
-                setSelected(null);
-              }}
-              placeholder="Rechercher un modèle…"
-              className={`${inputCompact} w-full`}
-            />
-            <select
-              value={category}
-              onChange={(event) => {
-                setCategory(event.target.value);
-                setSelected(null);
-              }}
-              className={`${inputCompact} w-full`}
-            >
-              <option value="">Toutes les catégories</option>
-              {categories.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-            <select
-              value={dealership}
-              onChange={(event) => {
-                setDealership(event.target.value);
-                setSelected(null);
-              }}
-              className={`${inputCompact} w-full`}
-            >
-              <option value="">Toutes les concessions</option>
-              {dealerships.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
-            <select
-              value={sort}
-              onChange={(event) => setSort(event.target.value as SortKey)}
-              className={`${inputCompact} w-full`}
-            >
-              <option value="name-asc">Nom A → Z</option>
-              <option value="name-desc">Nom Z → A</option>
-              <option value="price-asc">Prix croissant</option>
-              <option value="price-desc">Prix décroissant</option>
-            </select>
-          </div>
+        <div className="grid gap-2 py-2.5 sm:grid-cols-2 lg:grid-cols-4">
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => {
+              setQuery(event.target.value);
+              setSelected(null);
+            }}
+            placeholder="Rechercher un modèle…"
+            className={`${inputCompact} w-full`}
+          />
+          <select
+            value={category}
+            onChange={(event) => {
+              setCategory(event.target.value);
+              setSelected(null);
+            }}
+            className={`${inputCompact} w-full`}
+          >
+            <option value="">Toutes les catégories</option>
+            {categories.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+          <select
+            value={dealership}
+            onChange={(event) => {
+              setDealership(event.target.value);
+              setSelected(null);
+            }}
+            className={`${inputCompact} w-full`}
+          >
+            <option value="">Toutes les concessions</option>
+            {dealerships.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+          <select
+            value={sort}
+            onChange={(event) => setSort(event.target.value as SortKey)}
+            className={`${inputCompact} w-full`}
+          >
+            <option value="name-asc">Nom A → Z</option>
+            <option value="name-desc">Nom Z → A</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+        </div>
 
-          <div className="fw-catalog-divider mt-3" aria-hidden />
-        </header>
-
-        <div
-          className={`${catalogGrid} sticky z-20 border-y border-border bg-surface py-2`}
-          style={{ top: columnHeaderTop }}
-        >
+        <div className={`${catalogGrid} fw-catalog-columns border-t border-border py-2`}>
           <span className={CATALOG_HEADER}>Modèle</span>
           <span className={CATALOG_HEADER}>Catégorie</span>
           <span className={CATALOG_HEADER}>Concession</span>
@@ -237,7 +184,9 @@ export function VehicleCatalog() {
           <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
           <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
         </div>
+      </div>
 
+      <div className="fw-catalog-body">
         {filtered.length === 0 ? (
           <p className={`py-16 text-center text-sm ${textMuted}`}>
             Aucun véhicule ne correspond aux filtres.
@@ -270,7 +219,7 @@ export function VehicleCatalog() {
                 <span className={`text-right text-fg ${money}`}>
                   {formatMoney(vehicle.priceHT)}
                 </span>
-                <span className={`text-right text-fg-secondary ${money}`}>
+                <span className={`text-right font-semibold ${textBrand} ${money}`}>
                   {formatMoney(pricing.priceTTC)}
                 </span>
                 <span className={`text-right font-semibold ${textBrand} ${money}`}>
@@ -280,6 +229,7 @@ export function VehicleCatalog() {
             );
           })
         )}
+      </div>
 
       <AnimatePresence>
         {selected ? (
@@ -298,11 +248,11 @@ export function VehicleCatalog() {
               </div>
               <div className="flex flex-wrap gap-2">
                 {[
-                  ['Concess', formatMoney(selected.priceHT), false],
-                  ['TTC', formatMoney(selected.priceTTC), false],
+                  ['HT', formatMoney(selected.priceHT), false],
+                  ['TTC', formatMoney(selected.priceTTC), true],
                   ['Explo.', formatMoney(selected.explosion), false],
                   ['Noyade', formatMoney(selected.noyade), false],
-                  ['Rachat', formatMoney(selected.rachat), true],
+                  ['Rachat', formatMoney(selected.rachat), false],
                 ].map(([label, value, highlight]) => (
                   <div
                     key={label as string}
