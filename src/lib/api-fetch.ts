@@ -1,3 +1,5 @@
+import { apiUnavailableMessage } from './api-hints';
+
 export class ApiResponseError extends Error {
   readonly status: number;
 
@@ -14,7 +16,7 @@ export async function readJsonResponse<T>(response: Response): Promise<T> {
     const preview = (await response.text()).slice(0, 80);
     throw new ApiResponseError(
       preview.startsWith('<!')
-        ? 'API indisponible (réponse HTML — le serveur Node flywheels est-il démarré ?)'
+        ? apiUnavailableMessage({ htmlResponse: true })
         : `Réponse non-JSON (${response.status})`,
       response.status,
     );

@@ -1,4 +1,5 @@
 import { DEV_API_PORT } from './lib/dev-port';
+import { DEV_DEPLOY_HOST, isProdStaticHost } from './lib/api-hints';
 import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ConfigProvider, useAppConfig } from './context/ConfigContext';
@@ -59,8 +60,19 @@ function PublicApp() {
         <Layout view={view} onViewChange={setView}>
         {configSource === 'fallback' ? (
           <p className="mb-2 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-center text-xs text-amber-800 dark:text-amber-200">
-            Mode hors-ligne : données depuis <code>catalog.json</code> (API / SQLite non joignable).
-            Relance <code>pnpm dev</code> — API sur le port {DEV_API_PORT}.
+            {isProdStaticHost() ? (
+              <>
+                Mode statique (prod <code>main</code>) — pas d’API SQLite. Dev avec admin :{' '}
+                <a href={`https://${DEV_DEPLOY_HOST}`} className="underline">
+                  {DEV_DEPLOY_HOST}
+                </a>
+              </>
+            ) : (
+              <>
+                Mode hors-ligne : données depuis <code>catalog.json</code> (API / SQLite non joignable).
+                Relance <code>pnpm dev</code> — API sur le port {DEV_API_PORT}, URL Vite dans le terminal.
+              </>
+            )}
           </p>
         ) : null}
         <AnimatePresence mode="wait">

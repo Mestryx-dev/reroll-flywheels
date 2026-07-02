@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { DEV_API_PORT } from '../lib/dev-port';
+import { apiUnavailableMessage, DEV_DEPLOY_HOST, isProdStaticHost } from '../lib/api-hints';
 import { AdminLayout } from '../components/admin/AdminLayout';
 import { FormulasSection } from '../components/admin/FormulasSection';
 import { RepairLinesSection } from '../components/admin/RepairLinesSection';
@@ -66,9 +67,25 @@ export function AdminPage() {
           Admin indisponible{error ? ` : ${error}` : '.'}
         </p>
         <p className="max-w-md text-xs">
-          Vérifie que <code className="text-fg">pnpm dev</code> tourne avec l’API sur le port{' '}
-          <strong>{DEV_API_PORT}</strong> (évite les conflits avec Next.js sur 3000/3010).
+          {isProdStaticHost() ? (
+            <>
+              La prod n’a pas encore l’API Node. Ouvre{' '}
+              <a href={`https://${DEV_DEPLOY_HOST}/admin`} className="text-brand underline">
+                {DEV_DEPLOY_HOST}/admin
+              </a>
+              .
+            </>
+          ) : (
+            <>
+              Vérifie que <code className="text-fg">pnpm dev</code> tourne avec l’API sur le port{' '}
+              <strong>{DEV_API_PORT}</strong> et l’URL Vite affichée dans le terminal (souvent{' '}
+              <strong>:5174</strong> si <strong>:5173</strong> est pris).
+            </>
+          )}
         </p>
+        {!isProdStaticHost() && error ? (
+          <p className="max-w-md text-[11px] text-fg-muted">{apiUnavailableMessage({ htmlResponse: true })}</p>
+        ) : null}
         <a href="/" className="text-brand underline">
           Retour calculette
         </a>

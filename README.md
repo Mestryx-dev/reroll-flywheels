@@ -69,8 +69,12 @@ docker build -t flywheels-calc .
 docker run -p 3000:3000 -v flywheels-data:/app/data flywheels-calc
 ```
 
-**Dokploy (dev):** set container port **3000** (not 80), mount volume on `/app/data`.
+**Dokploy (dev):** project **Reroll** → env **Dev** → https://flywheels-calc-dev.mestryx.dev  
+Container port **3000**, mount volume on `/app/data` (SQLite persistence).
 
-**Production (`main`):** still nginx static until `dev` is merged and validated.
+**Production (`main`):** static nginx only — **no `/api`** until `dev` is merged.
 
-**Production URL:** https://flywheels-calc.mestryx.dev (Dokploy project **Reroll**)
+| URL | Stack |
+|-----|--------|
+| https://flywheels-calc-dev.mestryx.dev | Node + SQLite + `/admin` (branch `dev`) |
+| https://flywheels-calc.mestryx.dev | Static calc only (branch `main`) |
