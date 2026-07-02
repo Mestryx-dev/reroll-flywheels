@@ -123,4 +123,68 @@ export async function saveRepairByRange(ranges: AdminRangeRow[]): Promise<AdminR
   return payload.ranges;
 }
 
+export type SyncSource = 'data' | 'calculette';
+
+export interface SyncChange {
+  entity: 'vehicle' | 'repair_line' | 'repair_range';
+  key: string;
+  action: 'add' | 'update' | 'remove';
+  summary: string;
+}
+
+export interface SyncSectionPreview {
+  source: SyncSource;
+  label: string;
+  changes: SyncChange[];
+  counts: {
+    added: number;
+    updated: number;
+    removed: number;
+    unchanged: number;
+  };
+}
+
+export interface SyncPreviewResult {
+  sections: SyncSectionPreview[];
+  fetchedAt: string;
+}
+
+export interface SyncApplyResult {
+  sections: SyncSectionPreview[];
+  appliedAt: string;
+}
+
+export interface SyncRun {
+  id: number;
+  source: string;
+  startedAt: string;
+  status: 'ok' | 'error';
+  summary: Record<string, unknown> | null;
+}
+
+export async function fetchSyncRuns(): Promise<SyncRun[]> {
+  const payload = await parseJson<{ runs: SyncRun[] }>(await fetch('/api/admin/sync/runs'));
+  return payload.runs;
+}
+
+export async function previewSync(sources: SyncSource[]): Promise<SyncPreviewResult> {
+  return parseJson<SyncPreviewResult>(
+    await fetch('/api/admin/sync/preview', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sources }),
+    }),
+  );
+}
+
+export async function applySync(sources: SyncSource[]): Promise<SyncApplyResult> {
+  return parseJson<SyncApplyResult>(
+    await fetch('/api/admin/sync/apply', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sources }),
+    }),
+  );
+}
+
 export { AdminApiError };

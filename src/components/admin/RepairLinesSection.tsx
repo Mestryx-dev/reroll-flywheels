@@ -68,7 +68,7 @@ function LineColumn({ lines, allLines, busyId, onChange, onPatch, onDelete }: Li
 
         return (
           <div key={line.id} className={adminLineRow}>
-            <span className="truncate text-[9px] font-semibold uppercase text-fg-muted">
+            <span className="text-[9px] font-semibold uppercase leading-tight text-fg-muted">
               {kindLabel(line.kind)}
             </span>
             <input

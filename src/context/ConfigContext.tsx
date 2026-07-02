@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react';
@@ -15,6 +16,7 @@ import {
 import type { Catalog, CatalogVehicle } from '../lib/types';
 import fallbackCatalog from '../data/catalog.json';
 import { readJsonResponse } from '../lib/api-fetch';
+import { isAdminPath, usePathname } from '../hooks/usePathname';
 
 interface ConfigContextValue {
   config: AppConfig | null;
@@ -74,6 +76,8 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
   const [configSource, setConfigSource] = useState<'api' | 'fallback' | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const pathname = usePathname();
+  const previousPathRef = useRef(pathname);
 
   const loadConfig = useCallback(async (): Promise<void> => {
     const { config: data, source } = await fetchAppConfig();
@@ -107,6 +111,26 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
+  }, [loadConfig]);
+
+  useEffect(() => {
+    const previous = previousPathRef.current;
+    previousPathRef.current = pathname;
+    if (isAdminPath(previous) && !isAdminPath(pathname)) {
+      void loadConfig();
+    }
+  }, [pathname, loadConfig]);
+
+  useEffect(() => {
+    function onVisible() {
+      if (document.visibilityState !== 'visible' || isAdminPath(window.location.pathname)) {
+        return;
+      }
+      void loadConfig();
+    }
+
+    document.addEventListener('visibilitychange', onVisible);
+    return () => document.removeEventListener('visibilitychange', onVisible);
   }, [loadConfig]);
 
   const reloadConfig = useCallback(async () => {

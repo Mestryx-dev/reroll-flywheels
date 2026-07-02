@@ -252,9 +252,9 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 ### Phase C — Sheet sync (≈0.5 cycle)
 
-- [ ] Extract sync from `scripts/sync-from-sheet.mjs` to shared module.
-- [ ] `POST /api/admin/sync` with preview + apply.
-- [ ] Admin sync panel + `sync_runs` log.
+- [x] Extract sync from `scripts/sync-from-sheet.mjs` to shared module.
+- [x] `POST /api/admin/sync/preview` + `POST /api/admin/sync/apply`.
+- [x] Admin sync panel + `sync_runs` log.
 
 ### Phase D — Hardening before main (≈0.5–1 cycle)
 

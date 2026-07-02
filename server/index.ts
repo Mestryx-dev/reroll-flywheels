@@ -45,7 +45,7 @@ app.get('/api/health', (c) =>
 
 app.get('/api/config', (c) => c.json(getAppConfig(db)));
 
-app.route('/api/admin', createAdminRoutes(db));
+app.route('/api/admin', createAdminRoutes(db, rootDir));
 
 if (existsSync(distDir)) {
   app.use('/assets/*', serveStatic({ root: distDir }));

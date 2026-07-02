@@ -79,22 +79,24 @@ export function PlateChangeCard({
 
   return (
     <section className={panel}>
-      <div className="mb-2 grid grid-cols-3 items-center gap-2">
-        <label className="flex min-w-0 cursor-pointer items-center gap-2">
+      <div className="mb-2 flex items-start justify-between gap-3">
+        <label className="flex min-w-0 flex-1 cursor-pointer items-start gap-2">
           <input
             type="checkbox"
             checked={checked}
             onChange={onToggle}
-            className="h-4 w-4 shrink-0 rounded border-border accent-brand"
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-border accent-brand"
           />
-          <h2 className={`${panelTitle} truncate`}>{line.label}</h2>
+          <div className="min-w-0">
+            <h2 className={`${panelTitle} leading-snug`}>{line.label}</h2>
+            <p
+              className={`mt-0.5 ${panelEyebrow} normal-case tracking-wide ${vehicle ? '' : 'opacity-60'}`}
+            >
+              {vehicle?.model ?? 'Aucun véhicule'}
+            </p>
+          </div>
         </label>
-        <span
-          className={`min-w-0 truncate text-center ${panelEyebrow} ${vehicle ? '' : 'opacity-60'}`}
-        >
-          {vehicle?.model ?? '—'}
-        </span>
-        <span className={`text-right text-sm font-semibold ${textBrand} ${money}`}>
+        <span className={`shrink-0 pt-0.5 text-right text-sm font-semibold ${textBrand} ${money}`}>
           {formatMoney(lineTotal)}
         </span>
       </div>
@@ -162,7 +164,7 @@ export function PlateChangeCard({
                 </button>
               </div>
               {isReady ? (
-                <p className={`mx-auto max-w-md truncate px-2 text-[10px] ${textMuted}`}>
+                <p className={`mx-auto max-w-md px-2 text-[10px] leading-snug break-words ${textMuted}`}>
                   {formatPlateChange(fields, vehicleModel)}
                 </p>
               ) : null}
@@ -192,7 +194,9 @@ export function PlateChangeCard({
                 >
                   <CopyIcon />
                 </button>
-                <span className="min-w-0 flex-1 truncate text-fg-secondary">{entry.label}</span>
+                <span className="min-w-0 flex-1 text-fg-secondary leading-snug line-clamp-2" title={entry.label}>
+                  {entry.label}
+                </span>
                 <span className={`shrink-0 font-semibold ${textBrand} ${money}`}>
                   {formatMoney(entry.amount)}
                 </span>

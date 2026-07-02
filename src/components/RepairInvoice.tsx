@@ -1,7 +1,12 @@
 import { useMemo } from 'react';
 import type { RepairLine, RepairState, VehiclePricing } from '../lib/types';
 import { isPlateRepairLine } from '../lib/line-kind';
-import { effectiveRepairPrice, repairSelectionTotal, canAddSelectionToCart } from '../lib/formulas';
+import {
+  effectiveRepairPrice,
+  repairSelectionTotal,
+  canAddSelectionToCart,
+  type RepairPricingContext,
+} from '../lib/formulas';
 import { formatMoney } from '../lib/format';
 import { btnPrimary, inputQty, money, panel, panelHeader, panelTitle, rowActive, rowBase, textBrand, textMuted } from '../lib/ui';
 
@@ -14,7 +19,7 @@ function hasQtyDropdown(line: RepairLine): boolean {
 const QTY_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 /** Shared grid: checkbox · label · unit price · qty · line total */
 const ROW_GRID =
-  'grid grid-cols-[auto_minmax(0,1fr)_3.5rem_2.25rem_3.5rem] items-center gap-x-2';
+  'grid grid-cols-[auto_minmax(0,1.35fr)_3.75rem_2.5rem_3.75rem] items-center gap-x-2';
 
 interface RepairInvoiceProps {
   repairs: RepairLine[];
@@ -22,6 +27,7 @@ interface RepairInvoiceProps {
   onChange: (state: RepairState) => void;
   onAddToCart: () => void;
   vehicle: VehiclePricing | null;
+  pricing: RepairPricingContext;
 }
 
 export function RepairInvoice({
@@ -30,15 +36,16 @@ export function RepairInvoice({
   onChange,
   onAddToCart,
   vehicle,
+  pricing,
 }: RepairInvoiceProps) {
   const selectionTotal = useMemo(
-    () => repairSelectionTotal(repairs, state, vehicle),
-    [repairs, state, vehicle],
+    () => repairSelectionTotal(repairs, state, vehicle, pricing),
+    [repairs, state, vehicle, pricing],
   );
 
   const canAddToCart = useMemo(
-    () => canAddSelectionToCart(repairs, state, vehicle),
-    [repairs, state, vehicle],
+    () => canAddSelectionToCart(repairs, state, vehicle, pricing),
+    [repairs, state, vehicle, pricing],
   );
 
   const billableLines = repairs.filter((line) => !isPlateRepairLine(line));
@@ -70,7 +77,7 @@ export function RepairInvoice({
         {billableLines.map((line) => {
           const row = state[line.id];
           const qtyDropdown = hasQtyDropdown(line);
-          const unitPrice = effectiveRepairPrice(line, vehicle);
+          const unitPrice = effectiveRepairPrice(line, vehicle, pricing);
           const lineTotal = row?.checked ? unitPrice * Math.max(row.qty, 1) : 0;
 
           return (
@@ -86,7 +93,9 @@ export function RepairInvoice({
                 onChange={() => toggle(line.id)}
                 className="h-4 w-4 rounded border-border accent-brand"
               />
-              <span className="min-w-0 truncate font-medium text-fg">{line.label}</span>
+              <span className="min-w-0 font-medium leading-snug text-fg text-xs sm:text-sm" title={line.label}>
+                {line.label}
+              </span>
               <span className={`text-right text-xs ${textMuted} ${money}`}>
                 {formatMoney(unitPrice)}
               </span>

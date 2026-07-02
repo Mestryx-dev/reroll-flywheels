@@ -1,5 +1,5 @@
 import { DEV_API_PORT } from './lib/dev-port';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ConfigProvider, useAppConfig } from './context/ConfigContext';
 import { Layout } from './components/Layout';
@@ -15,6 +15,21 @@ function PublicApp() {
   const { config, loading, error, configSource } = useAppConfig();
   const [view, setView] = useState<View>('calculator');
   const [disclaimerOpen, dismissDisclaimer] = useRpDisclaimerVisible();
+
+  const calculatorConfigKey = useMemo(() => {
+    if (!config) {
+      return '';
+    }
+    return JSON.stringify({
+      repairs: config.repairs.map((line) => ({
+        id: line.id,
+        price: line.price,
+        defaultChecked: line.defaultChecked,
+        defaultQty: line.defaultQty,
+      })),
+      repairByRange: config.repairByRange,
+    });
+  }, [config]);
 
   if (loading) {
     return (
@@ -58,7 +73,7 @@ function PublicApp() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
             >
-              <CalculatorPanel config={{ repairs: config.repairs }} />
+              <CalculatorPanel configKey={calculatorConfigKey} />
             </motion.div>
           )}
         </AnimatePresence>

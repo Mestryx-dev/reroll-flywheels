@@ -29,16 +29,19 @@ export const adminFormulaCard =
   'rounded-md border border-border bg-surface-sunken px-2 py-1.5 text-center';
 
 export const adminLineRow =
-  'grid grid-cols-[2.5rem_minmax(0,1fr)_3.75rem_1.75rem_2rem_1.5rem] items-center gap-x-1 gap-y-0 border-b border-border/35 py-1 last:border-b-0';
+  'grid grid-cols-[3.25rem_minmax(0,1fr)_3.75rem_1.75rem_2rem_1.5rem] items-center gap-x-1 gap-y-0 border-b border-border/35 py-1 last:border-b-0';
 
 export const adminLineHead =
-  'grid grid-cols-[2.5rem_minmax(0,1fr)_3.75rem_1.75rem_2rem_1.5rem] gap-x-1 px-0 pb-0.5 text-[9px] uppercase tracking-wider text-fg-muted';
+  'grid grid-cols-[3.25rem_minmax(0,1fr)_3.75rem_1.75rem_2rem_1.5rem] gap-x-1 px-0 pb-0.5 text-[9px] uppercase tracking-wider text-fg-muted';
 
-export const adminRangeColRow =
-  'grid grid-cols-[minmax(0,1fr)_3.25rem] items-center gap-x-1 border-b border-border/35 py-0.5 last:border-b-0';
+export const adminRangeTile =
+  'grid grid-cols-[minmax(0,1fr)_3.5rem] items-center gap-x-1.5 rounded-md border border-border/35 bg-surface-sunken/25 px-1.5 py-1';
 
-export const adminRangeColHead =
-  'grid grid-cols-[minmax(0,1fr)_3.25rem] gap-x-1 pb-0.5 text-[9px] uppercase tracking-wider text-fg-muted';
+export const adminRangeTileLabel =
+  'font-mono text-[10px] leading-tight text-fg-secondary break-all';
+
+export const adminRangeGrid =
+  'grid gap-1.5 [grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr))]';
 
 export const adminAddRow =
   'mt-1.5 grid grid-cols-[minmax(0,1fr)_3.75rem_1.75rem_auto] items-center gap-1.5 border-t border-dashed border-border pt-1.5';

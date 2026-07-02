@@ -4,6 +4,7 @@ import { AdminLayout } from '../components/admin/AdminLayout';
 import { FormulasSection } from '../components/admin/FormulasSection';
 import { RepairLinesSection } from '../components/admin/RepairLinesSection';
 import { RepairRangesSection } from '../components/admin/RepairRangesSection';
+import { SyncSection } from '../components/admin/SyncSection';
 import { useAppConfig } from '../context/ConfigContext';
 import { fetchAdminState, type AdminState } from '../lib/admin-api';
 import { adminPanel } from '../components/admin/admin-ui';
@@ -42,6 +43,11 @@ export function AdminPage() {
 
   async function handleRangesSaved(ranges: AdminState['repairByRange']) {
     setState((current) => (current ? { ...current, repairByRange: ranges } : current));
+    await refreshPublicConfig();
+  }
+
+  async function handleSyncApplied() {
+    await loadState();
     await refreshPublicConfig();
   }
 
@@ -88,10 +94,8 @@ export function AdminPage() {
           ranges={state.repairByRange}
           onSaved={(ranges) => void handleRangesSaved(ranges)}
         />
+        <SyncSection onApplied={() => void handleSyncApplied()} />
       </div>
-      <p className="mt-2 text-center text-[11px] text-fg-muted">
-        Modifications actives sur la calculette · sync Sheet (phase C) à venir
-      </p>
     </AdminLayout>
   );
 }

@@ -64,20 +64,21 @@ export function VehicleLookup({
 }: VehicleLookupProps) {
   const { config } = useAppConfig();
   const vehicles = config?.vehicles ?? [];
+  const formulas = config?.formulas;
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<VehiclePricing | null>(null);
   const inputWrapRef = useRef<HTMLDivElement>(null);
 
   const results = useMemo(() => {
     const q = normalizeSearch(query);
-    if (q.length < 2) {
+    if (q.length < 2 || !formulas) {
       return [];
     }
     return vehicles
       .filter((vehicle) => normalizeSearch(vehicle.model).includes(q))
       .slice(0, MAX_RESULTS)
-      .map((vehicle) => pricingFromCatalog(vehicle));
-  }, [query, vehicles]);
+      .map((vehicle) => pricingFromCatalog(vehicle, formulas));
+  }, [query, vehicles, formulas]);
 
   const dropdownOpen = results.length > 0 && !selected;
   const dropdownPosition = useDropdownPosition(inputWrapRef, dropdownOpen);

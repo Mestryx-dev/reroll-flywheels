@@ -38,6 +38,7 @@ function handleRowKeyDown(event: KeyboardEvent<HTMLDivElement>, onSelect: () => 
 export function VehicleCatalog() {
   const { config } = useAppConfig();
   const vehicles = config?.vehicles ?? [];
+  const formulas = config?.formulas;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [dealership, setDealership] = useState('');
@@ -86,7 +87,10 @@ export function VehicleCatalog() {
   }, [query, category, dealership, sort, vehicles]);
 
   function selectVehicle(vehicle: CatalogVehicle) {
-    setSelected(pricingFromCatalog(vehicle));
+    if (!formulas) {
+      return;
+    }
+    setSelected(pricingFromCatalog(vehicle, formulas));
   }
 
   function resetFilters() {
@@ -185,10 +189,14 @@ export function VehicleCatalog() {
           </p>
         ) : (
           filtered.map((vehicle, index) => {
-                const pricing = pricingFromCatalog(vehicle);
+                const pricing = formulas ? pricingFromCatalog(vehicle, formulas) : null;
                 const rowKey = `${catalogVehicleKey(vehicle)}#${index}`;
                 const active =
                   selected !== null && catalogVehicleKey(selected) === catalogVehicleKey(vehicle);
+
+            if (!pricing) {
+              return null;
+            }
 
             return (
               <div

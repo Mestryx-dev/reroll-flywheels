@@ -18,7 +18,7 @@
     "build:server": "tsc -p tsconfig.server.json",
     "start": "node dist-server/index.js",
     "preview": "vite preview",
-    "sync-data": "node scripts/sync-from-sheet.mjs"
+    "sync-data": "tsx scripts/sync-from-sheet.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.6",

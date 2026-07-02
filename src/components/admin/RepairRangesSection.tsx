@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { AdminRangeRow } from '../../lib/admin-api';
 import { saveRepairByRange } from '../../lib/admin-api';
 import { btnPrimary } from '../../lib/ui';
 import {
   adminFieldPrice,
-  adminRangeColHead,
-  adminRangeColRow,
+  adminRangeGrid,
+  adminRangeTile,
+  adminRangeTileLabel,
   adminSection,
   adminSectionHead,
   adminSectionHint,
@@ -19,40 +20,26 @@ interface RepairRangesSectionProps {
   onSaved: (ranges: AdminRangeRow[]) => void;
 }
 
-function chunkColumns<T>(items: T[], columnCount: number): T[][] {
-  const size = Math.ceil(items.length / columnCount);
-  return Array.from({ length: columnCount }, (_, index) =>
-    items.slice(index * size, index * size + size),
-  ).filter((column) => column.length > 0);
-}
-
-interface RangeColumnProps {
-  rows: AdminRangeRow[];
-  priceText: Record<string, string>;
+interface RangeTileProps {
+  row: AdminRangeRow;
+  priceValue: string;
   onPriceChange: (rangeKey: string, value: string) => void;
 }
 
-function RangeColumn({ rows, priceText, onPriceChange }: RangeColumnProps) {
+function RangeTile({ row, priceValue, onPriceChange }: RangeTileProps) {
   return (
-    <div className="min-w-0">
-      <div className={adminRangeColHead}>
-        <span>Gamme</span>
-        <span className="text-right">Prix</span>
-      </div>
-      {rows.map((row) => (
-        <div key={row.rangeKey} className={adminRangeColRow}>
-          <span className="truncate font-mono text-[10px] leading-tight text-fg-secondary" title={row.label}>
-            {row.rangeKey}
-          </span>
-          <input
-            type="text"
-            inputMode="numeric"
-            className={adminFieldPrice}
-            value={priceText[row.rangeKey] ?? String(row.price)}
-            onChange={(event) => onPriceChange(row.rangeKey, event.target.value)}
-          />
-        </div>
-      ))}
+    <div className={adminRangeTile}>
+      <span className={adminRangeTileLabel} title={row.label}>
+        {row.rangeKey}
+      </span>
+      <input
+        type="text"
+        inputMode="numeric"
+        className={adminFieldPrice}
+        aria-label={`Prix ${row.label}`}
+        value={priceValue}
+        onChange={(event) => onPriceChange(row.rangeKey, event.target.value)}
+      />
     </div>
   );
 }
@@ -62,8 +49,6 @@ export function RepairRangesSection({ ranges, onSaved }: RepairRangesSectionProp
   const [priceText, setPriceText] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
-
-  const columns = useMemo(() => chunkColumns(draft, 3), [draft]);
 
   useEffect(() => {
     setDraft(ranges);
@@ -106,12 +91,12 @@ export function RepairRangesSection({ ranges, onSaved }: RepairRangesSectionProp
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {columns.map((column, index) => (
-          <RangeColumn
-            key={`range-col-${index}`}
-            rows={column}
-            priceText={priceText}
+      <div className={adminRangeGrid}>
+        {draft.map((row) => (
+          <RangeTile
+            key={row.rangeKey}
+            row={row}
+            priceValue={priceText[row.rangeKey] ?? String(row.price)}
             onPriceChange={(rangeKey, value) =>
               setPriceText((current) => ({ ...current, [rangeKey]: value }))
             }

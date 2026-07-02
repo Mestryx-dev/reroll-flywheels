@@ -1,15 +1,20 @@
 import type { CatalogVehicle, RepairLine, RepairState, VehiclePricing } from './types';
 import { isPlateRepairLine, isRangeBasedRepairLine } from './line-kind';
-import { getFormulas } from './runtime-catalog';
+import type { PricingFormulas } from './runtime-catalog';
 import { repairPriceForVehicle } from './repair-prices';
+
+export interface RepairPricingContext {
+  repairByRange: Record<string, number>;
+}
 
 export function pricingFromHT(
   model: string,
   range: string,
   priceHT: number,
   dealership = '',
+  formulas: PricingFormulas,
 ): VehiclePricing {
-  const rates = getFormulas();
+  const rates = formulas;
   return {
     model,
     range,
@@ -21,8 +26,17 @@ export function pricingFromHT(
   };
 }
 
-export function pricingFromCatalog(vehicle: CatalogVehicle): VehiclePricing {
-  return pricingFromHT(vehicle.model, vehicle.range, vehicle.priceHT, vehicle.dealership);
+export function pricingFromCatalog(
+  vehicle: CatalogVehicle,
+  formulas: PricingFormulas,
+): VehiclePricing {
+  return pricingFromHT(
+    vehicle.model,
+    vehicle.range,
+    vehicle.priceHT,
+    vehicle.dealership,
+    formulas,
+  );
 }
 
 export function initialRepairState(repairs: RepairLine[]): RepairState {
@@ -40,9 +54,10 @@ export function initialRepairState(repairs: RepairLine[]): RepairState {
 export function effectiveRepairPrice(
   line: RepairLine,
   vehicle: VehiclePricing | null | undefined,
+  pricing: RepairPricingContext,
 ): number {
   if (isRangeBasedRepairLine(line)) {
-    return repairPriceForVehicle(vehicle);
+    return repairPriceForVehicle(vehicle, pricing.repairByRange);
   }
   return line.price;
 }
@@ -51,29 +66,32 @@ export function repairLineTotal(
   line: RepairLine,
   checked: boolean,
   qty: number,
-  vehicle?: VehiclePricing | null,
+  vehicle: VehiclePricing | null | undefined,
+  pricing: RepairPricingContext,
 ): number {
   if (!checked) {
     return 0;
   }
-  return effectiveRepairPrice(line, vehicle) * Math.max(qty, 1);
+  return effectiveRepairPrice(line, vehicle, pricing) * Math.max(qty, 1);
 }
 
 export function repairSelectionTotal(
   repairs: RepairLine[],
   state: RepairState,
-  vehicle?: VehiclePricing | null,
+  vehicle: VehiclePricing | null | undefined,
+  pricing: RepairPricingContext,
 ): number {
   return repairs.reduce((sum, line) => {
     const row = state[line.id];
-    return sum + repairLineTotal(line, row?.checked ?? false, row?.qty ?? 1, vehicle);
+    return sum + repairLineTotal(line, row?.checked ?? false, row?.qty ?? 1, vehicle, pricing);
   }, 0);
 }
 
 export function canAddSelectionToCart(
   repairs: RepairLine[],
   state: RepairState,
-  vehicle?: VehiclePricing | null,
+  vehicle: VehiclePricing | null | undefined,
+  pricing: RepairPricingContext,
 ): boolean {
   return repairs.some((line) => {
     if (isPlateRepairLine(line)) {
@@ -83,14 +101,15 @@ export function canAddSelectionToCart(
     if (!row?.checked) {
       return false;
     }
-    return effectiveRepairPrice(line, vehicle) > 0;
+    return effectiveRepairPrice(line, vehicle, pricing) > 0;
   });
 }
 
 export function buildCartLinesFromSelection(
   repairs: RepairLine[],
   state: RepairState,
-  vehicle?: VehiclePricing | null,
+  vehicle: VehiclePricing | null | undefined,
+  pricing: RepairPricingContext,
 ): Array<{ label: string; amount: number }> {
   const prefix = vehicle?.model ? `${vehicle.model} · ` : '';
   const parts: Array<{ part: string; amount: number }> = [];
@@ -104,7 +123,7 @@ export function buildCartLinesFromSelection(
       continue;
     }
     const qty = Math.max(row.qty, 1);
-    const unitPrice = effectiveRepairPrice(line, vehicle);
+    const unitPrice = effectiveRepairPrice(line, vehicle, pricing);
     if (unitPrice <= 0) {
       continue;
     }

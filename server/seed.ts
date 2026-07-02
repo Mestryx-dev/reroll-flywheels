@@ -1,6 +1,7 @@
 import type Database from 'better-sqlite3';
 import { readFileSync } from 'node:fs';
 import type { RepairLineKind } from './db.js';
+import { inferRepairLineKind } from './line-kind.js';
 
 interface CatalogJson {
   vehicles: Array<{
@@ -26,13 +27,7 @@ const DEFAULT_FORMULAS: Record<string, number> = {
 };
 
 function inferKind(lineId: string): RepairLineKind {
-  if (lineId === 'reparations') {
-    return 'range_based';
-  }
-  if (lineId === 'changement_de_plaque') {
-    return 'plate';
-  }
-  return 'fixed';
+  return inferRepairLineKind(lineId);
 }
 
 export function seedFromCatalogFile(db: Database.Database, catalogPath: string): void {
