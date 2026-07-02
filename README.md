@@ -51,11 +51,30 @@ To adjust brand colors, edit the `:root` and `.dark` blocks in `index.css` once 
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev          # Vite (:5173+) + API (:4783), proxy /api → API
+pnpm build        # dist/ + dist-server/
+pnpm start        # production Node server (:3000)
 ```
+
+Local SQLite: `data/flywheels.db` (seeded from `catalog.json` on first boot).
+
+**Admin:** https://your-host/admin — no auth; edits apply immediately to the calculator.
 
 ## Deploy
 
-Static build (`dist/`) — Docker + nginx included. See `Dockerfile`.
+**Dev branch:** single Node container — serves `dist/` + `/api/*`, SQLite on volume `DATA_DIR` (default `/app/data`).
 
-**Production:** https://flywheels-calc.mestryx.dev (Dokploy project **Reroll**)
+```bash
+docker build -t flywheels-calc .
+docker run -p 3000:3000 -v flywheels-data:/app/data flywheels-calc
+```
+
+**Dokploy (dev):** project **Reroll** → env **Dev** → https://flywheels-calc-dev.mestryx.dev  
+Container port **3000**, mount volume on `/app/data`. Runtime image includes `src/data/vehicles.csv` for Data sync.
+
+**Production (`main`):** static nginx only — **no `/api`** until `dev` is merged.
+
+| URL | Stack |
+|-----|--------|
+| https://flywheels-calc-dev.mestryx.dev | Node + SQLite + `/admin` (branch `dev`) |
+| https://flywheels-calc.mestryx.dev | Static calc only (branch `main`) |

@@ -4333,7 +4333,7 @@
       "id": "ouvrable",
       "label": "Ouvrable",
       "price": 50,
-      "defaultChecked": false,
+      "defaultChecked": true,
       "defaultQty": 1
     },
     {
@@ -4394,7 +4394,7 @@
     },
     {
       "id": "changement_de_plaque",
-      "label": "Plaque",
+      "label": "Changement de plaque",
       "price": 1000,
       "defaultChecked": false,
       "defaultQty": null

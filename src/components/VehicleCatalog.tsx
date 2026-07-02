@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { vehicles } from '../data';
+import { useAppConfig } from '../context/ConfigContext';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import { catalogGrid, catalogShell, shellCatalog } from '../lib/layout';
@@ -36,6 +36,9 @@ function handleRowKeyDown(event: KeyboardEvent<HTMLDivElement>, onSelect: () => 
 }
 
 export function VehicleCatalog() {
+  const { config } = useAppConfig();
+  const vehicles = config?.vehicles ?? [];
+  const formulas = config?.formulas;
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [dealership, setDealership] = useState('');
@@ -44,12 +47,12 @@ export function VehicleCatalog() {
 
   const categories = useMemo(
     () => uniqueSorted(vehicles.map((vehicle) => vehicle.range)),
-    [],
+    [vehicles],
   );
 
   const dealerships = useMemo(
     () => uniqueSorted(vehicles.map((vehicle) => vehicle.dealership)),
-    [],
+    [vehicles],
   );
 
   const filtered = useMemo(() => {
@@ -81,10 +84,13 @@ export function VehicleCatalog() {
     });
 
     return list;
-  }, [query, category, dealership, sort]);
+  }, [query, category, dealership, sort, vehicles]);
 
   function selectVehicle(vehicle: CatalogVehicle) {
-    setSelected(pricingFromCatalog(vehicle));
+    if (!formulas) {
+      return;
+    }
+    setSelected(pricingFromCatalog(vehicle, formulas));
   }
 
   function resetFilters() {
@@ -173,7 +179,6 @@ export function VehicleCatalog() {
               <span className={CATALOG_HEADER}>Concession</span>
               <span className={`${CATALOG_HEADER} text-right`}>Prix HT</span>
               <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
-              <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
             </div>
       </div>
 
@@ -184,10 +189,14 @@ export function VehicleCatalog() {
           </p>
         ) : (
           filtered.map((vehicle, index) => {
-                const pricing = pricingFromCatalog(vehicle);
+                const pricing = formulas ? pricingFromCatalog(vehicle, formulas) : null;
                 const rowKey = `${catalogVehicleKey(vehicle)}#${index}`;
                 const active =
                   selected !== null && catalogVehicleKey(selected) === catalogVehicleKey(vehicle);
+
+            if (!pricing) {
+              return null;
+            }
 
             return (
               <div
@@ -212,9 +221,6 @@ export function VehicleCatalog() {
                 </span>
                 <span className={`text-right font-semibold ${textBrand} ${money}`}>
                   {formatMoney(pricing.priceTTC)}
-                </span>
-                <span className={`text-right font-semibold ${textBrand} ${money}`}>
-                  {formatMoney(pricing.rachat)}
                 </span>
               </div>
             );
@@ -243,7 +249,6 @@ export function VehicleCatalog() {
                   ['TTC', formatMoney(selected.priceTTC), true],
                   ['Explo.', formatMoney(selected.explosion), false],
                   ['Noyade', formatMoney(selected.noyade), false],
-                  ['Rachat', formatMoney(selected.rachat), false],
                 ].map(([label, value, highlight]) => (
                   <div
                     key={label as string}

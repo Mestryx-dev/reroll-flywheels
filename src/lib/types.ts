@@ -5,7 +5,6 @@ export interface VehiclePricing {
   priceTTC: number;
   explosion: number;
   noyade: number;
-  rachat: number;
   dealership: string;
 }
 
@@ -22,6 +21,8 @@ export interface RepairLine {
   price: number;
   defaultChecked: boolean;
   defaultQty: number | null;
+  /** `fixed` | `range_based` | `plate` — from API; omitted in bundled catalog.json */
+  kind?: string;
 }
 
 export interface CalculatorConfig {

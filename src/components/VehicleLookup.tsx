@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { vehicles } from '../data';
+import { useAppConfig } from '../context/ConfigContext';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import type { VehiclePricing } from '../lib/types';
@@ -62,20 +62,23 @@ export function VehicleLookup({
   hideInlinePricing = false,
   compact = false,
 }: VehicleLookupProps) {
+  const { config } = useAppConfig();
+  const vehicles = config?.vehicles ?? [];
+  const formulas = config?.formulas;
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<VehiclePricing | null>(null);
   const inputWrapRef = useRef<HTMLDivElement>(null);
 
   const results = useMemo(() => {
     const q = normalizeSearch(query);
-    if (q.length < 2) {
+    if (q.length < 2 || !formulas) {
       return [];
     }
     return vehicles
       .filter((vehicle) => normalizeSearch(vehicle.model).includes(q))
       .slice(0, MAX_RESULTS)
-      .map((vehicle) => pricingFromCatalog(vehicle));
-  }, [query]);
+      .map((vehicle) => pricingFromCatalog(vehicle, formulas));
+  }, [query, vehicles, formulas]);
 
   const dropdownOpen = results.length > 0 && !selected;
   const dropdownPosition = useDropdownPosition(inputWrapRef, dropdownOpen);
@@ -153,7 +156,7 @@ export function VehicleLookup({
         <motion.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-brand/25 bg-brand-subtle p-2 sm:grid-cols-6"
+          className="mt-2 grid grid-cols-2 gap-1 rounded-lg border border-brand/25 bg-brand-subtle p-2 sm:grid-cols-5"
         >
           {[
             ['Type', selected.range, false],
@@ -161,7 +164,6 @@ export function VehicleLookup({
             ['TTC', formatMoney(selected.priceTTC), true],
             ['Explo.', formatMoney(selected.explosion), false],
             ['Noyade', formatMoney(selected.noyade), false],
-            ['Rachat', formatMoney(selected.rachat), false],
           ].map(([label, value, highlight]) => (
             <div key={label as string} className="text-center">
               <p className="text-[10px] uppercase text-fg-muted">{label as string}</p>

@@ -1,7 +1,10 @@
 # Dependencies
 node_modules
 dist
+dist-server
 dist-ssr
+data/
+*.db
 *.local
 
 # Logs

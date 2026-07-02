@@ -1,5 +1,3 @@
-import { repairByRange } from '../data';
-
 /** CSV / catalog spelling variants → canonical range key in repairByRange. */
 const RANGE_ALIASES: Record<string, string> = {
   berline: 'sedans',
@@ -11,7 +9,10 @@ function normalizeRangeKey(range: string): string {
   return RANGE_ALIASES[key] ?? key;
 }
 
-export function repairPriceForRange(range: string): number {
+export function repairPriceForRange(
+  range: string,
+  repairByRange: Record<string, number>,
+): number {
   if (!range.trim()) {
     return 0;
   }
@@ -20,11 +21,12 @@ export function repairPriceForRange(range: string): number {
 
 export function repairPriceForVehicle(
   vehicle: { range: string } | null | undefined,
+  repairByRange: Record<string, number>,
 ): number {
   if (!vehicle) {
     return 0;
   }
-  return repairPriceForRange(vehicle.range);
+  return repairPriceForRange(vehicle.range, repairByRange);
 }
 
 export const REPARATIONS_LINE_ID = 'reparations';

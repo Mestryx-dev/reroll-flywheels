@@ -392,6 +392,26 @@ body {
     box-shadow: 0 1px 0 color-mix(in srgb, var(--fw-brand-hover) 90%, #000);
   }
 
+  .fw-btn-primary:focus {
+    outline: none;
+  }
+
+  .fw-btn-primary:focus-visible {
+    outline: 2px solid var(--fw-accent);
+    outline-offset: 3px;
+  }
+
+  .fw-btn-primary:focus:not(:focus-visible) {
+    box-shadow:
+      0 3px 0 color-mix(in srgb, var(--fw-brand-hover) 90%, #000),
+      0 4px 12px var(--fw-brand-subtle);
+  }
+
+  .fw-input:focus-visible {
+    outline: 2px solid var(--fw-accent);
+    outline-offset: 2px;
+  }
+
   .fw-badge {
     display: inline-block;
     max-width: 100%;

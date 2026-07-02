@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import type { CalculatorConfig, VehiclePricing } from '../lib/types';
+import { useEffect, useMemo, useState } from 'react';
+import { useAppConfig } from '../context/ConfigContext';
+import type { VehiclePricing } from '../lib/types';
 import type { CartLine } from '../lib/cart';
 import { createCartLine, cartTotal } from '../lib/cart';
 import {
@@ -14,15 +15,22 @@ import { VehicleLookup } from './VehicleLookup';
 import { RepairInvoice } from './RepairInvoice';
 import { InvoiceCart, TotalBadge } from './InvoiceCart';
 import { PlateChangeCard } from './PlateChangeCard';
-import { isPlateChangeLine } from '../lib/plate-change';
+import { isPlateRepairLine } from '../lib/line-kind';
 
 interface CalculatorPanelProps {
-  config: CalculatorConfig;
+  configKey: string;
 }
 
-export function CalculatorPanel({ config }: CalculatorPanelProps) {
+export function CalculatorPanel({ configKey }: CalculatorPanelProps) {
+  const { config } = useAppConfig();
+  const repairs = config?.repairs ?? [];
+  const repairPricing = useMemo(
+    () => ({ repairByRange: config?.repairByRange ?? {} }),
+    [config?.repairByRange],
+  );
+
   const [vehicle, setVehicle] = useState<VehiclePricing | null>(null);
-  const [repairState, setRepairState] = useState(() => initialRepairState(config.repairs));
+  const [repairState, setRepairState] = useState(() => initialRepairState(repairs));
   const [cart, setCart] = useState<CartLine[]>([]);
   const [lookupKey, setLookupKey] = useState(0);
   const [plateChange, setPlateChange] = useState<PlateChangeFields>(emptyPlateChange);
@@ -30,10 +38,14 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
   const [plateChangeLines, setPlateChangeLines] = useState<PlateChangeEntry[]>([]);
 
   const total = cartTotal(cart);
-  const plateChangeLine = config.repairs.find((line) => isPlateChangeLine(line.id));
+  const plateChangeLine = repairs.find((line) => isPlateRepairLine(line));
+
+  useEffect(() => {
+    setRepairState(initialRepairState(repairs));
+  }, [configKey]);
 
   function addToCart() {
-    const entries = buildCartLinesFromSelection(config.repairs, repairState, vehicle);
+    const entries = buildCartLinesFromSelection(repairs, repairState, vehicle, repairPricing);
     if (entries.length === 0) {
       return;
     }
@@ -41,7 +53,7 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
       ...current,
       ...entries.map((entry) => createCartLine(entry.label, entry.amount)),
     ]);
-    setRepairState(initialRepairState(config.repairs));
+    setRepairState(initialRepairState(repairs));
   }
 
   function commitPlateChange() {
@@ -67,7 +79,7 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
   function validateInvoice() {
     setCart([]);
     setPlateChangeLines([]);
-    setRepairState(initialRepairState(config.repairs));
+    setRepairState(initialRepairState(repairs));
     setVehicle(null);
     setPlateChange(emptyPlateChange());
     setPlateChangeOpen(false);
@@ -96,11 +108,12 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
 
       <div className={calcBottomGrid}>
         <RepairInvoice
-          repairs={config.repairs}
+          repairs={repairs}
           state={repairState}
           onChange={setRepairState}
           onAddToCart={addToCart}
           vehicle={vehicle}
+          pricing={repairPricing}
         />
         <div className="flex flex-col gap-3">
           {plateChangeLine ? (
