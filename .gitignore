@@ -18,6 +18,7 @@ pnpm-debug.log*
 !.vscode/extensions.json
 .idea
 .DS_Store
+.cursor/
 
 # Env
 .env
