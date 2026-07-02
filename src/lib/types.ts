@@ -22,6 +22,8 @@ export interface RepairLine {
   price: number;
   defaultChecked: boolean;
   defaultQty: number | null;
+  /** `fixed` | `range_based` | `plate` — from API; omitted in bundled catalog.json */
+  kind?: string;
 }
 
 export interface CalculatorConfig {

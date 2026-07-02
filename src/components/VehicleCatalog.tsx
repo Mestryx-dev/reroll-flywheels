@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { vehicles } from '../data';
+import { useAppConfig } from '../context/ConfigContext';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import { catalogGrid, catalogShell, shellCatalog } from '../lib/layout';
@@ -36,6 +36,8 @@ function handleRowKeyDown(event: KeyboardEvent<HTMLDivElement>, onSelect: () => 
 }
 
 export function VehicleCatalog() {
+  const { config } = useAppConfig();
+  const vehicles = config?.vehicles ?? [];
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [dealership, setDealership] = useState('');
@@ -44,12 +46,12 @@ export function VehicleCatalog() {
 
   const categories = useMemo(
     () => uniqueSorted(vehicles.map((vehicle) => vehicle.range)),
-    [],
+    [vehicles],
   );
 
   const dealerships = useMemo(
     () => uniqueSorted(vehicles.map((vehicle) => vehicle.dealership)),
-    [],
+    [vehicles],
   );
 
   const filtered = useMemo(() => {
@@ -81,7 +83,7 @@ export function VehicleCatalog() {
     });
 
     return list;
-  }, [query, category, dealership, sort]);
+  }, [query, category, dealership, sort, vehicles]);
 
   function selectVehicle(vehicle: CatalogVehicle) {
     setSelected(pricingFromCatalog(vehicle));

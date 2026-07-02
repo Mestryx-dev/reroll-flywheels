@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import type { RepairLine, RepairState, VehiclePricing } from '../lib/types';
-import { isPlateChangeLine } from '../lib/plate-change';
+import { isPlateRepairLine } from '../lib/line-kind';
 import { effectiveRepairPrice, repairSelectionTotal, canAddSelectionToCart } from '../lib/formulas';
 import { formatMoney } from '../lib/format';
 import { btnPrimary, inputQty, money, panel, panelHeader, panelTitle, rowActive, rowBase, textBrand, textMuted } from '../lib/ui';
@@ -41,7 +41,7 @@ export function RepairInvoice({
     [repairs, state, vehicle],
   );
 
-  const billableLines = repairs.filter((line) => !isPlateChangeLine(line.id));
+  const billableLines = repairs.filter((line) => !isPlateRepairLine(line));
 
   function toggle(id: string) {
     onChange({

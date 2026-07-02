@@ -1,11 +1,7 @@
 import type { CatalogVehicle, RepairLine, RepairState, VehiclePricing } from './types';
-import { isPlateChangeLine } from './plate-change';
-import { isReparationsLine, repairPriceForVehicle } from './repair-prices';
-
-const TTC_RATE = 1.1;
-const EXPLOSION_RATE = 0.1;
-const NOYADE_RATE = 0.05;
-const RACHAT_RATE = 0.5;
+import { isPlateRepairLine, isRangeBasedRepairLine } from './line-kind';
+import { getFormulas } from './runtime-catalog';
+import { repairPriceForVehicle } from './repair-prices';
 
 export function pricingFromHT(
   model: string,
@@ -13,14 +9,15 @@ export function pricingFromHT(
   priceHT: number,
   dealership = '',
 ): VehiclePricing {
+  const rates = getFormulas();
   return {
     model,
     range,
     priceHT,
-    priceTTC: Math.round(priceHT * TTC_RATE),
-    explosion: Math.round(priceHT * EXPLOSION_RATE),
-    noyade: Math.round(priceHT * NOYADE_RATE),
-    rachat: Math.round(priceHT * RACHAT_RATE),
+    priceTTC: Math.round(priceHT * rates.ttcRate),
+    explosion: Math.round(priceHT * rates.explosionRate),
+    noyade: Math.round(priceHT * rates.noyadeRate),
+    rachat: Math.round(priceHT * rates.rachatRate),
     dealership,
   };
 }
@@ -45,7 +42,7 @@ export function effectiveRepairPrice(
   line: RepairLine,
   vehicle: VehiclePricing | null | undefined,
 ): number {
-  if (isReparationsLine(line.id)) {
+  if (isRangeBasedRepairLine(line)) {
     return repairPriceForVehicle(vehicle);
   }
   return line.price;
@@ -80,7 +77,7 @@ export function canAddSelectionToCart(
   vehicle?: VehiclePricing | null,
 ): boolean {
   return repairs.some((line) => {
-    if (isPlateChangeLine(line.id)) {
+    if (isPlateRepairLine(line)) {
       return false;
     }
     const row = state[line.id];
@@ -100,7 +97,7 @@ export function buildCartLinesFromSelection(
   const parts: Array<{ part: string; amount: number }> = [];
 
   for (const line of repairs) {
-    if (isPlateChangeLine(line.id)) {
+    if (isPlateRepairLine(line)) {
       continue;
     }
     const row = state[line.id];

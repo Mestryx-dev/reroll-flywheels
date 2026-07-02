@@ -1,6 +1,6 @@
 # Admin & data layer — dev branch plan
 
-Status: **draft for discussion** (2026-07-02)  
+Status: **in progress** on `dev` (2026-07-02)  
 Audience: direction RP (tariffs), dev (implementation on `dev`)  
 Scope: flywheels-calc — same site, admin route, editable business rules
 
@@ -11,7 +11,7 @@ Scope: flywheels-calc — same site, admin route, editable business rules
 | Need | Description |
 |------|-------------|
 | **Tariff ownership** | Direction edits prices and billable lines; mechanics use the public calculator only. |
-| **Same site** | Admin lives in the app (e.g. `/admin`) for now; auth/lock can come later. |
+| **Same site** | Admin lives in the app at `/admin` — **no auth** (direction decision: not required). |
 | **Editable lines** | CRUD on invoice lines (label, fixed price, default checked, optional qty) — like Ouvrable, Pneu, etc. |
 | **Réparations by gamme** | Repair base price depends on vehicle **range** (Compacts → 275, Sports → 750, …); admin must edit the gamme table. |
 | **Plaque price** | Single configurable price for plate change (today hardcoded in catalog / special line). |
@@ -21,7 +21,8 @@ Scope: flywheels-calc — same site, admin route, editable business rules
 Non-goals for first admin iteration:
 
 - Full vehicle catalog editor (720 rows) — keep import/sync; optional later.
-- Multi-user RBAC, audit trail, “validated in RP” workflow — phase 2.
+- Multi-user RBAC, audit trail, “validated in RP” workflow — out of scope unless requested later.
+- Admin authentication / password gate — **not required** (confirmed with direction).
 - Replacing Google Sheet as the only SSOT before direction is comfortable with in-app editing.
 
 ---
@@ -76,14 +77,14 @@ Why **SQLite** (not Postgres) on dev:
 
 - Single app, solo/small direction team, ~20 gammes + ~15 lines + optional vehicles snapshot.
 - One volume backup, simple rollback (copy file or snapshot row).
-- Upgrade path: same schema → Postgres if we add auth service or second app later.
+- Upgrade path: same schema → Postgres only if we outgrow single-file SQLite (unlikely for this app).
 
 Why **not** stay static-only for admin:
 
 - Direction needs **change without redeploy** and **add/remove lines**; bundled JSON cannot reflect that at runtime.
 - Plaque price + gamme table + formula coefficients fit naturally in DB.
 
-**Auth v0:** none or soft gate (env flag `ADMIN_ENABLED`, optional shared password header). Document “lock later” in ADR when enabling prod admin URL.
+**Auth:** none — `/admin` and write APIs are open on the deployed URL (same trust model as the public calculator; mechanics only use `/`).
 
 ---
 
@@ -236,18 +237,18 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 ### Phase A — Foundation (≈1 cycle)
 
-- [ ] Add `docs/adr/` entry: SQLite + in-app admin (no auth v0).
-- [ ] Introduce `server/` (Hono + better-sqlite3 or drizzle + sqlite).
-- [ ] Migrations + seed from current `catalog.json` on first boot.
-- [ ] `GET /api/config` consumed by SPA (replace static import gradually).
-- [ ] Dockerfile dev variant: Node runtime instead of nginx-only (or nginx reverse proxy to Node).
+- [ ] Add `docs/adr/` entry: SQLite + in-app admin (no auth).
+- [x] Introduce `server/` (Hono + better-sqlite3).
+- [x] Migrations + seed from current `catalog.json` on first boot.
+- [x] `GET /api/config` consumed by SPA (static `catalog.json` fallback if API down).
+- [x] Dockerfile dev variant: Node runtime (port 3000, volume `/app/data`).
 
 ### Phase B — Admin UI (≈1 cycle)
 
-- [ ] Route `/admin` + layout.
-- [ ] CRUD repair lines (add/remove/edit).
-- [ ] Grid repair_by_range + plaque price.
-- [ ] Formulas editor.
+- [x] Route `/admin` + layout.
+- [x] CRUD repair lines (add/remove/edit).
+- [x] Grid repair_by_range + plaque price.
+- [x] Formulas editor.
 
 ### Phase C — Sheet sync (≈0.5 cycle)
 
@@ -257,7 +258,6 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 ### Phase D — Hardening before main (≈0.5–1 cycle)
 
-- [ ] Optional basic auth (env password).
 - [ ] QA: Club Compacts 275, plate line independent, disclaimer unchanged.
 - [ ] Dokploy dev deploy + volume backup note in README.
 - [ ] Remove or keep build-time sync as CI fallback (recommend: CI seeds staging only).
@@ -268,7 +268,7 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 1. **Vehicle catalog in admin** — import-only via sync OK, or full grid editor in v1?
 2. **Sync merge** — when direction edits a gamme in admin then clicks Sync, does Sheet overwrite? (Proposed: confirm dialog per section.)
-3. **Auth timing** — public `/admin` on LAN/WAN acceptable until v1, or password from day one?
+3. ~~**Auth timing**~~ — **decided: no auth** for `/admin`.
 4. **“Validé RP”** — separate published flag later, or disclaimer enough for now?
 
 ---

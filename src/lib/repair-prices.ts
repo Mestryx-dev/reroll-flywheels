@@ -1,4 +1,4 @@
-import { repairByRange } from '../data';
+import { getRepairByRange } from './runtime-catalog';
 
 /** CSV / catalog spelling variants → canonical range key in repairByRange. */
 const RANGE_ALIASES: Record<string, string> = {
@@ -15,7 +15,7 @@ export function repairPriceForRange(range: string): number {
   if (!range.trim()) {
     return 0;
   }
-  return repairByRange[normalizeRangeKey(range)] ?? 0;
+  return getRepairByRange()[normalizeRangeKey(range)] ?? 0;
 }
 
 export function repairPriceForVehicle(

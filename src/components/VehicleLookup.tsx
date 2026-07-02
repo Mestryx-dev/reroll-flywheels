@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { vehicles } from '../data';
+import { useAppConfig } from '../context/ConfigContext';
 import { pricingFromCatalog } from '../lib/formulas';
 import { formatMoney, normalizeSearch, catalogVehicleKey } from '../lib/format';
 import type { VehiclePricing } from '../lib/types';
@@ -62,6 +62,8 @@ export function VehicleLookup({
   hideInlinePricing = false,
   compact = false,
 }: VehicleLookupProps) {
+  const { config } = useAppConfig();
+  const vehicles = config?.vehicles ?? [];
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<VehiclePricing | null>(null);
   const inputWrapRef = useRef<HTMLDivElement>(null);
@@ -75,7 +77,7 @@ export function VehicleLookup({
       .filter((vehicle) => normalizeSearch(vehicle.model).includes(q))
       .slice(0, MAX_RESULTS)
       .map((vehicle) => pricingFromCatalog(vehicle));
-  }, [query]);
+  }, [query, vehicles]);
 
   const dropdownOpen = results.length > 0 && !selected;
   const dropdownPosition = useDropdownPosition(inputWrapRef, dropdownOpen);

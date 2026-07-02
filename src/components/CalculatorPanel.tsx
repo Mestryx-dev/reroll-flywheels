@@ -14,7 +14,7 @@ import { VehicleLookup } from './VehicleLookup';
 import { RepairInvoice } from './RepairInvoice';
 import { InvoiceCart, TotalBadge } from './InvoiceCart';
 import { PlateChangeCard } from './PlateChangeCard';
-import { isPlateChangeLine } from '../lib/plate-change';
+import { isPlateRepairLine } from '../lib/line-kind';
 
 interface CalculatorPanelProps {
   config: CalculatorConfig;
@@ -30,7 +30,7 @@ export function CalculatorPanel({ config }: CalculatorPanelProps) {
   const [plateChangeLines, setPlateChangeLines] = useState<PlateChangeEntry[]>([]);
 
   const total = cartTotal(cart);
-  const plateChangeLine = config.repairs.find((line) => isPlateChangeLine(line.id));
+  const plateChangeLine = config.repairs.find((line) => isPlateRepairLine(line));
 
   function addToCart() {
     const entries = buildCartLinesFromSelection(config.repairs, repairState, vehicle);
