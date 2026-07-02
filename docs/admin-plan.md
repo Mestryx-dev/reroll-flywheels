@@ -260,7 +260,7 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 - [ ] QA: Club Compacts 275, plate line independent, disclaimer unchanged.
 - [x] Dokploy dev deploy (`flywheels-calc-dev.mestryx.dev`).
-- [ ] Dokploy prod volume `/app/data` + backup note (see README / AGENTS.md).
+- [x] Dokploy prod + dev volume `/app/data` (`flywheels-calc-prod-data`, `flywheels-calc-dev-data`).
 - [x] CLI sync: `pnpm sync-data` → `scripts/sync-from-sheet.ts`.
 
 ---

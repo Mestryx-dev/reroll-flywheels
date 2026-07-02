@@ -15,8 +15,10 @@ Web calculator for the **Flywheels** RP garage (vehicle lookup, repair lines, in
 
 | Environment | URL | Branch | Notes |
 |-------------|-----|--------|-------|
-| **Production** | https://flywheels-calc.mestryx.dev | `main` | Node monolith, port **3000**, volume `/app/data` |
-| **Dev** | https://flywheels-calc-dev.mestryx.dev | `dev` | Same stack; auto-deploy on push |
+| **Production** | https://flywheels-calc.mestryx.dev | `main` | Node monolith, port **3000**, volume `flywheels-calc-prod-data` → `/app/data` |
+| **Dev** | https://flywheels-calc-dev.mestryx.dev | `dev` | Same stack; volume `flywheels-calc-dev-data` → `/app/data` |
+
+Dokploy project **Reroll** — SQLite file `flywheels.db` inside `DATA_DIR` (`/app/data`). **Volume mount required** or admin edits are lost on every redeploy.
 
 **Admin:** `{origin}/admin` — **no auth** (direction decision). Do not add auth unless explicitly requested.
 
@@ -117,7 +119,7 @@ Image must include `src/data/catalog.json` and `src/data/vehicles.csv` (Data syn
 - **Port 4783** for local API — avoids Next.js on 3000/3010 (`package.json` `dev` script).
 - **Vite port** — if 5173 is busy, Vite uses 5174; proxy still targets 4783.
 - **Data sync in Docker** fails without `vehicles.csv` in the image (502 on preview).
-- **SQLite without volume** on Dokploy — DB re-seeds on redeploy; admin edits lost.
+- **SQLite without volume** on Dokploy — DB re-seeds on redeploy; admin edits lost. Mount named volume on `/app/data` (prod: `flywheels-calc-prod-data`, dev: `flywheels-calc-dev-data`).
 - **`scripts/sync-from-sheet.ts`** is the CLI; shared logic lives in `server/sync-service.ts` + `server/sync/sheet-parser.ts`.
 - **Phase D / QA** checklist: `docs/admin-plan.md` §9.
 
