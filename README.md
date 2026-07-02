@@ -78,4 +78,4 @@ docker run -p 3000:3000 -v flywheels-data:/app/data flywheels-calc
 | Production | https://flywheels-calc.mestryx.dev | `main` |
 | Dev | https://flywheels-calc-dev.mestryx.dev | `dev` |
 
-Container port **3000**, mount volume on `/app/data`. Image ships `catalog.json` + `vehicles.csv` for Data sync.
+Container port **3000**, mount volume on `/app/data` (prod: `flywheels-calc-prod-data`, dev: `flywheels-calc-dev-data`). Image ships `catalog.json` + `vehicles.csv` for Data sync.
