@@ -16,13 +16,12 @@ export function VehiclePricingStrip({ vehicle }: VehiclePricingStripProps) {
     >
       <div className="absolute inset-y-0 left-0 w-1 bg-brand" />
       <p className={`${panelEyebrow} mb-2 truncate px-2 text-center`}>{vehicle.model}</p>
-      <div className="grid grid-cols-3 gap-1.5 px-2 sm:grid-cols-6">
+      <div className="grid grid-cols-2 gap-1.5 px-2 sm:grid-cols-5">
         <Metric label="Type" value={vehicle.range} text />
         <Metric label="HT" value={formatMoney(vehicle.priceHT)} />
         <Metric label="TTC" value={formatMoney(vehicle.priceTTC)} accent />
         <Metric label="Explo." value={formatMoney(vehicle.explosion)} />
         <Metric label="Noyade" value={formatMoney(vehicle.noyade)} />
-        <Metric label="Rachat" value={formatMoney(vehicle.rachat)} highlight />
       </div>
     </motion.section>
   );

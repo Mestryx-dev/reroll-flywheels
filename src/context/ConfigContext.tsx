@@ -64,7 +64,6 @@ async function fetchAppConfig(): Promise<{ config: AppConfig; source: 'api' | 'f
         ttcRate: 1.1,
         explosionRate: 0.1,
         noyadeRate: 0.05,
-        rachatRate: 0.5,
       },
     },
   };

@@ -175,7 +175,6 @@ export function VehicleCatalog() {
               <span className={CATALOG_HEADER}>Concession</span>
               <span className={`${CATALOG_HEADER} text-right`}>Prix HT</span>
               <span className={`${CATALOG_HEADER} text-right`}>TTC</span>
-              <span className={`${CATALOG_HEADER} text-right`}>Rachat</span>
             </div>
       </div>
 
@@ -215,9 +214,6 @@ export function VehicleCatalog() {
                 <span className={`text-right font-semibold ${textBrand} ${money}`}>
                   {formatMoney(pricing.priceTTC)}
                 </span>
-                <span className={`text-right font-semibold ${textBrand} ${money}`}>
-                  {formatMoney(pricing.rachat)}
-                </span>
               </div>
             );
           })
@@ -245,7 +241,6 @@ export function VehicleCatalog() {
                   ['TTC', formatMoney(selected.priceTTC), true],
                   ['Explo.', formatMoney(selected.explosion), false],
                   ['Noyade', formatMoney(selected.noyade), false],
-                  ['Rachat', formatMoney(selected.rachat), false],
                 ].map(([label, value, highlight]) => (
                   <div
                     key={label as string}

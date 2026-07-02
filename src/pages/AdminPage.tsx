@@ -6,6 +6,7 @@ import { RepairLinesSection } from '../components/admin/RepairLinesSection';
 import { RepairRangesSection } from '../components/admin/RepairRangesSection';
 import { useAppConfig } from '../context/ConfigContext';
 import { fetchAdminState, type AdminState } from '../lib/admin-api';
+import { adminPanel } from '../components/admin/admin-ui';
 
 export function AdminPage() {
   const { reloadConfig } = useAppConfig();
@@ -71,20 +72,25 @@ export function AdminPage() {
 
   return (
     <AdminLayout vehicleCount={state.vehicleCount}>
-      <FormulasSection
-        formulas={state.formulas}
-        onSaved={(formulas) => {
-          setState((current) => (current ? { ...current, formulas } : current));
-          void refreshPublicConfig();
-        }}
-      />
-      <RepairLinesSection lines={state.repairLines} onChange={(lines) => void handleLinesChange(lines)} />
-      <RepairRangesSection
-        ranges={state.repairByRange}
-        onSaved={(ranges) => void handleRangesSaved(ranges)}
-      />
-      <p className="text-center text-xs text-fg-muted">
-        Sync Google Sheet — Phase C. Les changements ici sont actifs immédiatement sur la calculette.
+      <div className={`${adminPanel} divide-y divide-border`}>
+        <FormulasSection
+          formulas={state.formulas}
+          onSaved={(formulas) => {
+            setState((current) => (current ? { ...current, formulas } : current));
+            void refreshPublicConfig();
+          }}
+        />
+        <RepairLinesSection
+          lines={state.repairLines}
+          onChange={(lines) => void handleLinesChange(lines)}
+        />
+        <RepairRangesSection
+          ranges={state.repairByRange}
+          onSaved={(ranges) => void handleRangesSaved(ranges)}
+        />
+      </div>
+      <p className="mt-2 text-center text-[11px] text-fg-muted">
+        Modifications actives sur la calculette · sync Sheet (phase C) à venir
       </p>
     </AdminLayout>
   );

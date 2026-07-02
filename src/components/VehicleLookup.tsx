@@ -155,7 +155,7 @@ export function VehicleLookup({
         <motion.div
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-brand/25 bg-brand-subtle p-2 sm:grid-cols-6"
+          className="mt-2 grid grid-cols-2 gap-1 rounded-lg border border-brand/25 bg-brand-subtle p-2 sm:grid-cols-5"
         >
           {[
             ['Type', selected.range, false],
@@ -163,7 +163,6 @@ export function VehicleLookup({
             ['TTC', formatMoney(selected.priceTTC), true],
             ['Explo.', formatMoney(selected.explosion), false],
             ['Noyade', formatMoney(selected.noyade), false],
-            ['Rachat', formatMoney(selected.rachat), false],
           ].map(([label, value, highlight]) => (
             <div key={label as string} className="text-center">
               <p className="text-[10px] uppercase text-fg-muted">{label as string}</p>

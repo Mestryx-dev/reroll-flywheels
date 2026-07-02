@@ -4,7 +4,6 @@ export interface PricingFormulasDto {
   ttcRate: number;
   explosionRate: number;
   noyadeRate: number;
-  rachatRate: number;
 }
 
 export interface RepairLineDto {
@@ -34,14 +33,12 @@ const FORMULA_KEY_MAP: Record<string, keyof PricingFormulasDto> = {
   ttc_rate: 'ttcRate',
   explosion_rate: 'explosionRate',
   noyade_rate: 'noyadeRate',
-  rachat_rate: 'rachatRate',
 };
 
 const DEFAULT_FORMULAS: PricingFormulasDto = {
   ttcRate: 1.1,
   explosionRate: 0.1,
   noyadeRate: 0.05,
-  rachatRate: 0.5,
 };
 
 export function getAppConfig(db: Database.Database): AppConfigDto {

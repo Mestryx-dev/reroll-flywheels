@@ -23,7 +23,6 @@ const DEFAULT_FORMULAS: Record<string, number> = {
   ttc_rate: 1.1,
   explosion_rate: 0.1,
   noyade_rate: 0.05,
-  rachat_rate: 0.5,
 };
 
 function inferKind(lineId: string): RepairLineKind {

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { ThemeToggle } from '../ThemeToggle';
-import { btnGhost, panelEyebrow, panelTitle } from '../../lib/ui';
+import { btnGhost, panelEyebrow } from '../../lib/ui';
+import { adminShell } from './admin-ui';
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -13,24 +14,23 @@ export function AdminLayout({ children, vehicleCount }: AdminLayoutProps) {
       <div className="fw-scene-rust" aria-hidden />
 
       <header className="fw-header-plate sticky top-0 z-30 shrink-0 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 pb-3 pt-2.5 sm:px-5">
-          <div>
-            <p className={panelEyebrow}>Flywheels · Direction</p>
-            <h1 className={panelTitle}>Administration tarifs</h1>
+        <div
+          className={`${adminShell} flex flex-wrap items-center justify-between gap-2 px-3 py-2 sm:px-4`}
+        >
+          <div className="flex min-w-0 items-baseline gap-3">
+            <p className={panelEyebrow}>Admin tarifs</p>
+            <span className="truncate text-[11px] text-fg-muted">{vehicleCount} véhicules</span>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-fg-muted">{vehicleCount} véhicules en base</span>
+          <div className="flex items-center gap-1.5">
             <a href="/" className={btnGhost}>
-              ← Calculette
+              Calculette
             </a>
             <ThemeToggle />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-4 sm:px-5 sm:py-6">
-        <div className="space-y-4">{children}</div>
-      </main>
+      <main className={`${adminShell} flex-1 px-3 py-3 sm:px-4 sm:py-4`}>{children}</main>
     </div>
   );
 }

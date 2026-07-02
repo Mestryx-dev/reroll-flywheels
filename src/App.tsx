@@ -40,7 +40,8 @@ function PublicApp() {
           <RpDisclaimerModal key="rp-disclaimer" onAcknowledge={dismissDisclaimer} />
         ) : null}
       </AnimatePresence>
-      <Layout view={view} onViewChange={setView}>
+      <div inert={disclaimerOpen ? true : undefined} aria-hidden={disclaimerOpen ? true : undefined}>
+        <Layout view={view} onViewChange={setView}>
         {configSource === 'fallback' ? (
           <p className="mb-2 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-center text-xs text-amber-800 dark:text-amber-200">
             Mode hors-ligne : données depuis <code>catalog.json</code> (API / SQLite non joignable).
@@ -62,6 +63,7 @@ function PublicApp() {
           )}
         </AnimatePresence>
       </Layout>
+      </div>
     </>
   );
 }

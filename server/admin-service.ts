@@ -5,14 +5,12 @@ const FORMULA_DB_KEYS: Record<keyof PricingFormulasDto, string> = {
   ttcRate: 'ttc_rate',
   explosionRate: 'explosion_rate',
   noyadeRate: 'noyade_rate',
-  rachatRate: 'rachat_rate',
 };
 
 const DEFAULT_FORMULAS: PricingFormulasDto = {
   ttcRate: 1.1,
   explosionRate: 0.1,
   noyadeRate: 0.05,
-  rachatRate: 0.5,
 };
 
 export interface AdminRepairLineRow extends RepairLineDto {

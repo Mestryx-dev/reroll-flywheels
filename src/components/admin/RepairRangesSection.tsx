@@ -1,101 +1,123 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { AdminRangeRow } from '../../lib/admin-api';
 import { saveRepairByRange } from '../../lib/admin-api';
-import { formatMoney } from '../../lib/format';
+import { btnPrimary } from '../../lib/ui';
 import {
-  btnPrimary,
-  inputCompact,
-  money,
-  panel,
-  panelEyebrow,
-  panelTitle,
-} from '../../lib/ui';
+  adminFieldPrice,
+  adminRangeColHead,
+  adminRangeColRow,
+  adminSection,
+  adminSectionHead,
+  adminSectionHint,
+  adminSectionTitle,
+  adminStatus,
+  parseAdminInt,
+} from './admin-ui';
 
 interface RepairRangesSectionProps {
   ranges: AdminRangeRow[];
   onSaved: (ranges: AdminRangeRow[]) => void;
 }
 
+function chunkColumns<T>(items: T[], columnCount: number): T[][] {
+  const size = Math.ceil(items.length / columnCount);
+  return Array.from({ length: columnCount }, (_, index) =>
+    items.slice(index * size, index * size + size),
+  ).filter((column) => column.length > 0);
+}
+
+interface RangeColumnProps {
+  rows: AdminRangeRow[];
+  priceText: Record<string, string>;
+  onPriceChange: (rangeKey: string, value: string) => void;
+}
+
+function RangeColumn({ rows, priceText, onPriceChange }: RangeColumnProps) {
+  return (
+    <div className="min-w-0">
+      <div className={adminRangeColHead}>
+        <span>Gamme</span>
+        <span className="text-right">Prix</span>
+      </div>
+      {rows.map((row) => (
+        <div key={row.rangeKey} className={adminRangeColRow}>
+          <span className="truncate font-mono text-[10px] leading-tight text-fg-secondary" title={row.label}>
+            {row.rangeKey}
+          </span>
+          <input
+            type="text"
+            inputMode="numeric"
+            className={adminFieldPrice}
+            value={priceText[row.rangeKey] ?? String(row.price)}
+            onChange={(event) => onPriceChange(row.rangeKey, event.target.value)}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function RepairRangesSection({ ranges, onSaved }: RepairRangesSectionProps) {
   const [draft, setDraft] = useState(ranges);
+  const [priceText, setPriceText] = useState<Record<string, string>>({});
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
+  const columns = useMemo(() => chunkColumns(draft, 3), [draft]);
+
   useEffect(() => {
     setDraft(ranges);
+    setPriceText(Object.fromEntries(ranges.map((row) => [row.rangeKey, String(row.price)])));
   }, [ranges]);
 
-  function updateRow(index: number, patch: Partial<AdminRangeRow>) {
-    setDraft((current) =>
-      current.map((row, rowIndex) => (rowIndex === index ? { ...row, ...patch } : row)),
-    );
-  }
-
   async function handleSave() {
+    const payload = draft.map((row) => ({
+      ...row,
+      price: parseAdminInt(priceText[row.rangeKey] ?? String(row.price)),
+    }));
+
     setSaving(true);
     setMessage(null);
     try {
-      const saved = await saveRepairByRange(draft);
+      const saved = await saveRepairByRange(payload);
       onSaved(saved);
       setDraft(saved);
-      setMessage('Gammes enregistrées.');
+      setPriceText(Object.fromEntries(saved.map((row) => [row.rangeKey, String(row.price)])));
+      setMessage('Enregistré');
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : 'Erreur de sauvegarde');
+      setMessage(error instanceof Error ? error.message : 'Erreur');
     } finally {
       setSaving(false);
     }
   }
 
   return (
-    <section className={panel}>
-      <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+    <section className={adminSection}>
+      <div className={adminSectionHead}>
         <div>
-          <p className={panelEyebrow}>Réparations</p>
-          <h2 className={panelTitle}>Prix par gamme</h2>
-          <p className="mt-1 text-xs text-fg-muted">
-            Utilisé pour la ligne « Réparations » selon la gamme du véhicule.
-          </p>
+          <h2 className={adminSectionTitle}>Réparations par gamme</h2>
+          <p className={adminSectionHint}>Ligne « Réparations » — prix par gamme véhicule</p>
         </div>
-        <button type="button" className={btnPrimary} disabled={saving} onClick={() => void handleSave()}>
-          Enregistrer les gammes
-        </button>
+        <div className="flex items-center gap-2">
+          <button type="button" className={btnPrimary} disabled={saving} onClick={() => void handleSave()}>
+            Enregistrer
+          </button>
+          {message ? <span className={adminStatus}>{message}</span> : null}
+        </div>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-        {draft.map((row, index) => (
-          <div
-            key={row.rangeKey}
-            className="rounded-lg border border-border bg-surface-elevated/40 p-2.5"
-          >
-            <p className="mb-1 text-[10px] uppercase tracking-wider text-fg-muted">{row.rangeKey}</p>
-            <label className="mb-2 block space-y-1">
-              <span className="text-xs text-fg-secondary">Libellé</span>
-              <input
-                className={inputCompact}
-                value={row.label}
-                onChange={(event) => updateRow(index, { label: event.target.value })}
-              />
-            </label>
-            <label className="block space-y-1">
-              <span className="text-xs text-fg-secondary">Prix</span>
-              <input
-                type="number"
-                min="0"
-                className={`${inputCompact} ${money}`}
-                value={row.price}
-                onChange={(event) =>
-                  updateRow(index, { price: Number.parseInt(event.target.value, 10) || 0 })
-                }
-              />
-            </label>
-            <p className={`mt-1 text-right text-xs ${money} text-fg-muted`}>
-              {formatMoney(row.price)}
-            </p>
-          </div>
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+        {columns.map((column, index) => (
+          <RangeColumn
+            key={`range-col-${index}`}
+            rows={column}
+            priceText={priceText}
+            onPriceChange={(rangeKey, value) =>
+              setPriceText((current) => ({ ...current, [rangeKey]: value }))
+            }
+          />
         ))}
       </div>
-
-      {message ? <p className="mt-2 text-xs text-fg-muted">{message}</p> : null}
     </section>
   );
 }

@@ -5,7 +5,6 @@ export interface VehiclePricing {
   priceTTC: number;
   explosion: number;
   noyade: number;
-  rachat: number;
   dealership: string;
 }
 

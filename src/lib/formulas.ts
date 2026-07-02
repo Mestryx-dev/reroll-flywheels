@@ -17,7 +17,6 @@ export function pricingFromHT(
     priceTTC: Math.round(priceHT * rates.ttcRate),
     explosion: Math.round(priceHT * rates.explosionRate),
     noyade: Math.round(priceHT * rates.noyadeRate),
-    rachat: Math.round(priceHT * rates.rachatRate),
     dealership,
   };
 }
