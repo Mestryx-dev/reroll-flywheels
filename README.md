@@ -57,3 +57,5 @@ pnpm dev
 ## Deploy
 
 Static build (`dist/`) — Docker + nginx included. See `Dockerfile`.
+
+**Production:** https://flywheels-calc.mestryx.dev (Dokploy project **Reroll**)
