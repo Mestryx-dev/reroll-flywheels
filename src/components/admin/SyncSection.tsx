@@ -94,6 +94,15 @@ export function SyncSection({ onApplied }: SyncSectionProps) {
     try {
       const result = await previewSync([source]);
       setPreview(result);
+      const section = result.sections.find((item) => item.source === source);
+      if (!section || section.changes.length === 0) {
+        setMessage(`${SOURCE_LABELS[source]} : aucun changement`);
+      } else {
+        const { added, updated, removed } = section.counts;
+        setMessage(
+          `${SOURCE_LABELS[source]} : +${added} · ~${updated} · -${removed}`,
+        );
+      }
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Prévisualisation impossible');
       setPreview(null);

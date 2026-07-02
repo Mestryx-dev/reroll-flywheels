@@ -70,7 +70,7 @@ docker run -p 3000:3000 -v flywheels-data:/app/data flywheels-calc
 ```
 
 **Dokploy (dev):** project **Reroll** → env **Dev** → https://flywheels-calc-dev.mestryx.dev  
-Container port **3000**, mount volume on `/app/data` (SQLite persistence).
+Container port **3000**, mount volume on `/app/data`. Runtime image includes `src/data/vehicles.csv` for Data sync.
 
 **Production (`main`):** static nginx only — **no `/api`** until `dev` is merged.
 

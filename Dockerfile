@@ -20,6 +20,7 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/dist-server ./dist-server
 COPY --from=build /app/src/data/catalog.json ./src/data/catalog.json
+COPY --from=build /app/src/data/vehicles.csv ./src/data/vehicles.csv
 
 VOLUME ["/app/data"]
 EXPOSE 3000
