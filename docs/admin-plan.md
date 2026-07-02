@@ -34,7 +34,7 @@ Google Sheet (Data cols G/H, Calculette)
         ↓  pnpm sync-data (build time)
 vehicles.csv + catalog.json (bundled in SPA)
         ↓
-Static nginx container (Dokploy, main)
+Static nginx container (Dokploy, **legacy main before PR #1**)
 ```
 
 **Runtime:** no API, no DB, no persistence.  
@@ -167,7 +167,7 @@ Unique on `(model, range, dealership, price_ht)` as today.
 
 ## 5. Google Sheet sync (admin button)
 
-Reuse logic from `scripts/sync-from-sheet.mjs`, moved to shared module `src/server/sync/` (or `packages/sync`):
+Reuse logic from `scripts/sync-from-sheet.ts`, shared module `server/sync/` + `server/sync-service.ts`:
 
 | Action | Sheet | Extract |
 |--------|-------|---------|
@@ -222,8 +222,8 @@ Keep grouped cart line behaviour; no change to plate independent flow.
 
 | Env | Branch | Stack |
 |-----|--------|--------|
-| **Prod** (now) | `main` | Static nginx only — unchanged until v1 admin ready |
-| **Dev / staging** | `dev` | Docker: Node serves API + SPA; SQLite volume |
+| **Prod** | `main` | Node + SQLite (merged PR #1) |
+| **Dev / staging** | `dev` | Same stack; optional pre-prod |
 
 Dokploy project **Reroll**: second app or same app on `dev` branch with different domain e.g. `flywheels-calc-dev.mestryx.dev` (optional).
 
@@ -252,15 +252,16 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 ### Phase C — Sheet sync (≈0.5 cycle)
 
-- [x] Extract sync from `scripts/sync-from-sheet.mjs` to shared module.
+- [x] Extract sync from legacy script to shared module (`server/sync-service.ts`).
 - [x] `POST /api/admin/sync/preview` + `POST /api/admin/sync/apply`.
 - [x] Admin sync panel + `sync_runs` log.
 
 ### Phase D — Hardening before main (≈0.5–1 cycle)
 
 - [ ] QA: Club Compacts 275, plate line independent, disclaimer unchanged.
-- [ ] Dokploy dev deploy + volume backup note in README.
-- [ ] Remove or keep build-time sync as CI fallback (recommend: CI seeds staging only).
+- [x] Dokploy dev deploy (`flywheels-calc-dev.mestryx.dev`).
+- [ ] Dokploy prod volume `/app/data` + backup note (see README / AGENTS.md).
+- [x] CLI sync: `pnpm sync-data` → `scripts/sync-from-sheet.ts`.
 
 ---
 
@@ -288,13 +289,14 @@ Estimate: **3–4 iteration cycles** on dev before merge to main.
 
 **Keep on `main` until dev is stable:**
 
-- Static-only calculator for production users; merge when API + admin QA pass.
+- ~~Static-only calculator~~ — merged via PR #1 (2026-07). Prod migration: Dokploy port 3000 + volume.
 
 ---
 
 ## References
 
 - Sheet: [Flywheels Google Sheet](https://docs.google.com/spreadsheets/d/1eb4nnusdasnyUMIX9lf1JSgjJBeQLnAs3LWUuBkAm3s/edit) — tabs `Data`, `Calculette`.
-- Current sync: `scripts/sync-from-sheet.mjs`
-- Gamme prices: `catalog.json` → `repairByRange` (from Data cols G/H)
+- CLI sync: `scripts/sync-from-sheet.ts` (`pnpm sync-data`)
+- Agent guide: [AGENTS.md](../AGENTS.md)
+- Gamme prices: `repair_by_range` in SQLite (seed from `catalog.json` / Sheet cols G/H)
 - Prod URL: https://flywheels-calc.mestryx.dev (Dokploy project **Reroll**)

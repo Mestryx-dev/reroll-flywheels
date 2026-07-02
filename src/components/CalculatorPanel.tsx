@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAppConfig } from '../context/ConfigContext';
 import type { VehiclePricing } from '../lib/types';
 import type { CartLine } from '../lib/cart';
@@ -9,6 +9,12 @@ import {
   initialRepairState,
 } from '../lib/formulas';
 import { calcBottomGrid, calcTopGrid } from '../lib/layout';
+import {
+  clearCalculatorSession,
+  emptyCalculatorSession,
+  loadCalculatorSession,
+  saveCalculatorSession,
+} from '../lib/calculator-session';
 import { emptyPlateChange, buildPlateChangeEntry, type PlateChangeEntry, type PlateChangeFields } from '../lib/plate-change';
 import { VehiclePricingStrip } from './VehiclePricingStrip';
 import { VehicleLookup } from './VehicleLookup';
@@ -29,20 +35,49 @@ export function CalculatorPanel({ configKey }: CalculatorPanelProps) {
     [config?.repairByRange],
   );
 
-  const [vehicle, setVehicle] = useState<VehiclePricing | null>(null);
-  const [repairState, setRepairState] = useState(() => initialRepairState(repairs));
-  const [cart, setCart] = useState<CartLine[]>([]);
+  const restoredSession = useMemo(() => loadCalculatorSession(repairs), [repairs]);
+
+  const [vehicle, setVehicle] = useState<VehiclePricing | null>(
+    () => restoredSession?.vehicle ?? null,
+  );
+  const [repairState, setRepairState] = useState(
+    () => restoredSession?.repairState ?? initialRepairState(repairs),
+  );
+  const [cart, setCart] = useState<CartLine[]>(() => restoredSession?.cart ?? []);
   const [lookupKey, setLookupKey] = useState(0);
-  const [plateChange, setPlateChange] = useState<PlateChangeFields>(emptyPlateChange);
-  const [plateChangeOpen, setPlateChangeOpen] = useState(false);
-  const [plateChangeLines, setPlateChangeLines] = useState<PlateChangeEntry[]>([]);
+  const [plateChange, setPlateChange] = useState<PlateChangeFields>(
+    () => restoredSession?.plateChange ?? emptyPlateChange(),
+  );
+  const [plateChangeOpen, setPlateChangeOpen] = useState(
+    () => restoredSession?.plateChangeOpen ?? false,
+  );
+  const [plateChangeLines, setPlateChangeLines] = useState<PlateChangeEntry[]>(
+    () => restoredSession?.plateChangeLines ?? [],
+  );
+
+  const configKeyInitialized = useRef(false);
 
   const total = cartTotal(cart);
   const plateChangeLine = repairs.find((line) => isPlateRepairLine(line));
 
   useEffect(() => {
+    saveCalculatorSession({
+      cart,
+      vehicle,
+      repairState,
+      plateChange,
+      plateChangeOpen,
+      plateChangeLines,
+    });
+  }, [cart, vehicle, repairState, plateChange, plateChangeOpen, plateChangeLines]);
+
+  useEffect(() => {
+    if (!configKeyInitialized.current) {
+      configKeyInitialized.current = true;
+      return;
+    }
     setRepairState(initialRepairState(repairs));
-  }, [configKey]);
+  }, [configKey, repairs]);
 
   function addToCart() {
     const entries = buildCartLinesFromSelection(repairs, repairState, vehicle, repairPricing);
@@ -76,14 +111,20 @@ export function CalculatorPanel({ configKey }: CalculatorPanelProps) {
     setCart((current) => current.filter((line) => line.id !== id));
   }
 
-  function validateInvoice() {
-    setCart([]);
-    setPlateChangeLines([]);
-    setRepairState(initialRepairState(repairs));
-    setVehicle(null);
-    setPlateChange(emptyPlateChange());
-    setPlateChangeOpen(false);
+  function resetCalculatorSession() {
+    const empty = emptyCalculatorSession(repairs);
+    clearCalculatorSession();
+    setCart(empty.cart);
+    setPlateChangeLines(empty.plateChangeLines);
+    setRepairState(empty.repairState);
+    setVehicle(empty.vehicle);
+    setPlateChange(empty.plateChange);
+    setPlateChangeOpen(empty.plateChangeOpen);
     setLookupKey((key) => key + 1);
+  }
+
+  function validateInvoice() {
+    resetCalculatorSession();
   }
 
   return (
@@ -94,7 +135,13 @@ export function CalculatorPanel({ configKey }: CalculatorPanelProps) {
       className="space-y-4"
     >
       <div className={calcTopGrid}>
-        <VehicleLookup key={lookupKey} compact onSelect={setVehicle} hideInlinePricing />
+        <VehicleLookup
+          key={lookupKey}
+          compact
+          selectedVehicle={vehicle}
+          onSelect={setVehicle}
+          hideInlinePricing
+        />
         {vehicle ? (
           <VehiclePricingStrip vehicle={vehicle} />
         ) : (

@@ -5,7 +5,7 @@ Web calculator for **Flywheels** garage — vehicle lookup, repair lines, and a 
 ## Features
 
 - Single calculator session with cart and invoice workflow
-- **Vehicle search** from `vehicles.csv` — type, prix concess (HT), TTC, explosion, noyade, rachat
+- **Vehicle search** from `vehicles.csv` — type, prix concess (HT), TTC, explosion, noyade
 - **Repair lines** — checkboxes + quantities, **Ajouter au panier**
 - **Panier** — recap of all added lines, copy invoice, running **Total à facturer** (top right)
 
@@ -58,23 +58,24 @@ pnpm start        # production Node server (:3000)
 
 Local SQLite: `data/flywheels.db` (seeded from `catalog.json` on first boot).
 
-**Admin:** https://your-host/admin — no auth; edits apply immediately to the calculator.
+**Admin:** `{origin}/admin` — no auth; edits apply immediately to the calculator.
+
+Agent guide: [AGENTS.md](AGENTS.md) · Architecture: [docs/admin-plan.md](docs/admin-plan.md)
 
 ## Deploy
 
-**Dev branch:** single Node container — serves `dist/` + `/api/*`, SQLite on volume `DATA_DIR` (default `/app/data`).
+Single **Node** container — serves `dist/` + `/api/*`, SQLite on volume `DATA_DIR` (default `/app/data`).
 
 ```bash
 docker build -t flywheels-calc .
 docker run -p 3000:3000 -v flywheels-data:/app/data flywheels-calc
 ```
 
-**Dokploy (dev):** project **Reroll** → env **Dev** → https://flywheels-calc-dev.mestryx.dev  
-Container port **3000**, mount volume on `/app/data`. Runtime image includes `src/data/vehicles.csv` for Data sync.
+**Dokploy** — project **Reroll**:
 
-**Production (`main`):** static nginx only — **no `/api`** until `dev` is merged.
+| Env | URL | Branch |
+|-----|-----|--------|
+| Production | https://flywheels-calc.mestryx.dev | `main` |
+| Dev | https://flywheels-calc-dev.mestryx.dev | `dev` |
 
-| URL | Stack |
-|-----|--------|
-| https://flywheels-calc-dev.mestryx.dev | Node + SQLite + `/admin` (branch `dev`) |
-| https://flywheels-calc.mestryx.dev | Static calc only (branch `main`) |
+Container port **3000**, mount volume on `/app/data`. Image ships `catalog.json` + `vehicles.csv` for Data sync.

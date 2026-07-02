@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppConfig } from '../context/ConfigContext';
@@ -11,6 +11,8 @@ interface VehicleLookupProps {
   onSelect?: (vehicle: VehiclePricing | null) => void;
   hideInlinePricing?: boolean;
   compact?: boolean;
+  /** Restores search field after sessionStorage reload (calculator only). */
+  selectedVehicle?: VehiclePricing | null;
 }
 
 const MAX_RESULTS = 8;
@@ -61,13 +63,23 @@ export function VehicleLookup({
   onSelect,
   hideInlinePricing = false,
   compact = false,
+  selectedVehicle = null,
 }: VehicleLookupProps) {
   const { config } = useAppConfig();
   const vehicles = config?.vehicles ?? [];
   const formulas = config?.formulas;
-  const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<VehiclePricing | null>(null);
+  const [query, setQuery] = useState(selectedVehicle?.model ?? '');
+  const [selected, setSelected] = useState<VehiclePricing | null>(selectedVehicle);
   const inputWrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selectedVehicle) {
+      setSelected(selectedVehicle);
+      setQuery(selectedVehicle.model);
+      return;
+    }
+    setSelected(null);
+  }, [selectedVehicle]);
 
   const results = useMemo(() => {
     const q = normalizeSearch(query);
